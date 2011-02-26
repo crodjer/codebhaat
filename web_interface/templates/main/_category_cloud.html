@@ -1,0 +1,5 @@
+<div id="problemss-category-cloud">
+    {% for c in categories %}
+    <a href="{{ c.get_absolute_url }}" class="category-cloud-{{ c.weight }}">{{ c.name }}</a>
+    {% endfor %}
+</div>

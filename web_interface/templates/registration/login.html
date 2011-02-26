@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}<h2>Login</h2>
+<p>
+    <form action = "" method = "post" class = "form">
+        <table style ="text-align:left;">
+            {{ form }} 
+            {% csrf_token %}
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type = 'submit' value = 'Login' class = "btn">
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+</p>
+<p>
+    New User? <a href="/accounts/register/">Sign Up</a>
+    <br>
+    <a href="/accounts/password/reset/">Forgot Password</a>
+</p>
+{% endblock %}
+{% block sidebar %}{% endblock %}

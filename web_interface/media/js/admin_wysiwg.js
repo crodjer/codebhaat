@@ -1,0 +1,1 @@
+bkLib.onDomLoaded(function() { nicEditors.allTextAreas({buttonList : ['bold','underline','left','center','right','strikeThrough','subscript','superscript', 'ol', 'ul', 'fontFormat', 'link','unlink','forecolor','bgcolor','image','upload','removeformat','xhtml']} ) });

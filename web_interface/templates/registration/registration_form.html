@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if request.user.is_active %}<h2>Absurd request</h2>
+<p>
+    You are already logged in.
+</p>
+{% else %}<h2>Register with us</h2>
+<br><span style="color:red;">**All fields are required.</span>
+<p>
+    <form action = "" method = "post" class = "form">
+        <table>
+            {{ profileform }}
+            {% csrf_token %}
+            {{ form }}
+            {% csrf_token %}
+            <tr>
+                <td>
+                    <input class = 'btn' type = 'submit' value = 'Register' style ="float:left;"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</p>
+{% endif %}
+<p>
+    Already Registered? <a href="/accounts/login/">Login</a>
+    <br>
+    Forgot Password? Mail us at codebhaat@gmail.com to reset your password with your details. 
+</p>
+{% endblock %}

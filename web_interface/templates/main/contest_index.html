@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% load cache %}
+{% load problem_tags %}
+{% block content_heading %}Problems:{% endblock %}
+{% block content %}
+<div id="sidebar">
+	<h3>Tag Cloud</h3>
+    {% tag_cloud %}
+    <br>
+	<h3>Category Cloud</h3>
+    {% category_cloud %}
+    <br>
+    <h3>Your stats:</h3>
+    Total Marks: <b>{{ total_marks }}</b>
+    <br/>
+    <h3>Correct Submissions</h3>
+    <table>
+    	<thead>
+    		<tr>
+    			<th>Team</th><th>Problem</th><th>Lang</th><th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+  		{% for submission in submissions %}
+  		{% if submission.correct %}
+    		<tr>
+    			<td>{{ submission.user }}</td><td><a href="{{ submission.problem.get_absolute_url }}">{{ submission.problem|truncatewords:2}}</a></td><td>{{ submission.language|title }}</td><td>{{ submission.time|timesince }} ago</td>
+    		</tr>
+    	{% endif %}
+    	{% empty %}
+    		<tr>
+            <td>No submissions</td><td></td><td></td><td></td><td></td>
+    		</tr>
+    	{% endfor %}
+    	</tbody>
+    </table>    
+</div>
+<div class="entry" style="width:400px;">
+    
+    <table style="min-width:400px">
+    {% for p in problems %}
+        <tr><td><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></td><td>{% if p.is_solved %}<span style = "color:green;">Solved</span>{% endif %}</td></tr>
+    {% empty %}
+        No problems are available.
+    {% endfor %}
+    </table> 
+</div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}

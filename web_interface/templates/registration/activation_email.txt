@@ -1,0 +1,7 @@
+Activation is required
+
+Your account has been created but it's still inactive. Please click this link to activate your account: 
+
+http://{{ site }}/accounts/activate/{{ activation_key }}/ .
+
+You must activate your account within {{ expiration_days }} days or it will be expired.
