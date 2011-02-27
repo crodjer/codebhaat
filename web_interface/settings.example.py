@@ -1,6 +1,6 @@
 from settings_base import *
 
-SERCER = 'server-address'
+SERVER = 'server-address'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
