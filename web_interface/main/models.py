@@ -87,8 +87,7 @@ class Problem(models.Model):
         total_submissions = submissions.count()
         for submission in submissions:            
             if submission.ready() and submission.correct():                
-                successful_submissions+=1
-                print successful_submissions
+                successful_submissions+=1                
                 
         if total_submissions:
             success_rate = int(100.0*successful_submissions/total_submissions)
