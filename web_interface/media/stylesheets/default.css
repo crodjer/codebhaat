@@ -10,7 +10,7 @@ html, body, div, p, li, ul, ol, form, fieldset, h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-    font: normal 62.8% / 1.3 Arial, Helvetica, sans-serif;
+    font: normal 70% / 1.3 Arial, Helvetica, sans-serif;
     background: #006699 url('/media/images/bg-body.jpg') repeat-x;
     color: #585c5e;
     padding: 7px 0;
@@ -32,30 +32,18 @@ a img {
 #id_honeypot, label[for=id_honeypot]{
     display:none;
 }
-input select, textarea {
+input, textarea {
     font-family: Arial, lucida, sans-serif;
     font-size: 1em;
     vertical-align: middle;
 }
 
-input, textarea {
+input[type=text], textarea {
     background: #044979;
     padding: 2px 0;
     margin: 0;
     border: 1px solid #1776a4;
     color: #cde2f0;
-}
-
-button {
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    height: 18px;
-    border: none;
-    text-decoration: underline;
-    font-weight: bold;
-    color: #00CCFF;
-    cursor: pointer;
 }
 
 .submit {
@@ -559,7 +547,7 @@ img.right {
     padding-left: 20px;
     margin: 0px 0px;
     text-align: left;
-    font-size: x-small;
+    font-size: 85%;
 }
 
 #sidebar h3 {
