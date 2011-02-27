@@ -1,34 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Profile Details</h2>
-{% ifequal profile.user user %}
 	<table class = "text_table">
-		<tr>
-			<th>Full Name :</th><td>{{ profile.name }}</td>
-		</tr>
-		<tr>
-			<th>Gender :</th><td>{{ profile.get_gender_display }}</td>
-		</tr>
-		<tr>
-            <th>Hall :</th><td>{{ profile.get_hall_display }}</td>
-        </tr>
-		<tr>
-            <th>Room No. :</th><td>{{ profile.room }}</td>
-        </tr>
-		<tr>
-			<th>Year :</th><td>{{ profile.get_year_display }}</td>
-		</tr>
-		<tr>
-			<th>Email Address:</th><td>{{ profile.user.email }}</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td><td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td><a href = "/accounts/profile/edit/">Edit Profile</a></td><td><a href = "/accounts/password/change/">Change Password</a></td>
-		</tr>
+	  {% include 'profiles/profile_public.html' %}
+		{% ifequal user profile.user %}
+		{% include 'profiles/profile_private.html' %}
+		{% endifequal %}
 	</table>
-{% else %}
-You do not have the permissions to view this page.
-{% endifequal %}
 {% endblock %}

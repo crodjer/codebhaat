@@ -85,9 +85,11 @@ class Problem(models.Model):
         successful_submissions = 0
         success_rate = 0
         total_submissions = submissions.count()
-        for submission in submissions:
-            if submission.ready() and submission.correct():
-                successful_submissions+=1        
+        for submission in submissions:            
+            if submission.ready() and submission.correct():                
+                successful_submissions+=1
+                print successful_submissions
+                
         if total_submissions:
             success_rate = int(100.0*successful_submissions/total_submissions)
         return {'total_submissions':total_submissions, 'successful_submissions':successful_submissions, 'success_rate': success_rate, 'latest_submissions': latest_submissions[:10]}            
@@ -134,25 +136,36 @@ class Submission(models.Model):
     class Meta:
         ordering = ['-time'] 
         get_latest_by = 'time'
+
     def __unicode__(self):
         return self.problem.title + ' by ' + str(self.user) + ', File: ' + str(self.program)
+
     #Get the current status of the process
     def attempts(self):
         total_attempts = Submission.objects.filter(user = self.user, problem = self.problem).count()
         return total_attempts 
+
     def correct(self):
-        return True if self.result()['successful'] else False
+        try:
+            return self.result().get('successful', False)
+        except AttributeError:
+            return False
+        
     def delete(self,*args, **kwargs ):
-        old_submissions = Submission.objects.exclude(pk=self.id).filter(user = self.user, problem = self.problem)
+        old_submissions = Submission.objects.exclude(pk=self.id).filter(user = self.user, problem = self.problem)        
         self.set_latest(old_submissions)
         super(Submission, self).delete(*args, **kwargs)
+        
     def day_diff(self):
         days = (datetime.datetime.now()-self.time).days
         return days
+    
     def result(self):
         return self.celery_task.result
+    
     def ready(self):
         return self.celery_task.ready()
+    
     def status(self):
         if self.ready():
             return 'Correct' if self.correct() else 'Wrong'
@@ -169,22 +182,20 @@ class Submission(models.Model):
             if problem: 
                 self.problem = problem 
             self.filename = str(self.program)
-            self.celery_task = SubmitTask.apply_async(args = self.task_detail())
+            self.celery_task = SubmitTask.apply_async(args = self.task_detail())            
             self.update_old_submissions()
             super(Submission, self).save(*args, **kwargs)
     
     def set_latest(self, submissions):
+        print 'setting latest'
         latest_submission = submissions.latest()
         latest_submission.is_latest = True
         latest_submission.save()
-        print latest_submission, latest_submission.is_latest
         return latest_submission
     
     def update_old_submissions(self):
-        old_submissions = Submission.objects.filter(is_latest =True, user = self.user, problem = self.problem)
-        for submission in old_submissions:
-            submission.is_latest=False
-            submission.save()
+        old_submissions = Submission.objects.filter(is_latest=True, user=self.user, problem=self.problem)
+        old_submissions.update(is_latest=False)
                 
     def task_status(self):
         ready = self.celery_task.ready()

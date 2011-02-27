@@ -31,7 +31,7 @@
                     <h1 style="color:#fff;">Code-BHAAT</h1>
                     <div id="extra">
                         {% if request.user.is_active %}
-                        Welcome {{ request.user }}&nbsp;|&nbsp;<a href="/accounts/profile/">Your Profile</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
+                        Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
                         {% if request.user.is_superuser %} 
                         | <a href="/siteadmin/">Admin</a>
                         {% endif %}
@@ -81,7 +81,7 @@
             <!-- #footer -->
             <div id="foot">
                 <p class="fl">
-                    Devoloped using Django Framework and Celery Project of Python. 
+                    A django project
                 </p>
             </div>
             <!-- /#footer -->

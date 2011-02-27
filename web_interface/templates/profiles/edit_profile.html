@@ -8,7 +8,7 @@
 			{% csrf_token %}		
 			<tr><td>&nbsp;</td><td><input class = 'btn' type = 'submit' value = 'Update' style = "float:left;"/></td></tr>
 			<tr><td></td><td><small>*** All Fields are Compulsory ***</small></td></tr>
-			<tr><td><a href = "/accounts/profile/">View Profile</a></td><td><a href = "/accounts/password/change/">Change Password</a></td></tr>
+			<tr><td><a href = "{% url profiles_profile_detail user %}">View Profile</a></td><td><a href = "/accounts/password/change/">Change Password</a></td></tr>
 		</table>
 	</form>
 {% endblock %}

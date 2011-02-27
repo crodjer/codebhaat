@@ -81,7 +81,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',        
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -95,7 +95,11 @@ INSTALLED_APPS = (
     'registration',
     'profiles',
     'captcha',    
-)
+]
+
+if not DEBUG:
+    INSTALLED_APPS.append('south')
+INSTALLED_APPS = tuple(INSTALLED_APPS)
 
 #Custom Settings
 ACCOUNT_ACTIVATION_DAYS = 7

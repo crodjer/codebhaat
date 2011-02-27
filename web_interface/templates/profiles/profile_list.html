@@ -1,33 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Your Details</h2>
-
-{% if user.is_active %} 
-	<table class = "text_table">
-		<tr>
-			<th>Full Name :</th><td>{{ user.get_profile.name }}</td>
-		</tr>
-		<tr>
-			<th>Gender :</th><td>{{ user.get_profile.get_gender_display }}</td>
-		</tr>
-		<tr>
-			<th>Hall :</th><td>{{ user.get_profile.get_hall_display }}</td>
-		</tr>
-		<tr>
-			<th>Room No. :</th><td>{{ user.get_profile.room }}</td>
-		</tr>
-		<tr>
-			<th>Year :</th><td>{{ user.get_profile.get_year_display }}</td>
-		</tr>
-		<tr>
-			<th>Email Address:</th><td>{{ user.get_profile.user.email }}</td>
-		</tr>
-		<br>
-		<tr>
-			<td><a href = "/accounts/profile/edit/">Edit Profile</a></td><td><a href = "/accounts/password/change/">Change Password</a></td>
-		</tr>
-	</table>
-{% else %}
-	You do not have the permissions to view this page	
-{% endif %}
+<h2>Profile Details</h2>
+{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>
 {% endblock %}

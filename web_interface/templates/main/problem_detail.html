@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 {% load cache %}
 {% block head %}
 {% if last_submission %}
@@ -25,20 +25,19 @@
 {% endblock %}
 {% block content_heading %}{{ problem.title }}{% endblock %}
 {% block content %}
-{% cache 1 sidebar_problem problem %}
+{% cache 0 sidebar_problem problem %}
 <div id="sidebar">
     <h3>Your stats:</h3>
     Total Marks: <b>{{ total_marks }}</b>
     <br/>
     <h3>Problem Stats:</h3>
   	Total Submissions: {{ problem.status.total_submissions }}<br/>
-  	{% if request.user.is_superuser %}
   	Sucessful Submissions: {{ problem.status.successful_submissions }}<br/>
-  	Sucess Rate: {{ problem.status.success_rate }}%<br/>{% endif %}<br/>
+  	Sucess Rate: {{ problem.status.success_rate }}%<br/><br/>
     <table>
     	<thead>
     		<tr>
-    			<th>Team</th><th>Lang</th><th>Status</th><th></th>
+    			<th>Coder</th><th>Lang</th><th>Status</th><th></th>
     		</tr>
     	</thead>
     	<tbody>
@@ -58,14 +57,14 @@
 <div class="entry" style="width:400px;">
 	{{ problem.question|safe }}
 	{% if public_testcases %}
-	<p><strong>Sample input:</strong>
+	<p><strong>Sample test case:</strong>
 	{% for case in public_testcases %}	    
 		<a href ="{{ case.input_url }}">Input</a>
 		<a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
 	{% endfor %}
 	{% endif %}
-	</p>
-	{% if last_submission.correct or  submission_limit_reached %}
+	</p>	
+	{% if last_submission.correct or submission_limit_reached %}
 	{% else %}
         
 	    <form action="#" method="post" class = "form" enctype="multipart/form-data">

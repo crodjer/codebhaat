@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 {% load cache %}
 {% load problem_tags %}
 {% block content_heading %}Problems:{% endblock %}
@@ -17,14 +17,14 @@
     <table>
     	<thead>
     		<tr>
-    			<th>Team</th><th>Problem</th><th>Lang</th><th></th>
+    			<th>Coder</th><th>Problem</th><th>Lang</th><th></th>
     		</tr>
     	</thead>
     	<tbody>
   		{% for submission in submissions %}
   		{% if submission.correct %}
     		<tr>
-    			<td>{{ submission.user }}</td><td><a href="{{ submission.problem.get_absolute_url }}">{{ submission.problem|truncatewords:2}}</a></td><td>{{ submission.language|title }}</td><td>{{ submission.time|timesince }} ago</td>
+    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td><a href="{{ submission.problem.get_absolute_url }}">{{ submission.problem|truncatewords:2}}</a></td><td>{{ submission.language|title }}</td><td>{{ submission.time|timesince }} ago</td>
     		</tr>
     	{% endif %}
     	{% empty %}
