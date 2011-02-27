@@ -29,6 +29,9 @@ a img {
     border: 0;
 }
 
+#id_honeypot, label[for=id_honeypot]{
+    display:none;
+}
 input select, textarea {
     font-family: Arial, lucida, sans-serif;
     font-size: 1em;

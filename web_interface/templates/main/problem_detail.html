@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load comments %}
 {% load cache %}
 {% block head %}
 {% if last_submission %}
@@ -99,6 +100,53 @@
     SyntaxHighlighter.all();
     toggleVisibility('program');    
 </script>
+{% get_comment_count for problem as comment_count %}
+    {% get_comment_list for problem as comment_list %}
+    {% get_comment_form for problem as form %}
+    <h3>Comments({{ comment_count }})</h3>
+    <p>
+        <table>
+        {% for c in comment_list %}
+        <tr><th style="width:100px;"><a href="{% url profiles_profile_detail request.user %}">{{ c.user }}</a> says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
+        {% endfor %}
+        </table>
+    <p>
+    <h4>Your comment</h4>
+    <script language="JavaScript" type="text/javascript">
+        function checkform ( form )
+        {
+            if (form.comment.value == "") {
+            alert( "Please enter your comment." );
+            form.comment.focus();
+            return false ;
+        }
+        return true ;
+    }
+    </script>
+    <form action="{% comment_form_target %}" method="post" onsubmit="return checkform(this);">
+        <table>
+            {% for field in form.hidden_fields %}
+            {{ field }}
+            {% endfor %}
+            <tr style="display:none">
+                <th><label for="id_name">Name</label></th> <td><input id="id_name" type="text" name="name" maxlength="50" value="{{request.user.username }}"/></td>
+            </tr>
+            <tr style="display:none">
+                <th><label for="id_email">Email address</label></th> <td><input type="text" name="email" id="id_email" value="{{request.user.email }}"/></td>
+            </tr>
+            <tr style="display:none">
+                <th><label for="id_url">URL</label></th> <td><input type="text" name="url" id="id_url" /></td>
+            </tr>
+                <tr>
+                <th><label for="id_comment">Comment</label></th> <td><textarea id="id_comment" rows="10" cols="40" name="comment"  style="width:580px; max-width:580px; height:150px; max-height:150px;"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="post" class="submit-post" value="Post"></td>
+                <input type="hidden" name="next" value="{{ problem.get_absolute_url }}" />
+            </tr>
+        </table>
+    </form>
 {% endblock %}
 {% block sidebar %}
 {% endblock %}
