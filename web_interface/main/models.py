@@ -1,4 +1,5 @@
 from django.template.defaultfilters import filesizeformat
+from django.core.urlresolvers import reverse
 from django.db import models
 from django import forms
 from picklefield import PickledObjectField
@@ -19,10 +20,8 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('problems_display_category', (self.name,))
-
+        return reverse('category_problems', kwargs={'category_pk': self.pk})
 
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -57,7 +56,7 @@ class Problem(models.Model):
     title = models.CharField('Title', max_length = 100)
     question = models.TextField('Question')
     is_public = models.BooleanField('Is Public')
-    category = models.ManyToManyField(Category, help_text= 'Tags that describe this problem', blank=True)
+    categories = models.ManyToManyField(Category, help_text= 'Problem Categories', verbose_name='categories', blank=True)
     tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
     related_problems = models.ManyToManyField('self', blank=True)
     publish_date = models.DateTimeField(default=datetime.datetime.now, help_text='The date and time this problem shall appear online.')
@@ -65,8 +64,10 @@ class Problem(models.Model):
     
     def __unicode__(self):
         return self.title
+    
     def get_absolute_url(self):
-        return '/contest/problem/%d/' %(self.id)
+        return reverse('problem_detail', kwargs={'problem_pk': self.pk})
+    
     def no_of_test_cases(self):
         return self.testcase_set.count()
 
@@ -110,9 +111,9 @@ class TestCase(models.Model):
     def __unicode__(self):
         return self.problem.title + ': Input/Output'
     def input_url(self):
-        return '/contest/problem/%d/input/%d/testinput.in' %(self.problem.id, self.id)
+        return '/problem/%d/input/%d/testinput.in' %(self.problem.id, self.id)
     def output_url(self):
-        return '/contest/problem/%d/output/%d/testoutput.out' %(self.problem.id, self.id)
+        return '/problem/%d/output/%d/testoutput.out' %(self.problem.id, self.id)
     def weightage(self):
         weight = (float(self.marks)/float(self.problem.total_marks()))*100
         return str("%.2f"%(weight)+ " %")

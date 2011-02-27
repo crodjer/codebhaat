@@ -27,6 +27,10 @@
 {% block content %}
 {% cache 0 sidebar_problem problem %}
 <div id="sidebar">
+    <h3>Problem Categories:</h3>
+    {% for category in problem.categories.all %}
+      <a href="{% url category_problems category.pk %}">{{ category }}</a><br/>  
+    {% endfor %}
     <h3>Your stats:</h3>
     Total Marks: <b>{{ total_marks }}</b>
     <br/>

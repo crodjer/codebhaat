@@ -21,4 +21,5 @@ workers/worker*
 !workers/base_worker
 !workers/*.zip
 !workers/*.sh
+web_interface/*/migrations/
 *~
