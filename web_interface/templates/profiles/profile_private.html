@@ -1,0 +1,12 @@
+    <tr>
+	    <th>Room No. :</th><td>{{ profile.room }}</td>
+    </tr>
+    <tr>
+	    <th>Gender :</th><td>{{ profile.get_gender_display }}</td>
+    </tr>
+	    <th>Email Address:</th><td>{{ profile.user.email }}</td>
+    </tr>
+    <tr>
+	    <td><a href = "/accounts/profile/edit/">Edit Profile</a></td><td><a href = "/accounts/password/change/">Change Password</a></td>
+    </tr>
+

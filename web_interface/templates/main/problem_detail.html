@@ -43,7 +43,7 @@
     	<tbody>
   		{% for submission in problem.status.latest_submissions %}
     		<tr>
-    			<td>{{ submission.user }}</td><td>{{ submission.language|title }}</td><td>{{ submission.status }}</td><td>{{ submission.time|timesince }} ago</td>
+    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td>{{ submission.status }}</td><td>{{ submission.time|timesince }} ago</td>
     		</tr>
     		{% empty %}
     		<tr>
