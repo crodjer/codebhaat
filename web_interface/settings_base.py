@@ -98,8 +98,9 @@ INSTALLED_APPS = [
     'captcha',    
 ]
 
-if not DEBUG:
+if DEBUG:
     INSTALLED_APPS.append('south')
+
 INSTALLED_APPS = tuple(INSTALLED_APPS)
 
 #Custom Settings

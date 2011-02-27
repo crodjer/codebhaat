@@ -12,51 +12,51 @@ def home(request):
 def credits(request):
     return render_to_response('main/credits.html',context_instance=RequestContext(request))
 
+def categories(request):
+    categories = Category.objects.all()    
+    return render_to_response('main/category_list.html', {'categories':categories}, context_instance=RequestContext(request))
+
 @login_required
-def contest_page(request, tag=None, category=None):
+def problem_list(request, category_pk):
     problem_list = []
     context = {}
     if not request.user.is_active:
         request.user = testuser
     
-    user = request.user
-    
-    if tag:
-        tag = get_object_or_404(Tag, name__iexact=tag)
-        problems = tag.problem_set.select_related()
-        context['tag'] = tag
-
-    elif category:
-        category = get_object_or_404(Category, name__iexact=category)
-        problems = category.problem_set.select_related()
+    user = request.user    
+    if category_pk:
+        category = get_object_or_404(Category, pk=category_pk)        
+        if request.user.is_superuser:
+            problems = category.problem_set.all()
+        else:
+            problems = category.problem_set.filter(is_public=True)
         context['category'] = category
 
-    else:        
-        if request.user.is_superuser:
-            problems = Problem.objects.all()
-        else:
-            problems = Problem.objects.filter(is_public=True)
-    
+    tag = request.GET.get('tag', False)
+        
+    if tag:
+        problems = problems.filter(tags__name=tag)        
+            
     for problem in problems:
         problem.is_solved = problem.solved(user)
         problem_list.append(problem)
 
     if request.user.is_superuser:
-        submissions = Submission.objects.filter(is_latest=True).order_by('-time')[:500] 
+        submissions = Submission.objects.filter(is_latest=True, problem__categories__pk=category.pk).order_by('-time')[:500] 
     else:
-        submissions = Submission.objects.filter(is_latest=True, problem__is_public=True).order_by('-time')[:10] 
-    return render_to_response('main/contest_index.html', {
+        submissions = Submission.objects.filter(is_latest=True, problem__categories__pk=category.pk, problem__is_public=True).order_by('-time')[:10] 
+    return render_to_response('main/problem_list.html', {
         'problems': problem_list,
         'submissions':submissions,        
         'total_marks': get_total_marks(user),
     },context_instance=RequestContext(request, context))
 
 @login_required
-def problem_detail(request, problem_id):
+def problem_detail(request, problem_pk):
     if request.user.is_superuser:
-        problem = get_object_or_404(Problem, pk=problem_id)
+        problem = get_object_or_404(Problem, pk=problem_pk)
     else:
-        problem = get_object_or_404(Problem, pk=problem_id, is_public=True)
+        problem = get_object_or_404(Problem, pk=problem_pk, is_public=True)
     public_testcases = problem.testcase_set.filter(is_public=True)
     user = request.user
     last_submission = []
@@ -92,7 +92,7 @@ def problem_detail(request, problem_id):
         context_instance=RequestContext(request))
    
 @login_required
-def problem_input(request, problem_id, testcase_id):
+def problem_input(request, problem_pk, testcase_id):
     testcase = get_object_or_404(TestCase, pk=testcase_id)
     if testcase.is_public:
         return HttpResponse(testcase.input_file.read(),mimetype="text/in")
@@ -100,7 +100,7 @@ def problem_input(request, problem_id, testcase_id):
         raise Http404
 
 @login_required
-def problem_output(request, problem_id, testcase_id):
+def problem_output(request, problem_pk, testcase_id):
     testcase = get_object_or_404(TestCase, pk=testcase_id)
     if testcase.is_public:
         return HttpResponse(testcase.output_file.read(),mimetype="text/out")

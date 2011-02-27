@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 {% load cache %}
 {% load problem_tags %}
-{% block content_heading %}Problems:{% endblock %}
+{% block content_heading %}{{ category }}{% endblock %}
 {% block content %}
 <div id="sidebar">
 	<h3>Tag Cloud</h3>
     {% tag_cloud %}
-    <br>
-	<h3>Category Cloud</h3>
-    {% category_cloud %}
-    <br>
-    <h3>Your stats:</h3>
+  <br/>
+  <h3>Your stats:</h3>
     Total Marks: <b>{{ total_marks }}</b>
     <br/>
     <h3>Correct Submissions</h3>

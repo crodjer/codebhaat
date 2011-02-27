@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load problem_tags %}
+{% block content_heading %}Categories:{% endblock %}
+{% block content %}
+{% for category in categories %}
+  <a href="{% url category_problems category.pk %}">{{ category }}</a><br/>  
+{% endfor %}
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
