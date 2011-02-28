@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load cache %}
 {% load problem_tags %}
-{% block content_heading %}{{ category }}{% endblock %}
+{% block content_heading %}<a href={% url contest_list %}>Contest</a> > {{ contest }}{% endblock %}
 {% block content %}
 <div id="sidebar">
 	<h3>Tag Cloud</h3>
@@ -36,7 +36,7 @@
     
     <table style="min-width:400px">
     {% for p in problems %}
-        <tr><td><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></td><td>{% if p.is_solved %}<span style = "color:green;">Solved</span>{% endif %}</td></tr>
+        <tr><td><a href="{% url problem_detail contest.pk p.pk %}">{{ p.title }}</a></td><td>{% if p.is_solved %}<span style = "color:green;">Solved</span>{% endif %}</td></tr>
     {% empty %}
         No problems are available.
     {% endfor %}

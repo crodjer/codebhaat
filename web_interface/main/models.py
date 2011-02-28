@@ -18,14 +18,14 @@ fs = FileSystemStorage(location=STORAGE_PATH)
 TAG_RE = re.compile('[^a-z0-9\-_\+\:\.]?', re.I)
 
 
-class Category(models.Model):
+class Contest(models.Model):
     name = models.CharField('Name', max_length = 100, unique=True)
     
     def __unicode__(self):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('category_problems', kwargs={'category_pk': self.pk})
+        return reverse('contest_problems', kwargs={'contest_pk': self.pk})
 
 class Tag(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -60,7 +60,7 @@ class Problem(models.Model):
     title = models.CharField('Title', max_length = 100)
     question = models.TextField('Question')
     is_public = models.BooleanField('Is Public')
-    categories = models.ManyToManyField(Category, help_text= 'Problem Categories', verbose_name='categories', blank=True)
+    contests = models.ManyToManyField(Contest, help_text= 'Problem Categories', verbose_name='contests', blank=True)
     tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
     related_problems = models.ManyToManyField('self', blank=True)
     publish_date = models.DateTimeField(default=datetime.datetime.now, help_text='The date and time this problem shall appear online.')
@@ -69,8 +69,8 @@ class Problem(models.Model):
     def __unicode__(self):
         return self.title
     
-    def get_absolute_url(self):
-        return reverse('problem_detail', kwargs={'problem_pk': self.pk})
+    #def get_absolute_url(self):
+        #return reverse('problem_detail', kwargs={'problem_pk': self.pk})
     
     def no_of_test_cases(self):
         return self.testcase_set.count()

@@ -12,25 +12,25 @@ def home(request):
 def credits(request):
     return render_to_response('main/credits.html',context_instance=RequestContext(request))
 
-def categories(request):
-    categories = Category.objects.all()    
-    return render_to_response('main/category_list.html', {'categories':categories}, context_instance=RequestContext(request))
+def contests(request):
+    contests = Contest.objects.all()    
+    return render_to_response('main/contest_list.html', {'contests':contests}, context_instance=RequestContext(request))
 
 @login_required
-def problem_list(request, category_pk):
+def problem_list(request, contest_pk):
     problem_list = []
     context = {}
     if not request.user.is_active:
         request.user = testuser
     
     user = request.user    
-    if category_pk:
-        category = get_object_or_404(Category, pk=category_pk)        
+    if contest_pk:
+        contest = get_object_or_404(Contest, pk=contest_pk)        
         if request.user.is_superuser:
-            problems = category.problem_set.all()
+            problems = contest.problem_set.all()
         else:
-            problems = category.problem_set.filter(is_public=True)
-        context['category'] = category
+            problems = contest.problem_set.filter(is_public=True)
+        context['contest'] = contest
 
     tag = request.GET.get('tag', False)
         
@@ -42,9 +42,9 @@ def problem_list(request, category_pk):
         problem_list.append(problem)
 
     if request.user.is_superuser:
-        submissions = Submission.objects.filter(is_latest=True, problem__categories__pk=category.pk).order_by('-time')[:500] 
+        submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk).order_by('-time')[:500] 
     else:
-        submissions = Submission.objects.filter(is_latest=True, problem__categories__pk=category.pk, problem__is_public=True).order_by('-time')[:10] 
+        submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk, problem__is_public=True).order_by('-time')[:10] 
     return render_to_response('main/problem_list.html', {
         'problems': problem_list,
         'submissions':submissions,        
@@ -52,11 +52,15 @@ def problem_list(request, category_pk):
     },context_instance=RequestContext(request, context))
 
 @login_required
-def problem_detail(request, problem_pk):
+def problem_detail(request, problem_pk, contest_pk=None):
+    if contest_pk:
+        contest = get_object_or_404(Contest, pk=contest_pk)
+    else:
+        contest = None
     if request.user.is_superuser:
         problem = get_object_or_404(Problem, pk=problem_pk)
     else:
-        problem = get_object_or_404(Problem, pk=problem_pk, is_public=True)
+        problem = get_object_or_404(Problem, pk=problem_pk, is_public=True)    
     public_testcases = problem.testcase_set.filter(is_public=True)
     user = request.user
     last_submission = []
@@ -88,7 +92,8 @@ def problem_detail(request, problem_pk):
         'total_marks': get_total_marks(user),
         'submission_limit_reached':submission_limit_reached,        
         'media_prefix':MEDIA_URL,
-        'last_submission':last_submission,},
+        'last_submission':last_submission,
+        'contest':contest},
         context_instance=RequestContext(request))
    
 @login_required

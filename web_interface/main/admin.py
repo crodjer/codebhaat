@@ -43,5 +43,5 @@ class SubmissionAdmin(admin.ModelAdmin):
     
 admin.site.register(Submission,SubmissionAdmin)
 admin.site.register(Problem,ProblemAdmin)
-admin.site.register(Category)
+admin.site.register(Contest)
 admin.site.register(Tag)
