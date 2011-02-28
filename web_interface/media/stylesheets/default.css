@@ -87,6 +87,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     color: #024877;
+    margin: 10px 0 2px;
 }
 hr{
     margin-bottom:15px;

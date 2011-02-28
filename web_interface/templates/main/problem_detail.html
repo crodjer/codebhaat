@@ -8,6 +8,7 @@
 	{% endif %}
     <link href="/media/stylesheets/shThemeDjango.css" rel="stylesheet" type="text/css" />
     <link href="/media/stylesheets/shCore.css" rel="stylesheet" type="text/css">
+    <link href="/media/stylesheets/highlight.css" rel="stylesheet" type="text/css">
     <script src="/media/js/shCore.js" type="text/javascript"></script>
     <script src="/media/js/shAutoloader.js" type="text/javascript"></script>
     {% if last_submission.language == "c" or  "cpp" %}<script src="/media/js/shBrushCpp.js" type="text/javascript"></script>{% endif %}{% if last_submission.language ==  "java" %}<script src="/media/js/shBrushJava.js" type="text/javascript"></script>{% endif %}{% if last_submission.language == "python" %}<script src="/media/js/shBrushPython.js" type="text/javascript"></script>{% endif %}
@@ -97,24 +98,18 @@
 		</p>
     {% endif %}
 </div>
-<pre class="brush: {{ last_submission.language }}; toolbar: false; gutter: true;" id="program">
-{{ last_submission.program.read }}
-</pre>
-<script type="text/javascript">
-    SyntaxHighlighter.all();
-    toggleVisibility('program');    
-</script>
+<div id="program">
+  {{ last_submission.code|safe }}
+</div>
 {% get_comment_count for problem as comment_count %}
     {% get_comment_list for problem as comment_list %}
     {% get_comment_form for problem as form %}
     <h3>Comments({{ comment_count }})</h3>
-    <p>
-        <table>
-        {% for c in comment_list %}        
-        <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
-        {% endfor %}
-        </table>
-    <p>
+    <table>
+    {% for c in comment_list %}        
+      <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
+    {% endfor %}
+    </table>  
     <h4>Your comment</h4>
     <script language="JavaScript" type="text/javascript">
         function checkform ( form )

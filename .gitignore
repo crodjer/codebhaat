@@ -12,6 +12,7 @@ test_codes/
 *.c
 *.cpp
 *.java
+*.class
 web_interface/settings.py
 web_interface/media/workers.zip
 workers/base_worker/settings.py

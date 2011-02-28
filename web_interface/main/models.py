@@ -8,6 +8,10 @@ from django.forms import HiddenInput
 from main.tasks import submit, SubmitTask
 from django.core.files.storage import FileSystemStorage
 import settings, os, datetime, re
+from pygments import highlight
+from pygments.lexers import PythonLexer
+from pygments.formatters import HtmlFormatter
+
 STORAGE_PATH = os.path.join(settings.ROOT_PATH, 'files')
 fs = FileSystemStorage(location=STORAGE_PATH)
 
@@ -173,7 +177,9 @@ class Submission(models.Model):
             return 'Processing'
 
     def code(self):
-        return "%s" %(self.program.read().replace('\n', '<br/>'))    
+        pygmented_code = highlight(self.program.read(), PythonLexer(), HtmlFormatter())
+        return pygmented_code
+    code.allow_tags = True
         
     def save(self,user=None,problem=None,*args, **kwargs):
         if not self.celery_task:

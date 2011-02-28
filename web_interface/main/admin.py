@@ -23,19 +23,23 @@ class ProblemAdmin(admin.ModelAdmin):
     search_fields = ['title', 'question']
     
 class SubmissionAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None,			   {'fields': ['problem', 'user', 'program', 'language', 'task_status', 'code']}),
-                
-	]
-	readonly_fields = ('correct', 'code', 'task_status')
-	list_display = ('problem','user', 'time','program','task_status','result','id','is_latest')
-	list_filter = ['time', 'user']
-	search_fields = ['problem__title']
-	date_hierarchy = 'time'
-	def save_model(self, request, obj, form, change): 
-		instance = form.save(commit=False)
-		instance.save(user = request.user)
-		return instance
+    class Media:
+        css = {
+                'all':('stylesheets/highlight.css',)
+            }
+    fieldsets = [
+            (None,			   {'fields': ['problem', 'user', 'program', 'language', 'task_status', 'code']}),
+            
+    ]
+    readonly_fields = ('correct', 'code', 'task_status')
+    list_display = ('problem','user', 'time','program','task_status','result','id','is_latest')
+    list_filter = ['time', 'user']
+    search_fields = ['problem__title']
+    date_hierarchy = 'time'
+    def save_model(self, request, obj, form, change): 
+            instance = form.save(commit=False)
+            instance.save(user = request.user)
+            return instance
     
 admin.site.register(Submission,SubmissionAdmin)
 admin.site.register(Problem,ProblemAdmin)
