@@ -110,8 +110,8 @@
     <h3>Comments({{ comment_count }})</h3>
     <p>
         <table>
-        {% for c in comment_list %}
-        <tr><th style="width:100px;"><a href="{% url profiles_profile_detail request.user %}">{{ c.user }}</a> says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
+        {% for c in comment_list %}        
+        <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
         {% endfor %}
         </table>
     <p>
