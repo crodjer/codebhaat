@@ -69,8 +69,7 @@
             </div><!-- /#header (main heading + logo with slogan) --><!-- #main content construct -->
             <div id="content">
                 <!-- #left part of web - main content -->
-                <div id="contentBlock">
-                    {% if request.META.HTTP_REFERER %}<a href="{{ request.META.HTTP_REFERER }}" style="float:right;">Back</a>{% endif %}
+                <div id="contentBlock">                    
                     <!-- #first (main) article --><h2>{% block content_heading %}{% endblock %}</h2>
                     <hr/>
                     <p style="margin-top:-10px;">

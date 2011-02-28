@@ -57,6 +57,11 @@ class Tag(models.Model):
 
 #The programming problem
 class Problem(models.Model):
+    LEVEL_CHOICES = (
+            (1, 'Easy'),
+            (2, 'Medium'),
+            (3, 'Hard'),
+        )
     title = models.CharField('Title', max_length = 100)
     question = models.TextField('Question')
     is_public = models.BooleanField('Is Public')
@@ -64,25 +69,24 @@ class Problem(models.Model):
     tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
     related_problems = models.ManyToManyField('self', blank=True)
     publish_date = models.DateTimeField(default=datetime.datetime.now, help_text='The date and time this problem shall appear online.')
-    
+    level = models.IntegerField('level', choices=LEVEL_CHOICES, default=2)
     
     def __unicode__(self):
         return self.title
     
-    #def get_absolute_url(self):
-        #return reverse('problem_detail', kwargs={'problem_pk': self.pk})
+    def get_absolute_url(self, contest):
+        return reverse('problem_detail', kwargs={'problem_pk': self.pk, 'contest_pk':contest.pk})
     
     def no_of_test_cases(self):
         return self.testcase_set.count()
 
-    def solved(self, user):
-        solved = False
+    def status_image(self, user):        
         try:            
-            solved = self.submission_set.get(user=user, is_latest=True).correct()
+            latest_submission = self.submission_set.get(user=user, is_latest=True)
+            return latest_submission.status_image()
         except:
-            pass
-        
-        return solved
+            return 'icon_alert.gif'
+            
     
     def status(self):
         submissions = self.submission_set.filter(is_latest=True)
@@ -101,7 +105,7 @@ class Problem(models.Model):
         marks = 0
         for case in self.testcase_set.all():
             marks += case.marks
-        return marks
+        return marks    
 
 #Input Output file for problem
 class TestCase(models.Model):   
@@ -198,7 +202,15 @@ class Submission(models.Model):
         latest_submission.is_latest = True
         latest_submission.save()
         return latest_submission
-    
+
+    def status_image(self):
+        if not self.ready():
+            return 'icon_clock.gif'
+        elif self.correct():
+            return 'icon_success.gif'
+        else:
+            return 'icon_error.gif'
+        
     def update_old_submissions(self):
         old_submissions = Submission.objects.filter(is_latest=True, user=self.user, problem=self.problem)
         old_submissions.update(is_latest=False)

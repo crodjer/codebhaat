@@ -33,14 +33,18 @@
     </table>    
 </div>
 <div class="entry" style="width:400px;">
-    
+        
+    {% regroup problems|dictsort:"level" by get_level_display as level_list %}
+    {% for level in level_list %}
+    <h3>{{ level.grouper }}</h3>
+    {% for p in level.list %}
     <table style="min-width:400px">
-    {% for p in problems %}
-        <tr><td><a href="{% url problem_detail contest.pk p.pk %}">{{ p.title }}</a></td><td>{% if p.is_solved %}<span style = "color:green;">Solved</span>{% endif %}</td></tr>
-    {% empty %}
-        No problems are available.
+        <tr><td><a href="{% url problem_detail contest.pk p.pk %}">{{ p.title }}</a> ({{ p.total_marks }} marks)</td><td width="20px"><img src="/media/admin/img/admin/{{ p.status_img }}"/></td></tr>
+    </table>             
     {% endfor %}
-    </table> 
+    {% empty %}
+        No problems are available.        
+    {% endfor %}
 </div>
 {% endblock %}
 {% block sidebar %}

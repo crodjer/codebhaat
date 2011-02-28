@@ -38,7 +38,7 @@ def problem_list(request, contest_pk):
         problems = problems.filter(tags__name=tag)        
             
     for problem in problems:
-        problem.is_solved = problem.solved(user)
+        problem.status_img = problem.status_image(user)            
         problem_list.append(problem)
 
     if request.user.is_superuser:
@@ -76,7 +76,7 @@ def problem_detail(request, problem_pk, contest_pk=None):
             #Calling the worker to perform the task submit through celery
             new_submission.save(user = user, problem = problem)            
             #Redirect to the results of the submission
-            return HttpResponseRedirect(problem.get_absolute_url())
+            return HttpResponseRedirect(problem.get_absolute_url(contest))
     else:
         #New form for a submission                
         form = SubmissionForm()    

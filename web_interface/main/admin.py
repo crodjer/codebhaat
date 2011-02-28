@@ -17,6 +17,7 @@ class ProblemAdmin(admin.ModelAdmin):
     class Media:
         js = ('js/nicEdit.js','js/admin_wysiwg.js')
     list_display = ('title','is_public', 'no_of_test_cases', 'total_marks')
+    list_filter = ['level', 'is_public']
     filter_horizontal = ('related_problems',)
     inlines = [TestCaseInline]
     actions = [mark_public, mark_not_public]
