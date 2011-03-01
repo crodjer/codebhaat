@@ -21,7 +21,7 @@
   		{% for submission in submissions %}
   		{% if submission.correct %}
     		<tr>
-    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td><a href="{{ submission.problem.get_absolute_url }}">{{ submission.problem|truncatewords:2}}</a></td><td>{{ submission.language|title }}</td><td>{{ submission.time|timesince }} ago</td>
+    			<td>{% if submission.user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td><a href="{% url problem_detail contest.pk submission.problem.pk %}">{{ submission.problem|truncatewords:2}}</a></td><td>{{ submission.language|title }}</td><td>{{ submission.time|timesince }} ago</td>
     		</tr>
     	{% endif %}
     	{% empty %}
