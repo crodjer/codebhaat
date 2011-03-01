@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
+{% block content_heading %}Profile Details{% endblock %}
 {% block content %}
-<h2>Profile Details</h2>
 	<table class = "text_table">
 	  {% include 'profiles/profile_public.html' %}
 		{% ifequal user profile.user %}
