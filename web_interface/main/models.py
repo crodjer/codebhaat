@@ -11,6 +11,7 @@ import settings, os, datetime, re
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
+from django.db.models import Sum
 
 STORAGE_PATH = os.path.join(settings.ROOT_PATH, 'files')
 fs = FileSystemStorage(location=STORAGE_PATH)
@@ -54,6 +55,32 @@ class Tag(models.Model):
     class Meta:
         ordering = ('name',)
 
+class Rank(models.Model):
+    user            =  models.ForeignKey(User)
+    contest         = models.ForeignKey(Contest)    
+    total_marks     = models.IntegerField(blank=True, null=True)
+
+    def get_total_marks(self):
+        submissions = self.user.submission_set.filter(is_latest=True, 
+                                                      contest=self.contest).aggregate(Sum('marks'))
+        total_marks = submissions['marks__sum']        
+        return total_marks
+
+    def __unicode__(self):
+        return '%s\'s rank in %s; Marks:%s' %(self.user, self.contest,
+                                              self.total_marks)
+
+    def rank(self):
+        contest_ranks=self.contest.rank_set.all()
+        rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
+        return rank
+    
+    def update_rank(self, *args, **kwargs):        
+        self.total_marks=self.get_total_marks()            
+        self.save()
+
+    class Meta:
+        ordering = ['-total_marks']
 
 #The programming problem
 class Problem(models.Model):
@@ -137,10 +164,12 @@ class Submission(models.Model):
     language = models.CharField('Language', max_length = 10, choices=LANGUAGES)
     program = models.FileField('Code', upload_to = 'programs', storage=fs)
     problem = models.ForeignKey(Problem)
+    contest = models.ForeignKey(Contest)
     filename = models.CharField('Filename', max_length = 50)
     time = models.DateTimeField('Time', auto_now_add=True)
     is_latest = models.BooleanField('Latest', default = True)
     celery_task = PickledObjectField()  #This saves the result of the celery_task, It gives the key to access the celery task database.
+    marks = models.IntegerField('Marks', blank=True, null=True)
     class Meta:
         ordering = ['-time'] 
         get_latest_by = 'time'
@@ -172,11 +201,16 @@ class Submission(models.Model):
         return self.celery_task.result
     
     def ready(self):
-        return self.celery_task.ready()
+        ready = self.celery_task.ready()        
+        if ready and self.is_latest and not self.marks:
+            self.set_marks()
+            self.set_rank()
+            
+        return ready
     
     def status(self):
-        if self.ready():
-            return 'Correct' if self.correct() else 'Wrong'
+        if self.ready():            
+            return 'Correct' if self.correct() else 'Wrong'        
         else:
             return 'Processing'
 
@@ -185,16 +219,19 @@ class Submission(models.Model):
         return pygmented_code
     code.allow_tags = True
         
-    def save(self,user=None,problem=None,*args, **kwargs):
+    def save(self,user=None,problem=None,contest=None, *args, **kwargs):
         if not self.celery_task:
             if user:
                 self.user = user
             if problem: 
-                self.problem = problem 
+                self.problem = problem
+            if contest:
+                self.contest=contest
             self.filename = str(self.program)
             self.celery_task = SubmitTask.apply_async(args = self.task_detail())            
             self.update_old_submissions()
-            super(Submission, self).save(*args, **kwargs)
+
+        super(Submission, self).save(*args, **kwargs)        
     
     def set_latest(self, submissions):
         print 'setting latest'
@@ -216,11 +253,21 @@ class Submission(models.Model):
         old_submissions.update(is_latest=False)
                 
     def task_status(self):
-        ready = self.celery_task.ready()
-        if ready:
-            return 'Processed'
+        if self.ready():            
+            return 'Processed'        
         else:
             return 'In Queue'
+
+    def set_marks(self):
+        self.marks = self.result()['marks']
+        self.save()
+
+    def set_rank(self):        
+        rank = Rank.objects.get_or_create(user=self.user,
+                                          contest=self.contest)[0]
+        rank.update_rank()
+        return rank
+        
     def task_detail(self):                
         tests = []
         time_limit = None
@@ -228,7 +275,7 @@ class Submission(models.Model):
             time_limit = max(time_limit, case.time_limit) if time_limit else case.time_limit
             tests.append({'input':case.input_file.read(), 'output':case.output_file.read(), 'time_limit_soft':case.time_limit_soft, 'time_limit':case.time_limit, 'marks': case.marks})
         return [self.problem, self.language, self.program.read(),self.filename,tests, time_limit]
-    
+  
 #Form for a submission to be made by the user
 class SubmissionForm(forms.ModelForm):
     def clean_program(self):
@@ -244,21 +291,3 @@ class SubmissionForm(forms.ModelForm):
         model = Submission
         fields = ['language','program']
         filename = forms.CharField(widget=HiddenInput())
-        
-
-def get_total_marks(user, queryset=None):
-    submissions = queryset or Submission.objects.filter(user = user, is_latest=True)
-    marks = 0    
-    for submission in submissions:        
-        try:
-            marks += submission.result()['marks']
-        except:
-            pass
-
-    return marks
-    
-    
-def get_rank(user):
-    users = User.objects.all()
-    total_submissions = Submissions.objects.filter(is_latest=True)    
-    #for user in user

@@ -3,7 +3,7 @@
 {% load cache %}
 {% block head %}
 {% if last_submission %}
-    {% if not last_submission.ready %}
+    {% if not last_submission_ready %}
 	   <meta http-equiv="refresh" content="1;">
 	{% endif %}
     <link href="/media/stylesheets/shThemeDjango.css" rel="stylesheet" type="text/css" />
@@ -30,7 +30,8 @@
 {% cache 0 sidebar_problem problem %}
 <div id="sidebar">
     <h3>Your stats:</h3>
-    Total Marks: <b>{{ total_marks }}</b>
+    Rank: <b>{{ rank.rank }}</b><br/>
+    Total Marks: <b>{{ rank.total_marks }}</b>
     <br/>
     <h3>Problem Stats:</h3>
   	Total Submissions: {{ problem.status.total_submissions }}<br/>
@@ -79,10 +80,10 @@
 	{% endif %}
 	{% if last_submission %}
 		<p>
-		{% if last_submission.celery_task.ready %}
+		{% if last_submission_ready %}
     		{% if last_submission.correct %}
     			<span style = "color:green;">Your submission was correct.</span>
-    			<br/>You were awarded {{ last_submission.result.marks }} mark{{ last_submission.result.marks|pluralize }}  for your submission.
+    			<br/>You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
     		{% else %}
     		    <span style = "color:red;">Your last submission was not correct: {{ last_submission.result.error.title }}</span>    
     		{% endif %}		    
