@@ -28,7 +28,7 @@
             <div id="head">
                 <!-- main headings with search component -->
                 <div id="main">
-                    <h1 style="color:#fff;">Code-BHAAT</h1>
+                    <h1 style="color:#fff;">Code:BHAAT</h1>
                     <div id="extra">
                         {% if request.user.is_active %}
                         Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
