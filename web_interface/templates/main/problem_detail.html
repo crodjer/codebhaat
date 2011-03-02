@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load comments %}
-{% load cache %}
+{% load comments humanize cache %}
 {% block head %}
 {% if last_submission %}
     {% if not last_submission_ready %}
@@ -40,13 +39,13 @@
     <table>
     	<thead>
     		<tr>
-    			<th>Coder</th><th>Lang</th><th>Status</th><th></th>
+    			<th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
     		</tr>
     	</thead>
     	<tbody>
   		{% for submission in problem.status.latest_submissions %}
     		<tr>
-    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td>{{ submission.status }}</td><td>{{ submission.time|timesince }} ago</td>
+    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
     		</tr>
     		{% empty %}
     		<tr>

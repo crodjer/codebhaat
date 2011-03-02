@@ -67,15 +67,17 @@ class Rank(models.Model):
         return total_marks
 
     def __unicode__(self):
-        return '%s\'s rank in %s; Marks:%s' %(self.user, self.contest,
-                                              self.total_marks)
+        return '%s\'s rank in %s' %(self.user, self.contest)
 
     def rank(self):
         contest_ranks=self.contest.rank_set.all()
-        rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
+        if self.total_marks:
+            rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
+        else:
+            rank = contest_ranks.count()+1
         return rank
     
-    def update_rank(self, *args, **kwargs):        
+    def update_rank(self, *args, **kwargs):
         self.total_marks=self.get_total_marks()            
         self.save()
 
@@ -112,7 +114,7 @@ class Problem(models.Model):
             latest_submission = self.submission_set.get(user=user, is_latest=True)
             return latest_submission.status_image()
         except:
-            return 'icon_alert.gif'
+            return ('icon_alert.gif', 'Not attempted')
             
     
     def status(self):
@@ -242,11 +244,11 @@ class Submission(models.Model):
 
     def status_image(self):
         if not self.ready():
-            return 'icon_clock.gif'
+            return ('icon_clock.gif', 'Submission under evaluation')
         elif self.correct():
-            return 'icon_success.gif'
+            return ('icon_success.gif', 'Correct submission')
         else:
-            return 'icon_error.gif'
+            return ('icon_error.gif', 'Wrong attempt')
         
     def update_old_submissions(self):
         old_submissions = Submission.objects.filter(is_latest=True, user=self.user, problem=self.problem)

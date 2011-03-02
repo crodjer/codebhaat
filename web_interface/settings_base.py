@@ -89,13 +89,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.comments',
+    'django.contrib.humanize',
     'djcelery',
     'main',
     'ticket',
     'django.contrib.flatpages',
     'registration',
     'profiles',
-    'captcha',    
+    'captcha',
+    'valuate',
 ]
 
 if DEBUG:
