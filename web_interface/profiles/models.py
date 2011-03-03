@@ -37,9 +37,7 @@ class UserProfile(models.Model):
                  ('3', '3rd Year'),
                  ('4', '4th Year'),
                  ('5', '5th Year'),
-                 ('6', 'Postgraduate - Ist Year'),
-                 ('7', 'Postgraduate - IInd Year'),
-                 ('8', 'Postgraduate - IIIrd Year'),
+                 ('6', 'Postgraduate'),
                  ('9', 'Other'),
                  )
     name = models.CharField("Full Name", max_length=100, unique=True)
@@ -47,6 +45,7 @@ class UserProfile(models.Model):
     hall = models.CharField("Hall", max_length=4, choices=HALL_CHOICES)
     room = models.CharField("Room No.", max_length=10,)
     year = models.CharField("Year", max_length=1, choices=YEAR_CHOICES)
+    roll_no = models.CharField("Roll No.", max_length=10) 
     user = models.ForeignKey(User, unique=True)
     objects = ProfileManager()
 

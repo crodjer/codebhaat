@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load comments humanize cache valuation %}
+{% load comments humanize cache %}
 {% block head %}
 {% if last_submission %}
     {% if not last_submission_ready %}
@@ -33,8 +33,6 @@
     Total Marks: <b>{{ rank.total_marks }}</b>
     <br/>
     <h3>Problem Stats:</h3>
-    {% render_valuate form of problem %}
-    User Rating: <b>{% get_valuate score of problem %}</b><br/>
   	Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
   	Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
   	Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
