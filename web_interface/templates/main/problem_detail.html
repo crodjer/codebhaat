@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load comments humanize cache %}
+{% load comments humanize cache valuate %}
 {% block head %}
 {% if last_submission %}
     {% if not last_submission_ready %}
@@ -28,6 +28,7 @@
 {% block content %}
 {% cache 0 sidebar_problem problem %}
 <div id="sidebar">
+    {% render_valuate form of problem %}
     <h3>Your stats:</h3>
     Rank: <b>{{ rank.rank }}</b><br/>
     Total Marks: <b>{{ rank.total_marks }}</b>
