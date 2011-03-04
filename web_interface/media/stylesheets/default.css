@@ -99,10 +99,15 @@ table {
 
 table td, table th {
     border: 1px #d8d8d8 solid;
-    padding: 10px;
+    padding: 5px;
+}
+
+table td img{
+	margin: -5px 0  !important;	
 }
 
 table th {
+	padding: 5px;
     text-align: left;
 }
 
