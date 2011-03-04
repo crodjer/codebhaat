@@ -27,13 +27,14 @@
 {% block content_heading %}<a href={% url contest_list %}>Contest</a> > {% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}{{ problem.title }}{% endblock %}
 {% block content %}
 {% cache 0 sidebar_problem problem %}
-<div id="sidebar">
-    {% render_valuate form of problem %}
+<div id="sidebar">    
     <h3>Your stats:</h3>
     Rank: <b>{{ rank.rank }}</b><br/>
-    Total Marks: <b>{{ rank.total_marks }}</b>
+    Total Marks: <b>{{ rank.total_marks }}</b>    
     <br/>
     <h3>Problem Stats:</h3>
+    {% render_valuate form of problem %}
+    Average Rating: <b>{% get_valuate score of problem %}</b><br/><br/>
   	Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
   	Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
   	Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
