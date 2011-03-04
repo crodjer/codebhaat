@@ -140,7 +140,7 @@
             <tr>
                 <td></td>
                 <td><input type="submit" name="post" class="submit-post" value="Post"></td>
-                <input type="hidden" name="next" value="{{ problem.get_absolute_url }}" />
+                <input type="hidden" name="next" value="{% url problem_detail contest.pk problem.pk %}" />
             </tr>
         </table>
     </form>
