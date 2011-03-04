@@ -58,7 +58,7 @@ class Tag(models.Model):
 class Rank(models.Model):
     user            =  models.ForeignKey(User)
     contest         = models.ForeignKey(Contest)    
-    total_marks     = models.IntegerField(blank=True, null=True)
+    total_marks     = models.FloatField(default=0, blank=True, null=True)
 
     def get_total_marks(self):
         submissions = self.user.submission_set.filter(is_latest=True, 
@@ -71,10 +71,7 @@ class Rank(models.Model):
 
     def rank(self):
         contest_ranks=self.contest.rank_set.all()
-        if self.total_marks:
-            rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
-        else:
-            rank = contest_ranks.count()+1
+        rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
         return rank
     
     def update_rank(self, *args, **kwargs):
