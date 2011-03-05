@@ -44,7 +44,7 @@ class SubmissionAdmin(admin.ModelAdmin):
 
 class RankAdmin(admin.ModelAdmin):
     fieldsets = [
-            (None,   {'fields': ['rank', 'user', 'contest', 'total_marks']}),
+            (None,   {'fields': ['rank', 'user', 'contest', 'total_marks', 'not_ranked']}),
             
     ]
     readonly_fields = ('rank', 'total_marks')

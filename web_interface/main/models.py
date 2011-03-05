@@ -20,7 +20,7 @@ TAG_RE = re.compile('[^a-z0-9\-_\+\:\.]?', re.I)
 
 class RankManager(models.Manager):
     def get_or_set(self, user, contest, *args, **kwargs):
-        rank, new = self.get_or_create(user=user, contest=contest)
+        rank, new = self.get_or_create(user=user, contest=contest, *args, **kwargs)
         if new:
             if rank.user.has_perm('cannot_be_ranked'):
                 rank.not_ranked = True
@@ -74,7 +74,7 @@ class Rank(models.Model):
         submissions = self.user.submission_set.filter(is_latest=True, 
                                                       contest=self.contest).aggregate(Sum('marks'))
         total_marks = submissions['marks__sum']
-        return total_marks
+        return total_marks or 0
 
     def __unicode__(self):
         return '%s\'s rank in %s' %(self.user, self.contest)
