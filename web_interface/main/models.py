@@ -226,7 +226,7 @@ class Submission(models.Model):
     
     def ready(self):
         ready = self.celery_task.ready()        
-        if ready and self.is_latest and not self.marks:
+        if ready and self.is_latest and not self.marks==None:
             self.set_marks()
             self.set_rank()
             
@@ -286,8 +286,10 @@ class Submission(models.Model):
         self.marks = self.result()['marks']
         self.save()
 
-    def set_rank(self):        
-        return Rank.objects.get_or_set(self.user, self.contest)
+    def set_rank(self):       
+        rank = Rank.objects.get_or_set(self.user, self.contest)
+        rank.update()
+        return rank 
         
     def task_detail(self):                
         tests = []
