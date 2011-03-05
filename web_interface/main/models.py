@@ -27,6 +27,12 @@ class RankManager(models.Manager):
             rank.update()
         return rank
 
+    def update_all(self, contests):
+        for contest in contests:
+            for user in User.objects.all():
+              Rank.objects.get_or_set(user, contest)
+        return True    
+
 class Contest(models.Model):
     name = models.CharField('Name', max_length = 100, unique=True)
     
@@ -74,7 +80,9 @@ class Rank(models.Model):
         submissions = self.user.submission_set.filter(is_latest=True, 
                                                       contest=self.contest).aggregate(Sum('marks'))
         total_marks = submissions['marks__sum']
-        return total_marks or 0
+        if not total_marks:
+            return 0.0
+        return total_marks
 
     def __unicode__(self):
         return '%s\'s rank in %s' %(self.user, self.contest)
@@ -88,7 +96,7 @@ class Rank(models.Model):
         else:
             return 'N/A'
     
-    def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):        
         self.total_marks=self.get_total_marks()
         self.save()
 
