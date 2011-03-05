@@ -226,7 +226,7 @@ class Submission(models.Model):
     
     def ready(self):
         ready = self.celery_task.ready()        
-        if ready and self.is_latest and not self.marks==None:
+        if ready and self.is_latest and not self.marks:
             self.set_marks()
             self.set_rank()
             
