@@ -46,7 +46,7 @@ def problem_list(request, contest_pk):
     else:
         submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk, problem__is_public=True).order_by('-time')[:5]
 
-    rank=Rank.objects.get_or_create(user=user, contest=contest)[0]
+    rank = Rank.objects.get_or_set(user, contest)
     
     return render_to_response('main/problem_list.html', {
         'problems': problem_list,
@@ -91,7 +91,7 @@ def problem_detail(request, problem_pk, contest_pk=None):
     left_submissions = MAX_SUBMISSIONS - last_submission.attempts()  if last_submission else MAX_SUBMISSIONS
     submission_limit_reached = left_submissions <= 0
     
-    rank=Rank.objects.get_or_create(user=user, contest=contest)[0]
+    rank = Rank.objects.get_or_set(user, contest)
     
     return render_to_response('main/problem_detail.html', {
         'problem': problem,

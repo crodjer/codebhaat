@@ -18,6 +18,14 @@ fs = FileSystemStorage(location=STORAGE_PATH)
 
 TAG_RE = re.compile('[^a-z0-9\-_\+\:\.]?', re.I)
 
+class RankManager(models.Manager):
+    def get_or_set(self, user, contest, *args, **kwargs):
+        rank, new = self.get_or_create(user=user, contest=contest)
+        if new:
+            if rank.user.has_perm('cannot_be_ranked'):
+                rank.not_ranked = True
+            rank.update()
+        return rank
 
 class Contest(models.Model):
     name = models.CharField('Name', max_length = 100, unique=True)
@@ -58,28 +66,37 @@ class Tag(models.Model):
 class Rank(models.Model):
     user            =  models.ForeignKey(User)
     contest         = models.ForeignKey(Contest)    
-    total_marks     = models.FloatField(default=0, blank=True, null=True)
+    total_marks     = models.FloatField(default=0.0)
+    not_ranked      = models.BooleanField(default=False)
 
+    objects = RankManager()
     def get_total_marks(self):
         submissions = self.user.submission_set.filter(is_latest=True, 
                                                       contest=self.contest).aggregate(Sum('marks'))
-        total_marks = submissions['marks__sum']        
+        total_marks = submissions['marks__sum']
         return total_marks
 
     def __unicode__(self):
         return '%s\'s rank in %s' %(self.user, self.contest)
 
     def rank(self):
-        contest_ranks=self.contest.rank_set.all()
-        rank = contest_ranks.filter(total_marks__gt=self.total_marks).count()+1
-        return rank
+        contest_ranks = self.contest.rank_set.all()
+        if self.total_marks and not self.not_ranked:
+            rank = contest_ranks.filter(total_marks__gt=self.total_marks, 
+                                        not_ranked=False).count()+1
+            return rank
+        else:
+            return 'N/A'
     
-    def update_rank(self, *args, **kwargs):
-        self.total_marks=self.get_total_marks()            
+    def update(self, *args, **kwargs):
+        self.total_marks=self.get_total_marks()
         self.save()
 
     class Meta:
         ordering = ['-total_marks']
+        permissions = (
+                    ('cannot_be_ranked', 'User cannot be ranked amongst public'),
+                )
 
 #The programming problem
 class Problem(models.Model):
@@ -262,10 +279,7 @@ class Submission(models.Model):
         self.save()
 
     def set_rank(self):        
-        rank = Rank.objects.get_or_create(user=self.user,
-                                          contest=self.contest)[0]
-        rank.update_rank()
-        return rank
+        return Rank.objects.get_or_set(self.user, self.contest)
         
     def task_detail(self):                
         tests = []
