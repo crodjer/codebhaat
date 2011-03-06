@@ -1,0 +1,703 @@
+Downloading/unpacking akismet
+  Getting page http://pypi.python.org/simple/akismet
+  URLs to search for versions for akismet:
+  * http://pypi.python.org/simple/akismet
+  Getting page http://www.voidspace.org.uk/python/modules.shtml
+  Getting page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.1.zip
+  Getting page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.4.zip
+  Getting page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.2.zip
+  Getting page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.3.zip
+  Could not fetch URL http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://pypi.python.org/simple/akismet/): [Errno 111] Connection refused
+  Will skip URL http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip when looking for download links for akismet
+  Analyzing links from page http://pypi.python.org/simple/akismet/
+    Found link http://pypi.python.org/packages/source/a/akismet/akismet-0.2.0.tar.gz#md5=bd4b471d88aadad00a6fd70dea97e718 (from http://pypi.python.org/simple/akismet/), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://pypi.python.org/simple/akismet/); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.1.zip (from http://pypi.python.org/simple/akismet/); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.4.zip (from http://pypi.python.org/simple/akismet/); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.2.zip (from http://pypi.python.org/simple/akismet/); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.3.zip (from http://pypi.python.org/simple/akismet/); unknown archive format: .py
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://pypi.python.org/simple/akismet/), version: 0.2.0
+    Skipping link http://akismet.com/development/api/ (from http://pypi.python.org/simple/akismet/); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://pypi.python.org/simple/akismet/); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://pypi.python.org/simple/akismet/); unknown archive format: .html
+    Skipping link http://wordpress.org/ (from http://pypi.python.org/simple/akismet/); not a file
+    Skipping link http://www.akismet.com (from http://pypi.python.org/simple/akismet/); not a file
+    Skipping link http://wordpress.com (from http://pypi.python.org/simple/akismet/); not a file
+  Analyzing links from page http://www.voidspace.org.uk/python/modules.shtml
+    Skipping link http://www.voidspace.org.uk/res/style.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://cache.blogads.com/842841053/feed.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/rest.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/void.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pysrc.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pygments.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.ironpythoninaction.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/ironpython/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link mailto:michael&#37;&#52;&#48;voidspace&#46;org&#46;uk (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.python.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.opensource.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/license.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/index.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#configobj (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#mock (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#discover (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pythonutils (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pycrypto (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#psyco (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#index (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configobj.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://bazaar-ng.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://chandler.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.wxpython.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://matplotlib.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://ipython.scipy.org/moin/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/configobj-4.7.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/python/articles/configobj.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml#morepy (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configpersist.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/validate.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/mock.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/mock-0.6.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/mock.pdf (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .pdf
+    Skipping link http://code.google.com/p/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.resolversystems.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pypi.python.org/pypi/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/unittest2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://hg.python.org/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/unittest-ext/issues/list (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://docs.python.org/library/unittest.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/discover (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docs.python.org/library/contextlib.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://docs.python.org/library/contextlib.html#contextlib.contextmanager (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/arch_d7_2010_06_26.shtml#e1182 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docutils.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org/languages/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.mono-project.com/Moonlight (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://msdn.microsoft.com/en-us/library/aa970909.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://msdn.microsoft.com/en-us/library/system.windows.controls.flowdocumentreader.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://pypi.python.org/pypi/rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/rst2xaml/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.akismet.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://akismet.com/development/api/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/standout.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pathutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/cgiutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/urlpath.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/odict.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pythonutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/pythonutils-0.4.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://pycrypto.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amk.ca/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.dlitz.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.mingw.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win32-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win-amd64-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://psyco.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pypy (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pipermail/pypy-dev/2009q3/005288.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/thestore.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.webfaction.com?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#startcontent (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/rest2web/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/index2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://twitter.com/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://del.icio.us/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.google.com/reader/shared/08745352163846617289 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.flickr.com/photos/mfoord/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amazon.com/Deals-Computers/b/?ie=UTF8&node=759498&tag=voidspace-20 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.webfaction.com/?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.vircom.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.sherweb.com/hosted-exchange (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://creativecommons.org/licenses/by-sa/2.0/uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.freecsstemplates.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+  Analyzing links from page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.1.zip
+  Analyzing links from page http://www.voidspace.org.uk/python/modules.shtml
+    Skipping link http://www.voidspace.org.uk/res/style.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://cache.blogads.com/842841053/feed.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/rest.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/void.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pysrc.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pygments.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.ironpythoninaction.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/ironpython/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link mailto:michael&#37;&#52;&#48;voidspace&#46;org&#46;uk (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.python.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.opensource.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/license.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/index.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#configobj (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#mock (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#discover (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pythonutils (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pycrypto (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#psyco (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#index (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configobj.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://bazaar-ng.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://chandler.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.wxpython.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://matplotlib.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://ipython.scipy.org/moin/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/configobj-4.7.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/python/articles/configobj.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml#morepy (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configpersist.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/validate.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/mock.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/mock-0.6.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/mock.pdf (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .pdf
+    Skipping link http://code.google.com/p/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.resolversystems.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pypi.python.org/pypi/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/unittest2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://hg.python.org/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/unittest-ext/issues/list (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://docs.python.org/library/unittest.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/discover (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docs.python.org/library/contextlib.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://docs.python.org/library/contextlib.html#contextlib.contextmanager (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/arch_d7_2010_06_26.shtml#e1182 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docutils.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org/languages/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.mono-project.com/Moonlight (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://msdn.microsoft.com/en-us/library/aa970909.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://msdn.microsoft.com/en-us/library/system.windows.controls.flowdocumentreader.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://pypi.python.org/pypi/rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/rst2xaml/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.akismet.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://akismet.com/development/api/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/standout.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pathutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/cgiutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/urlpath.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/odict.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pythonutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/pythonutils-0.4.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://pycrypto.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amk.ca/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.dlitz.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.mingw.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win32-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win-amd64-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://psyco.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pypy (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pipermail/pypy-dev/2009q3/005288.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/thestore.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.webfaction.com?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#startcontent (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/rest2web/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/index2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://twitter.com/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://del.icio.us/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.google.com/reader/shared/08745352163846617289 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.flickr.com/photos/mfoord/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amazon.com/Deals-Computers/b/?ie=UTF8&node=759498&tag=voidspace-20 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.webfaction.com/?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.vircom.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.sherweb.com/hosted-exchange (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://creativecommons.org/licenses/by-sa/2.0/uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.freecsstemplates.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+  Analyzing links from page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.4.zip
+  Analyzing links from page http://www.voidspace.org.uk/python/modules.shtml
+    Skipping link http://www.voidspace.org.uk/res/style.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://cache.blogads.com/842841053/feed.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/rest.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/void.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pysrc.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pygments.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.ironpythoninaction.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/ironpython/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link mailto:michael&#37;&#52;&#48;voidspace&#46;org&#46;uk (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.python.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.opensource.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/license.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/index.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#configobj (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#mock (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#discover (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pythonutils (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pycrypto (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#psyco (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#index (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configobj.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://bazaar-ng.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://chandler.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.wxpython.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://matplotlib.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://ipython.scipy.org/moin/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/configobj-4.7.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/python/articles/configobj.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml#morepy (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configpersist.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/validate.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/mock.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/mock-0.6.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/mock.pdf (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .pdf
+    Skipping link http://code.google.com/p/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.resolversystems.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pypi.python.org/pypi/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/unittest2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://hg.python.org/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/unittest-ext/issues/list (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://docs.python.org/library/unittest.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/discover (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docs.python.org/library/contextlib.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://docs.python.org/library/contextlib.html#contextlib.contextmanager (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/arch_d7_2010_06_26.shtml#e1182 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docutils.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org/languages/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.mono-project.com/Moonlight (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://msdn.microsoft.com/en-us/library/aa970909.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://msdn.microsoft.com/en-us/library/system.windows.controls.flowdocumentreader.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://pypi.python.org/pypi/rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/rst2xaml/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.akismet.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://akismet.com/development/api/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/standout.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pathutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/cgiutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/urlpath.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/odict.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pythonutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/pythonutils-0.4.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://pycrypto.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amk.ca/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.dlitz.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.mingw.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win32-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win-amd64-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://psyco.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pypy (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pipermail/pypy-dev/2009q3/005288.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/thestore.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.webfaction.com?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#startcontent (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/rest2web/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/index2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://twitter.com/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://del.icio.us/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.google.com/reader/shared/08745352163846617289 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.flickr.com/photos/mfoord/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amazon.com/Deals-Computers/b/?ie=UTF8&node=759498&tag=voidspace-20 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.webfaction.com/?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.vircom.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.sherweb.com/hosted-exchange (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://creativecommons.org/licenses/by-sa/2.0/uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.freecsstemplates.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+  Analyzing links from page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.2.zip
+  Analyzing links from page http://www.voidspace.org.uk/python/modules.shtml
+    Skipping link http://www.voidspace.org.uk/res/style.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://cache.blogads.com/842841053/feed.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/rest.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/void.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pysrc.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pygments.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.ironpythoninaction.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/ironpython/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link mailto:michael&#37;&#52;&#48;voidspace&#46;org&#46;uk (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.python.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.opensource.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/license.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/index.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#configobj (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#mock (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#discover (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pythonutils (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pycrypto (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#psyco (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#index (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configobj.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://bazaar-ng.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://chandler.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.wxpython.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://matplotlib.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://ipython.scipy.org/moin/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/configobj-4.7.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/python/articles/configobj.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml#morepy (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configpersist.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/validate.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/mock.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/mock-0.6.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/mock.pdf (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .pdf
+    Skipping link http://code.google.com/p/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.resolversystems.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pypi.python.org/pypi/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/unittest2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://hg.python.org/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/unittest-ext/issues/list (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://docs.python.org/library/unittest.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/discover (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docs.python.org/library/contextlib.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://docs.python.org/library/contextlib.html#contextlib.contextmanager (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/arch_d7_2010_06_26.shtml#e1182 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docutils.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org/languages/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.mono-project.com/Moonlight (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://msdn.microsoft.com/en-us/library/aa970909.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://msdn.microsoft.com/en-us/library/system.windows.controls.flowdocumentreader.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://pypi.python.org/pypi/rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/rst2xaml/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.akismet.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://akismet.com/development/api/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/standout.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pathutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/cgiutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/urlpath.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/odict.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pythonutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/pythonutils-0.4.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://pycrypto.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amk.ca/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.dlitz.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.mingw.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win32-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win-amd64-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://psyco.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pypy (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pipermail/pypy-dev/2009q3/005288.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/thestore.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.webfaction.com?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#startcontent (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/rest2web/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/index2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://twitter.com/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://del.icio.us/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.google.com/reader/shared/08745352163846617289 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.flickr.com/photos/mfoord/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amazon.com/Deals-Computers/b/?ie=UTF8&node=759498&tag=voidspace-20 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.webfaction.com/?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.vircom.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.sherweb.com/hosted-exchange (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://creativecommons.org/licenses/by-sa/2.0/uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.freecsstemplates.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+  Analyzing links from page http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=akismet-0.1.3.zip
+  Analyzing links from page http://www.voidspace.org.uk/python/modules.shtml
+    Skipping link http://www.voidspace.org.uk/res/style.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://cache.blogads.com/842841053/feed.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/rest.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/void.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pysrc.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/stylesheets/pygments.css (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .css
+    Skipping link http://www.voidspace.org.uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.ironpythoninaction.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/ironpython/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link mailto:michael&#37;&#52;&#48;voidspace&#46;org&#46;uk (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.python.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.opensource.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/license.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/index.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#configobj (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#mock (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#discover (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#akismet (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pythonutils (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#pycrypto (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#psyco (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#index (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configobj.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://bazaar-ng.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://chandler.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.wxpython.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.osafoundation.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://matplotlib.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://ipython.scipy.org/moin/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/configobj-4.7.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/python/articles/configobj.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/articles.shtml#morepy (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/configpersist.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/validate.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/mock.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/mock-0.6.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/mock.pdf (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .pdf
+    Skipping link http://code.google.com/p/mock/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.resolversystems.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pypi.python.org/pypi/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/unittest2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://hg.python.org/unittest2 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/unittest-ext/issues/list (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://docs.python.org/library/unittest.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/discover (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/articles/introduction-to-unittest.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docs.python.org/library/contextlib.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://docs.python.org/library/contextlib.html#contextlib.contextmanager (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://pypi.python.org/pypi/contextdecorator (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/weblog/arch_d7_2010_06_26.shtml#e1182 (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://docutils.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://pygments.org/languages/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.mono-project.com/Moonlight (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://msdn.microsoft.com/en-us/library/aa970909.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://msdn.microsoft.com/en-us/library/system.windows.controls.flowdocumentreader.aspx (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .aspx
+    Skipping link http://pypi.python.org/pypi/rst2xaml (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://code.google.com/p/rst2xaml/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.akismet.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://akismet.com/development/api/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://wordpress.com (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/akismet/test_akismet.py (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/python/akismet_python.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Found link http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml), version: 0.2.0
+    Skipping link http://www.voidspace.org.uk/python/standout.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pathutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/cgiutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/urlpath.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/odict.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/python/pythonutils.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/pythonutils-0.4.0.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://pycrypto.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amk.ca/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.dlitz.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.3.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.7.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.1.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.mingw.org (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=pycrypto-2.0.1.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win32-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://www.voidspace.org.uk/downloads/pycrypto-2.0.1.win-amd64-py2.6.exe (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .exe
+    Skipping link http://psyco.sourceforge.net/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pypy (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://codespeak.net/pipermail/pypy-dev/2009q3/005288.html (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .html
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.5.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-2.0.0.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.6.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/downloads/psyco-1.6.win32-py2.4.zip (from http://www.voidspace.org.uk/python/modules.shtml); wrong project name (not akismet)
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.2.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/cgi-bin/voidspace/downman.py?file=psyco-1.5.1.win32-py2.3.zip (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .py
+    Skipping link http://www.voidspace.org.uk/thestore.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.webfaction.com?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/python/modules.shtml#startcontent (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://www.voidspace.org.uk/python/rest2web/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.voidspace.org.uk/index2.shtml (from http://www.voidspace.org.uk/python/modules.shtml); unknown archive format: .shtml
+    Skipping link http://twitter.com/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://del.icio.us/voidspace (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.google.com/reader/shared/08745352163846617289 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.flickr.com/photos/mfoord/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.amazon.com/Deals-Computers/b/?ie=UTF8&node=759498&tag=voidspace-20 (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.webfaction.com/?affiliate=fuzzyman (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.vircom.com/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.sherweb.com/hosted-exchange (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://creativecommons.org/licenses/by-sa/2.0/uk/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+    Skipping link http://www.freecsstemplates.org/ (from http://www.voidspace.org.uk/python/modules.shtml); not a file
+  Using version 0.2.0 (newest of versions: 0.2.0, 0.2.0, 0.2.0, 0.2.0, 0.2.0, 0.2.0, 0.2.0)
+  Downloading from URL http://www.voidspace.org.uk/downloads/akismet-0.2.0.zip (from http://www.voidspace.org.uk/python/modules.shtml)
+  Running setup.py egg_info for package akismet
+    running egg_info
+    creating pip-egg-info/akismet.egg-info
+    writing pip-egg-info/akismet.egg-info/PKG-INFO
+    writing top-level names to pip-egg-info/akismet.egg-info/top_level.txt
+    writing dependency_links to pip-egg-info/akismet.egg-info/dependency_links.txt
+    writing manifest file 'pip-egg-info/akismet.egg-info/SOURCES.txt'
+    warning: manifest_maker: standard file '-c' not found
+    reading manifest file 'pip-egg-info/akismet.egg-info/SOURCES.txt'
+    writing manifest file 'pip-egg-info/akismet.egg-info/SOURCES.txt'
+  Source in ./build/akismet has version 0.2.0, which satisfies requirement akismet
+Installing collected packages: akismet
+  Running setup.py install for akismet
+    Running command /usr/bin/python -c "import setuptools; __file__='/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py'; execfile('/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py')" install --single-version-externally-managed --record /tmp/pip-unBsAE-record/install-record.txt --install-headers /home/pankaj/git_repo/codebhaat/web_interface/lib/include
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib.linux-i686-2.6
+    copying akismet.py -> build/lib.linux-i686-2.6
+    running install_lib
+    copying build/lib.linux-i686-2.6/akismet.py -> /usr/local/lib/python2.6/dist-packages
+    error: /usr/local/lib/python2.6/dist-packages/akismet.py: Permission denied
+    Complete output from command /usr/bin/python -c "import setuptools; __file__='/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py'; execfile('/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py')" install --single-version-externally-managed --record /tmp/pip-unBsAE-record/install-record.txt --install-headers /home/pankaj/git_repo/codebhaat/web_interface/lib/include:
+    running install
+
+running build
+
+running build_py
+
+creating build
+
+creating build/lib.linux-i686-2.6
+
+copying akismet.py -> build/lib.linux-i686-2.6
+
+running install_lib
+
+copying build/lib.linux-i686-2.6/akismet.py -> /usr/local/lib/python2.6/dist-packages
+
+error: /usr/local/lib/python2.6/dist-packages/akismet.py: Permission denied
+
+----------------------------------------
+Command /usr/bin/python -c "import setuptools; __file__='/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py'; execfile('/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py')" install --single-version-externally-managed --record /tmp/pip-unBsAE-record/install-record.txt --install-headers /home/pankaj/git_repo/codebhaat/web_interface/lib/include failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 252, in main
+    self.run(options, args)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 410, in run
+    requirement_set.install(install_options)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 2017, in install
+    requirement.install(install_options)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 1515, in install
+    cwd=self.source_dir, filter_stdout=self._filter_install, show_stdout=False)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 3543, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command /usr/bin/python -c "import setuptools; __file__='/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py'; execfile('/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py')" install --single-version-externally-managed --record /tmp/pip-unBsAE-record/install-record.txt --install-headers /home/pankaj/git_repo/codebhaat/web_interface/lib/include failed with error code 1

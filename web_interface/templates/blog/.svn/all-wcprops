@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/11355/djangoproject.com/django_website/templates/blog
+END
+entry_archive_day.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9073/djangoproject.com/django_website/templates/blog/entry_archive_day.html
+END
+entry_archive.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9073/djangoproject.com/django_website/templates/blog/entry_archive.html
+END
+entry_archive_year.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3008/djangoproject.com/django_website/templates/blog/entry_archive_year.html
+END
+entry_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/11355/djangoproject.com/django_website/templates/blog/entry_detail.html
+END
+entry_snippet.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9073/djangoproject.com/django_website/templates/blog/entry_snippet.html
+END
+entry_archive_month.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/9073/djangoproject.com/django_website/templates/blog/entry_archive_month.html
+END
+month_links_snippet.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/8925/djangoproject.com/django_website/templates/blog/month_links_snippet.html
+END

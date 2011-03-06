@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/9073/djangoproject.com/django_website/apps/blog
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/9073/djangoproject.com/django_website/apps/blog/admin.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/13/djangoproject.com/django_website/apps/blog/__init__.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/9073/djangoproject.com/django_website/apps/blog/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/7369/djangoproject.com/django_website/apps/blog/urls.py
+END
+feeds.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/7759/djangoproject.com/django_website/apps/blog/feeds.py
+END

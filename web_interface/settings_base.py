@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'profiles',
     'captcha',
     'valuate',
+    'blog',
 ]
 
 if DEBUG:
