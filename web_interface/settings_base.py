@@ -1,4 +1,6 @@
 import os, djcelery
+from django.conf import settings
+
 djcelery.setup_loader()
 ROOT_PATH = os.path.dirname(__file__)
 # Django settings for the project.
@@ -94,11 +96,14 @@ INSTALLED_APPS = [
     'main',
     'ticket',
     'django.contrib.flatpages',
+    #'tinymce',
+    #'flatpages_tinymce',
     'registration',
     'profiles',
     'captcha',
     'valuate',
     'blog',
+
 ]
 
 if DEBUG:
@@ -121,3 +126,6 @@ MAX_UPLOAD_SIZE = 1048576
 MAX_SUBMISSIONS = 100
 RECAPTCHA_PUBLIC_KEY = '6LcFU8ESAAAAAC_yuc_hX-4xlPNLbI_RXzsOSjtn'
 RECAPTCHA_PRIVATE_KEY = '6LcFU8ESAAAAAKmK22wpEQcdXdVEj64A9vqqYevX'
+
+
+

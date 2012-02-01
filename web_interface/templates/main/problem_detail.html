@@ -2,26 +2,26 @@
 {% load comments humanize cache valuation %}
 {% block head %}
 {% if last_submission %}
-    {% if not last_submission_ready %}
-	   <meta http-equiv="refresh" content="30;">
-	{% endif %}
-    <link href="/media/stylesheets/shThemeDjango.css" rel="stylesheet" type="text/css" />
-    <link href="/media/stylesheets/shCore.css" rel="stylesheet" type="text/css">
-    <link href="/media/stylesheets/highlight.css" rel="stylesheet" type="text/css">
-    <script src="/media/js/shCore.js" type="text/javascript"></script>
-    <script src="/media/js/shAutoloader.js" type="text/javascript"></script>
-    {% if last_submission.language == "c" or  "cpp" %}<script src="/media/js/shBrushCpp.js" type="text/javascript"></script>{% endif %}{% if last_submission.language ==  "java" %}<script src="/media/js/shBrushJava.js" type="text/javascript"></script>{% endif %}{% if last_submission.language == "python" %}<script src="/media/js/shBrushPython.js" type="text/javascript"></script>{% endif %}
-    <!--<script src="/media/js/shBrushPython.js" type="text/javascript"></script>  -->
-    <script type="text/javascript">
-	    function toggleVisibility(e)
-	    {
-		    var program_div = document.getElementById('program');
-		    if (program_div.style.display=="none")
-			    program_div.style.display="block";
-		    else
-			    program_div.style.display="none";
-	    }
-    </script>	
+{% if not last_submission_ready %}
+<meta http-equiv="refresh" content="30;">
+{% endif %}
+<link href="/media/stylesheets/shThemeDjango.css" rel="stylesheet" type="text/css" />
+<link href="/media/stylesheets/shCore.css" rel="stylesheet" type="text/css">
+<link href="/media/stylesheets/highlight.css" rel="stylesheet" type="text/css">
+<script src="/media/js/shCore.js" type="text/javascript"></script>
+<script src="/media/js/shAutoloader.js" type="text/javascript"></script>
+{% if last_submission.language == "c" or  "cpp" %}<script src="/media/js/shBrushCpp.js" type="text/javascript"></script>{% endif %}{% if last_submission.language ==  "java" %}<script src="/media/js/shBrushJava.js" type="text/javascript"></script>{% endif %}{% if last_submission.language == "python" %}<script src="/media/js/shBrushPython.js" type="text/javascript"></script>{% endif %}
+<!--<script src="/media/js/shBrushPython.js" type="text/javascript"></script>  -->
+<script type="text/javascript">
+    function toggleVisibility(e)
+{
+    var program_div = document.getElementById('program');
+    if (program_div.style.display=="none")
+        program_div.style.display="block";
+    else
+        program_div.style.display="none";
+}
+</script>	
 {% endif %}
 {% endblock %}
 {% block content_heading %}<a href={% url contest_list %}>Contest</a> > {% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}{{ problem.title }}{% endblock %}
@@ -35,115 +35,115 @@
     <h3>Problem Stats:</h3>
     {% render_valuate form of problem %}
     Average Rating: <b>{% get_valuate score of problem %}</b><br/><br/>
-  	Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
-  	Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
-  	Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
+    Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
+    Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
+    Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
     <table>
-    	<thead>
-    		<tr>
-    			<th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
-    		</tr>
-    	</thead>
-    	<tbody>
-  		{% for submission in problem.status.latest_submissions %}
-    		<tr>
-    			<td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
-    		</tr>
-    		{% empty %}
-    		<tr>
-            <td>No submissions</td><td></td><td></td><td></td>
-    		</tr>
-    	{% endfor %}
-    	</tbody>
+        <thead>
+            <tr>
+                <th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in problem.status.latest_submissions %}
+            <tr>
+                <td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>    
 </div>
 {% endcache %}
 <div class="entry" style="width:400px;">
-	{{ problem.question|safe }}
-	{% if public_testcases %}
-	<p><strong>Sample test case:</strong>
-	{% for case in public_testcases %}	    
-		<a href ="{{ case.input_url }}">Input</a>
-		<a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
-	{% endfor %}
-	{% endif %}
-	</p>	
-	{% if last_submission.correct or submission_limit_reached %}
-	{% else %}
-        
-	    <form action="#" method="post" class = "form" enctype="multipart/form-data">
-	    <table>	
-	            {{ form }} 
-	    </table>
-	    <input type="submit" value="Submit" class = ".btn"/>
-	    </form>
-	    
-	{% endif %}
-	{% if last_submission %}
-		<p>
-		{% if last_submission_ready %}
-    		{% if last_submission.correct %}
-    			<span style = "color:green;">Your submission was correct.</span>
-    			<br/>You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
-    		{% else %}
-    		    <span style = "color:red;">Your last submission was not correct: {{ last_submission.result.error.title }}</span>    
-    		{% endif %}		    
-		{% else %}
-		    <span style = "color:red;">Your old submission is in process. Please Wait</span> <a href ="">Refresh</a><br/>
-            <span sttle = "color:red;">If it has taken more than 5 mins for submission processing, please resubmit</span>
-		{% endif %}
-		<!--( {{ last_submission.attempts }} attempt{{ last_submission.attempts|pluralize }})-->
-		</p>
+    {{ problem.question|safe }}
+    {% if public_testcases %}
+    <p><strong>Sample test case:</strong>
+        {% for case in public_testcases %}	    
+        <a href ="{{ case.input_url }}">Input</a>
+        <a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
+        {% endfor %}
+        {% endif %}
+    </p>	
+    {% if last_submission.correct or submission_limit_reached %}
+    {% else %}
+
+    <form action="#" method="post" class = "form" enctype="multipart/form-data">
+        <table>	
+            {{ form }} 
+        </table>
+        <input type="submit" value="Submit" class = ".btn"/>
+    </form>
+
+    {% endif %}
+    {% if last_submission %}
+    <p>
+        {% if last_submission_ready %}
+        {% if last_submission.correct %}
+        <span style = "color:green;">Your submission was correct.</span>
+        <br/>You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
+        {% else %}
+        <span style = "color:red;">Your last submission was not correct: {{ last_submission.result.error.title }}</span>    
+        {% endif %}		    
+        {% else %}
+        <span style = "color:red;">Your old submission is in process. Please Wait</span> <a href ="">Refresh</a><br/>
+        <span sttle = "color:red;">If it has taken more than 5 mins for submission processing, please resubmit</span>
+        {% endif %}
+        <!--( {{ last_submission.attempts }} attempt{{ last_submission.attempts|pluralize }})-->
+    </p>
     {% endif %}
 </div>
 <div id="program">
-  {{ last_submission.code|safe }}
+    {{ last_submission.code|safe }}
 </div>
 {% get_comment_count for problem as comment_count %}
-    {% get_comment_list for problem as comment_list %}
-    {% get_comment_form for problem as form %}
-    <h3>Comments({{ comment_count }})</h3>
-    <table>
+{% get_comment_list for problem as comment_list %}
+{% get_comment_form for problem as form %}
+<h3>Comments({{ comment_count }})</h3>
+<table>
     {% for c in comment_list %}        
-      <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
-    {% endfor %}
-    </table>  
-    <h4>Your comment</h4>
-    <script language="JavaScript" type="text/javascript">
-        function checkform ( form )
-        {
-            if (form.comment.value == "") {
-            alert( "Please enter your comment." );
-            form.comment.focus();
-            return false ;
-        }
-        return true ;
-    }
-    </script>
-    <form action="{% comment_form_target %}" method="post" onsubmit="return checkform(this);">
-        <table>
-            {% for field in form.hidden_fields %}
-            {{ field }}
+    <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
             {% endfor %}
-            <tr style="display:none">
-                <th><label for="id_name">Name</label></th> <td><input id="id_name" type="text" name="name" maxlength="50" value="{{request.user.username }}"/></td>
-            </tr>
-            <tr style="display:none">
-                <th><label for="id_email">Email address</label></th> <td><input type="text" name="email" id="id_email" value="{{request.user.email }}"/></td>
-            </tr>
-            <tr style="display:none">
-                <th><label for="id_url">URL</label></th> <td><input type="text" name="url" id="id_url" /></td>
-            </tr>
-                <tr>
-                <th><label for="id_comment">Comment</label></th> <td><textarea id="id_comment" name="comment"  style="width:580px; max-width:580px; height:80px; max-height:150px;"></textarea></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" name="post" class="submit-post" value="Post"></td>
-                <input type="hidden" name="next" value="{% url problem_detail contest.pk problem.pk %}" />
-            </tr>
-        </table>
-    </form>
+        </table>  
+        <h4>Your comment</h4>
+        <script language="JavaScript" type="text/javascript">
+            function checkform ( form )
+{
+    if (form.comment.value == "") {
+        alert( "Please enter your comment." );
+        form.comment.focus();
+        return false ;
+    }
+    return true ;
+}
+</script>
+<form action="{% comment_form_target %}" method="post" onsubmit="return checkform(this);">
+    <table>
+        {% for field in form.hidden_fields %}
+        {{ field }}
+        {% endfor %}
+        <tr style="display:none">
+            <th><label for="id_name">Name</label></th> <td><input id="id_name" type="text" name="name" maxlength="50" value="{{request.user.username }}"/></td>
+        </tr>
+        <tr style="display:none">
+            <th><label for="id_email">Email address</label></th> <td><input type="text" name="email" id="id_email" value="{{request.user.email }}"/></td>
+        </tr>
+        <tr style="display:none">
+            <th><label for="id_url">URL</label></th> <td><input type="text" name="url" id="id_url" /></td>
+        </tr>
+        <tr>
+            <th><label for="id_comment">Comment</label></th> <td><textarea id="id_comment" name="comment"  style="width:580px; max-width:580px; height:80px; max-height:150px;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="post" class="submit-post" value="Post"></td>
+            <input type="hidden" name="next" value="{% url problem_detail contest.pk problem.pk %}" />
+        </tr>
+    </table>
+</form>
 {% endblock %}
 {% block sidebar %}
 {% endblock %}

@@ -5,8 +5,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'codebhaat',                  
-        'USER': 'root',                     
-        'PASSWORD': 'root',                  
+        'USER': 'codebhaat',                     
+        'PASSWORD': 'studcod3r',                  
         'HOST': SERVER,          
         'PORT': '3306',                     
     }
@@ -14,6 +14,6 @@ DATABASES = {
 
 BROKER_HOST = SERVER
 BROKER_PORT = 5672
-BROKER_USER = "user"
-BROKER_PASSWORD = "pass"
-BROKER_VHOST = "myvhost"
+BROKER_USER = "codebhaat"
+BROKER_PASSWORD = "studecod3r"
+BROKER_VHOST = "codebhaat_vhost"

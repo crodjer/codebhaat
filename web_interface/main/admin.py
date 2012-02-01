@@ -1,6 +1,8 @@
 from main.models import *
 from django.contrib import admin
 
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
 
 def mark_public(modeladmin, request, queryset):
     queryset.update(is_public=True)
@@ -52,8 +54,18 @@ class RankAdmin(admin.ModelAdmin):
     list_filter = ['contest', 'user']
     search_fields = ['user']
 
+class FlatPageAdmin(admin.ModelAdmin):
+    class Media:
+        js = ('js/nicEdit.js','js/admin_wysiwg.js')
+
+
 admin.site.register(Rank,RankAdmin)
 admin.site.register(Submission,SubmissionAdmin)
 admin.site.register(Problem,ProblemAdmin)
 admin.site.register(Contest)
 admin.site.register(Tag)
+
+
+# We have to unregister it, and then reregister
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)

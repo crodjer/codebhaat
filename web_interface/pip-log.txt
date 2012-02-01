@@ -701,3 +701,50 @@ Traceback (most recent call last):
   File "/usr/lib/python2.6/dist-packages/pip.py", line 3543, in call_subprocess
     % (command_desc, proc.returncode))
 InstallationError: Command /usr/bin/python -c "import setuptools; __file__='/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py'; execfile('/home/pankaj/git_repo/codebhaat/web_interface/build/akismet/setup.py')" install --single-version-externally-managed --record /tmp/pip-unBsAE-record/install-record.txt --install-headers /home/pankaj/git_repo/codebhaat/web_interface/lib/include failed with error code 1
+------------------------------------------------------------
+/usr/bin/pip run on Wed Feb  1 17:59:09 2012
+Exception:
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 252, in main
+    self.run(options, args)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 401, in run
+    InstallRequirement.from_line(name, None))
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 1228, in from_line
+    return cls(req, comes_from, url=url)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 1185, in __init__
+    req = pkg_resources.Requirement.parse(req)
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2531, in parse
+    reqs = list(parse_requirements(s))
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2456, in parse_requirements
+    line, p, specs = scan_list(VERSION,LINE_END,line,p,(1,2),"version spec")
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2424, in scan_list
+    raise ValueError("Expected "+item_name+" in",line,"at",line[p:])
+ValueError: ('Expected version spec in', 'django=1.2.4', 'at', '=1.2.4')
+------------------------------------------------------------
+/usr/bin/pip run on Wed Feb  1 17:59:24 2012
+Downloading/unpacking djang.2.4
+  Getting page http://pypi.python.org/simple/djang.2.4
+  Could not fetch URL http://pypi.python.org/simple/djang.2.4: HTTP Error 404: Not Found (djang.2.4 does not have any releases)
+  Will skip URL http://pypi.python.org/simple/djang.2.4 when looking for download links for djang.2.4
+  Getting page http://pypi.python.org/simple/
+Exception:
+Traceback (most recent call last):
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 252, in main
+    self.run(options, args)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 408, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 1750, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 996, in find_requirement
+    url_name = self._find_url_name(Link(self.index_urls[0]), url_name, req)
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 1075, in _find_url_name
+    for link in page.links:
+  File "/usr/lib/python2.6/dist-packages/pip.py", line 2220, in links
+    url = self.clean_link(urlparse.urljoin(self.url, url))
+  File "/usr/lib/python2.6/urlparse.py", line 210, in urljoin
+    urlparse(url, bscheme, allow_fragments)
+  File "/usr/lib/python2.6/urlparse.py", line 108, in urlparse
+    tuple = urlsplit(url, scheme, allow_fragments)
+  File "/usr/lib/python2.6/urlparse.py", line 174, in urlsplit
+    _parse_cache[key] = v
+KeyboardInterrupt
