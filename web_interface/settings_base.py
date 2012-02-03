@@ -119,6 +119,7 @@ DEFAULT_FROM_EMAIL = '"Codebhaat, IIT Kharagpur"<noreply@codebhaat.in>'
 EMAIL_HOST = ''
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+AKISMET_API_KEY = ''
 
 
 FILE_UPLOAD_MAX_MEMORY_SIZE = 1048576

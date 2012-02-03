@@ -1,4 +1,4 @@
 from settings import *
 
-DEBUG = True
+DEBUG = False
 SITE_ID = 1

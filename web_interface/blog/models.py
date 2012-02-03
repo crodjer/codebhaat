@@ -32,6 +32,7 @@ class Entry(models.Model):
         return delta.days < 60
 
 def moderate_comment(sender, comment, request, **kwargs):
+    return
     ak = akismet.Akismet(
         key = settings.AKISMET_API_KEY,
         blog_url = 'http://%s/' % Site.objects.get_current().domain
