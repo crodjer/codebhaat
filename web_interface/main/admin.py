@@ -24,7 +24,6 @@ class ProblemAdmin(admin.ModelAdmin):
     inlines = [TestCaseInline]
     actions = [mark_public, mark_not_public]
     search_fields = ['title', 'question']
-    
 class SubmissionAdmin(admin.ModelAdmin):
     class Media:
         css = {
@@ -32,14 +31,14 @@ class SubmissionAdmin(admin.ModelAdmin):
             }
     fieldsets = [
             (None,			   {'fields': ['problem', 'user', 'program', 'contest', 'language', 'marks', 'code']}),
-            
+
     ]
     readonly_fields = ('correct', 'code', 'task_status')
     list_display = ('problem','user', 'time','program','task_status', 'marks', 'result','id','is_latest')
     list_filter = ['user', 'contest', 'time']
     search_fields = ['problem__title']
     date_hierarchy = 'time'
-    def save_model(self, request, obj, form, change): 
+    def save_model(self, request, obj, form, change):
             instance = form.save(commit=False)
             instance.save(user = request.user)
             return instance
@@ -47,10 +46,9 @@ class SubmissionAdmin(admin.ModelAdmin):
 class RankAdmin(admin.ModelAdmin):
     fieldsets = [
             (None,   {'fields': ['rank', 'user', 'contest', 'total_marks', 'not_ranked']}),
-            
     ]
     readonly_fields = ('rank', 'total_marks')
-    list_display = ('user', 'contest', 'rank', 'total_marks')    
+    list_display = ('user', 'contest', 'rank', 'total_marks')
     list_filter = ['contest', 'user']
     search_fields = ['user']
 
@@ -58,13 +56,19 @@ class FlatPageAdmin(admin.ModelAdmin):
     class Media:
         js = ('js/nicEdit.js','js/admin_wysiwg.js')
 
+class TutorialAdmin(admin.ModelAdmin):
+    class Media:
+        js = ('js/nicEdit.js','js/admin_wysiwg.js')
+    list_display = ['problem']
+
+
 
 admin.site.register(Rank,RankAdmin)
 admin.site.register(Submission,SubmissionAdmin)
 admin.site.register(Problem,ProblemAdmin)
 admin.site.register(Contest)
 admin.site.register(Tag)
-
+admin.site.register(Tutorial, TutorialAdmin)
 
 # We have to unregister it, and then reregister
 admin.site.unregister(FlatPage)

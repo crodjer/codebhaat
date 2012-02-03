@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load comments humanize cache valuation %}
+{% block head %}
+<link href="/media/stylesheets/shThemeDjango.css" rel="stylesheet" type="text/css" />
+<link href="/media/stylesheets/shCore.css" rel="stylesheet" type="text/css">
+<link href="/media/stylesheets/highlight.css" rel="stylesheet" type="text/css">
+<script src="/media/js/shCore.js" type="text/javascript"></script>
+<script src="/media/js/shAutoloader.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content_heading %}<a href={% url contest_list %}>Contest</a> > {% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}[TUTORIAL] {{ problem.title }}{% endblock %}
+{% block content %}
+<div class="entry" style="width:400px;">
+    <h3> Problem statement: </h3>
+    {{ problem.question|safe }}
+    <br/><br/>
+    <h3> Solution </h3>
+    {{ tutorial.tutorial|safe }}
+</div>
+{% get_comment_count for tutorial as comment_count %}
+{% get_comment_list for tutorial as comment_list %}
+{% get_comment_form for tutorial as form %}
+<h3>Comments({{ comment_count }})</h3>
+<table>
+    {% for c in comment_list %}
+    <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
+            {% endfor %}
+        </table>
+        <h4>Your comment</h4>
+        <script language="JavaScript" type="text/javascript">
+            function checkform ( form )
+{
+    if (form.comment.value == "") {
+        alert( "Please enter your comment." );
+        form.comment.focus();
+        return false ;
+    }
+    return true ;
+}
+</script>
+<form action="{% comment_form_target %}" method="post" onsubmit="return checkform(this);">
+    <table>
+        {% for field in form.hidden_fields %}
+        {{ field }}
+        {% endfor %}
+        <tr style="display:none">
+            <th><label for="id_name">Name</label></th> <td><input id="id_name" type="text" name="name" maxlength="50" value="{{request.user.username }}"/></td>
+        </tr>
+        <tr style="display:none">
+            <th><label for="id_email">Email address</label></th> <td><input type="text" name="email" id="id_email" value="{{request.user.email }}"/></td>
+        </tr>
+        <tr style="display:none">
+            <th><label for="id_url">URL</label></th> <td><input type="text" name="url" id="id_url" /></td>
+        </tr>
+        <tr>
+            <th><label for="id_comment">Comment</label></th> <td><textarea id="id_comment" name="comment"  style="width:580px; max-width:580px; height:80px; max-height:150px;"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="post" class="submit-post" value="Post"></td>
+            <input type="hidden" name="next" value="{% url problem_detail contest.pk problem.pk %}" />
+        </tr>
+    </table>
+</form>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}

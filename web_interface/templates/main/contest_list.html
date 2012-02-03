@@ -3,7 +3,8 @@
 {% block content_heading %}Contests{% endblock %}
 {% block content %}
 {% for contest in contests %}
-  <a href="{% url contest_problems contest.pk %}">{{ contest }}</a><br/>  
+<a href="{% url contest_problems contest.pk %}">{{ contest }}</a><br/>
+</table>
 {% endfor %}
 {% endblock %}
 {% block sidebar %}
