@@ -161,8 +161,7 @@ class Problem(models.Model):
 # A tutorial model for problems
 class Tutorial(models.Model):
   tutorial = models.TextField('Content')
-  problem = models.ForeignKey(Problem)
-
+  problem = models.ForeignKey(Problem, unique=True)
 
 #Input Output file for problem
 class TestCase(models.Model):
