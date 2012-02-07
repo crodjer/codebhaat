@@ -15,7 +15,7 @@
                 color: #fff;
                 font-size:12px;
             }
-            
+
             #extra a {
                 color: #fff;
                 font-size:12px;
@@ -35,7 +35,7 @@
                     <div id="extra">
                         {% if request.user.is_active %}
                         Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
-                        {% if request.user.is_superuser %} 
+                        {% if request.user.is_superuser %}
                         | <a href="/siteadmin/">Admin</a>
                         {% endif %}
                         {% else %}<a href="/login/">Log In</a>&nbsp;|&nbsp;<a href="/accounts/register/">Sign up</a>
@@ -44,7 +44,7 @@
                 </div>
                 <!-- /main headings with search component --><hr class="hidden" /><!-- main horizontal menu -->
                 <div id="mainMenu">
-                    <ul>
+                  <ul align="center">
                         <li id="index_m">
                             <a href="/">Home<span></span></a>
                         </li>
@@ -54,6 +54,10 @@
                         <li id="index_m">
                             <a href="/contest/">Contest<span></span></a>
                         </li>
+                        <li id="index_m">
+                            <a href="/contribute/">Contribute<span></span></a>
+                        </li>
+
                         <li id="index_m">
                             <a href="/instructions/">Instructions<span></span></a>
                         </li>
@@ -72,7 +76,7 @@
             </div><!-- /#header (main heading + logo with slogan) --><!-- #main content construct -->
             <div id="content">
                 <!-- #left part of web - main content -->
-                <div id="contentBlock">                    
+                <div id="contentBlock">
                     <!-- #first (main) article --><h2>{% block content_heading %}{% endblock %}</h2>
                     <hr/>
                     <p style="margin-top:-10px;">

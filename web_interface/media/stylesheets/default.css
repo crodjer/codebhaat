@@ -103,7 +103,7 @@ table td, table th {
 }
 
 table td img{
-	margin: -5px 0  !important;	
+	margin: -5px 0  !important;
 }
 
 table th {
@@ -160,7 +160,7 @@ fieldset {
 
 /* -- Basics layout -- */
 #view {
-    width: 762px;
+    width: 875px;
     margin: 0 auto;
 }
 
@@ -461,11 +461,10 @@ img.right {
     position: relative;
     left: 1px;
     float: left;
-    width: 720px;
+    width: 800px;
     min-height: 350px;
     margin-bottom: -20px;
-    padding: 20px 0;
-    padding: 10px 20px; /* background: url('/media/images/bg-content_left.gif') 100% 100% no-repeat; */
+    padding: 20px 20px; /* background: url('/media/images/bg-content_left.gif') 100% 100% no-repeat; */
     background: #FFF;
 }
 
