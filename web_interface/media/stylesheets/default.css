@@ -3,22 +3,22 @@
  * =====================================
  */
 /* -- Basics -- */
-html, body, div, p, li, ul, ol, form, fieldset, h1, h2, h3, h4, h5, h6 {
+/*html, body, div, p, li, ul, ol, form, fieldset, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
     list-style: none;
-}
+}*/
 
 body {
-    font: normal 70% / 1.3 Arial, Helvetica, sans-serif;
+    /* font: normal 70% / 1.3 Arial, Helvetica, sans-serif; */
     background: #006699 url('/media/images/bg-body.jpg') repeat-x;
-    color: #585c5e;
-    padding: 7px 0;
+    /* color: #585c5e; */
+    /* padding: 7px 0; */
 }
 
-a {
+/*a {
     color: #148d04;
-}
+}*/
 
 a:hover {
     text-decoration: underline !important;
@@ -38,61 +38,61 @@ input, textarea {
     vertical-align: middle;
 }
 
-input[type=text], textarea {
-    background: #044979;
-    padding: 2px 0;
-    margin: 0;
-    border: 1px solid #1776a4;
-    color: #cde2f0;
-}
+/* input[type=text], textarea { */
+/*     background: #044979; */
+/*     padding: 2px 0; */
+/*     margin: 0; */
+/*     border: 1px solid #1776a4; */
+/*     color: #cde2f0; */
+/* } */
 
-.submit {
-    width: auto !important;
-    overflow: visible;
-    background-color: #312b2a;
-    border: 1px solid #000 !important;
-    padding: 0 5px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
+/* .submit { */
+/*     width: auto !important; */
+/*     overflow: visible; */
+/*     background-color: #312b2a; */
+/*     border: 1px solid #000 !important; */
+/*     padding: 0 5px; */
+/*     color: #fff; */
+/*     font-weight: bold; */
+/*     cursor: pointer; */
+/* } */
 
-h1 {
-    font-size: 2em;
-}
+/* h1 { */
+/*     font-size: 2em; */
+/* } */
+/*  */
+/* h2 { */
+/*     font-size: 1.6em; */
+/* } */
+/*  */
+/* h3 { */
+/*     font-size: 1.4em; */
+/* } */
+/*  */
+/* h4 { */
+/*     font-size: 1.2em; */
+/* } */
+/*  */
+/* h5 { */
+/*     font-size: 1.1em; */
+/* } */
+/*  */
+/* h6 { */
+/*     font-size: 1em; */
+/* } */
+/*  */
+/* p { */
+/*     line-height: 20px; */
+/* } */
 
-h2 {
-    font-size: 1.6em;
-}
-
-h3 {
-    font-size: 1.4em;
-}
-
-h4 {
-    font-size: 1.2em;
-}
-
-h5 {
-    font-size: 1.1em;
-}
-
-h6 {
-    font-size: 1em;
-}
-
-p {
-    line-height: 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
     color: #024877;
     margin: 10px 0 2px;
-}
-hr{
+}*/
+/*hr{
     margin-bottom:15px;
-}
-table {
+}*/
+/*table {
     border-collapse: collapse;
     width: 95%;
 }
@@ -125,7 +125,7 @@ table td.left {
 
 table th.left {
     padding-right: 5px;
-}
+}*/
 
 blockquote {
     margin: 0;
@@ -168,9 +168,9 @@ fieldset {
     font-size: 1.2em;
 }
 
-#content {
+/*#content {
     font-size: 1.2em;
-}
+}*/
 
 #foot {
     font-size: 1.2em;
@@ -394,12 +394,11 @@ img.right {
 /* -- Search block -- */
 #extra {
     position: absolute;
-    right: 12px;
+    right: 22px;
     top: 10px;
-    width: 33%;
+    width: 43%;
     text-align: right;
     font-size: 16px;
-    color: #FFFFFF;
 }
 
 /* -- Right (submenu) block -- */
@@ -512,7 +511,7 @@ img.right {
 }
 
 /* -- Lists -- */
-#contentBlock p, #contentBlock ul, #contentBlock ol, #contentBlock table, #menuBlock .boxText p, #menuBlock .boxText ul, #menuBlock .boxText ol, #menuBlock .boxText table {
+/*#contentBlock p, #contentBlock ul, #contentBlock ol, #contentBlock table, #menuBlock .boxText p, #menuBlock .boxText ul, #menuBlock .boxText ol, #menuBlock .boxText table {
     margin-bottom: 2em;
 }
 
@@ -537,7 +536,7 @@ img.right {
     margin: 3px 0 3px 10px;
     padding: 0;
     list-style: decimal;
-}
+}*/
 
 /* Sidebar */
 #program {

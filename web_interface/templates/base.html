@@ -6,11 +6,13 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <title>code#bhaat</title>
+         <link rel="stylesheet" type="text/css" href="/media/stylesheets/bootstrap-1.0.0.css" />
         <link rel="stylesheet" type="text/css" href="/media/stylesheets/default.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="/media/stylesheets/print.css" media="print" />
+
         {% block head %}{% endblock %}
         <style type="text/css">
-            #extra {
+            /*#extra {
                 width: 400px;
                 color: #fff;
                 font-size:12px;
@@ -22,7 +24,7 @@
             }
             ul li {
                 list-style: none;
-            }
+            }*/
         </style>
     </head>
     <body>
@@ -43,10 +45,12 @@
                     </div>
                 </div>
                 <!-- /main headings with search component --><hr class="hidden" /><!-- main horizontal menu -->
-                <div id="mainMenu">
-                  <ul align="center">
+                <div class="topbar">
+                  <div class="fill">
+                    <div class="container">
+                    <ul align="center">
                         <li id="index_m">
-                            <a href="/">Home<span></span></a>
+                        <a href="/">Home<span></span></a>
                         </li>
                         <li id="index_m">
                             <a href="/weblog/">Blog<span></span></a>
@@ -68,7 +72,9 @@
                             <a href="/contact-us/">Contact Us<span></span></a>
                         </li>
                     </ul>
-                </div>
+                  </div><!--end container-->
+                  </div> <!--end fill-->
+                </div> <!--end topbar-->
                 <!-- /main horizontal menu --><hr class="hidden" /><!-- logo with slogan
                 <div id="logo">
                 </div>
