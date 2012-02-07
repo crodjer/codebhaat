@@ -13,6 +13,29 @@
 {% block content_heading %}Contribute a problem{% endblock %}
 {% block content %}
 
+<div id="sidebar">
+  <h3>Recent Activity:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in recent_act %}
+            <tr>
+                <td>{% if submission.user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
 <div class="entry" style="width:60%;">
 
     <form action="#" method="post" class = "form" enctype="multipart/form-data">

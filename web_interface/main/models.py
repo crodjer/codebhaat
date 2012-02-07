@@ -169,7 +169,7 @@ class ContribProblem(models.Model):
               (2, 'Medium'),
               (3, 'Hard'),
           )
-      title = models.CharField('Title', max_length = 100)
+      title = models.CharField('Title', max_length = 200)
       question = models.TextField('Question')
       tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
       level = models.IntegerField('level', choices=LEVEL_CHOICES, default=2)
@@ -181,6 +181,12 @@ class ContribProblem(models.Model):
 
 
 class ContribForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(ContribForm, self).__init__(*args, **kwargs)
+        # Set widget size options
+        self.fields['title'].widget.attrs["size"] = 40
+        self.fields['question'].widget.attrs["cols"] = 50
 
     class Meta:
         model = ContribProblem

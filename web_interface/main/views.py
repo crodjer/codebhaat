@@ -14,7 +14,19 @@ def credits(request):
 
 def contests(request):
     contests = Contest.objects.all()
-    return render_to_response('main/contest_list.html', {'contests':contests}, context_instance=RequestContext(request))
+    recent_act = get_recent_activity(5)
+    return render_to_response('main/contest_list.html',
+        {'contests':contests,
+          'recent_act': recent_act,
+        },context_instance=RequestContext(request))
+
+def get_recent_activity(max_ent):
+
+    # Obtains recent activity going on in the system
+    # to be rendered on pages with less content
+    # Returns the maximum entries required
+
+    return Submission.objects.order_by('-time')[0:max_ent]
 
 @login_required
 def problem_list(request, contest_pk):
@@ -121,8 +133,11 @@ def contribute(request):
         return HttpResponseRedirect('.')
     else:
       form = ContribForm()
+    # Get 5 recent submissions
+    recent_act = get_recent_activity(5)
     return render_to_response('main/contribute.html', {
         'form': form,
+        'recent_act': recent_act,
     },context_instance=RequestContext(request))
 
 @login_required
