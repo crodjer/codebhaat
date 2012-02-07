@@ -21,16 +21,16 @@
     else
         program_div.style.display="none";
 }
-</script>	
+</script>
 {% endif %}
 {% endblock %}
 {% block content_heading %}<a href={% url contest_list %}>Contest</a> > {% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}{{ problem.title }}{% endblock %}
 {% block content %}
 {% cache 0 sidebar_problem problem %}
-<div id="sidebar">    
+<div id="sidebar">
     <h3>Your stats:</h3>
     Rank: <b>{{ rank.rank }}</b><br/>
-    Total Marks: <b>{{ rank.total_marks }}</b>    
+    Total Marks: <b>{{ rank.total_marks }}</b>
     <br/>
     <h3>Problem Stats:</h3>
     {% render_valuate form of problem %}
@@ -55,27 +55,27 @@
             </tr>
             {% endfor %}
         </tbody>
-    </table>    
+    </table>
 </div>
 {% endcache %}
 <div class="entry" style="width:400px;">
     {{ problem.question|safe }}
     {% if public_testcases %}
     <p><strong>Sample test case:</strong>
-        {% for case in public_testcases %}	    
+        {% for case in public_testcases %}
         <a href ="{{ case.input_url }}">Input</a>
         <a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
         {% endfor %}
         {% endif %}
-    </p>	
+    </p>
     {% if last_submission.correct or submission_limit_reached %}
     {% else %}
 
     <form action="#" method="post" class = "form" enctype="multipart/form-data">
-        <table>	
-            {{ form }} 
+        <table>
+            {{ form }}
         </table>
-        <input type="submit" value="Submit" class = ".btn"/>
+        <input type="submit" value="Submit" class = "btn primary"/>
     </form>
 
     {% endif %}
@@ -83,14 +83,23 @@
     <p>
         {% if last_submission_ready %}
         {% if last_submission.correct %}
-        <span style = "color:green;">Your submission was correct.</span>
+        <div class="alert-message success">
+          <p>
+            Your submission was correct.
         <br/>You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
+        </p>
+        </div> <!-- end alert-message-->
+
         {% else %}
-        <span style = "color:red;">Your last submission was not correct: {{ last_submission.result.error.title }}</span>    
-        {% endif %}		    
+        <div class="alert-message error">
+          Your last submission was not correct: {{ last_submission.result.error.title }}</span>
+        </div>
+        {% endif %}
         {% else %}
-        <span style = "color:red;">Your old submission is in process. Please Wait</span> <a href ="">Refresh</a><br/>
-        <span sttle = "color:red;">If it has taken more than 5 mins for submission processing, please resubmit</span>
+        <div class="alert-message info">
+          Your old submission is in process. Please Wait</span> <a href ="">Refresh</a><br/>
+          If it has taken more than 5 mins for submission processing, please resubmit
+        </div>
         {% endif %}
         <!--( {{ last_submission.attempts }} attempt{{ last_submission.attempts|pluralize }})-->
     </p>
@@ -104,10 +113,10 @@
 {% get_comment_form for problem as form %}
 <h3>Comments({{ comment_count }})</h3>
 <table>
-    {% for c in comment_list %}        
+    {% for c in comment_list %}
     <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
             {% endfor %}
-        </table>  
+        </table>
         <h4>Your comment</h4>
         <script language="JavaScript" type="text/javascript">
             function checkform ( form )
