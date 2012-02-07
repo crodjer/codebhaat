@@ -31,7 +31,6 @@ class SubmissionAdmin(admin.ModelAdmin):
             }
     fieldsets = [
             (None,			   {'fields': ['problem', 'user', 'program', 'contest', 'language', 'marks', 'code']}),
-
     ]
     readonly_fields = ('correct', 'code', 'task_status')
     list_display = ('problem','user', 'time','program','task_status', 'marks', 'result','id','is_latest')
@@ -61,7 +60,9 @@ class TutorialAdmin(admin.ModelAdmin):
         js = ('js/nicEdit.js','js/admin_wysiwg.js')
     list_display = ['problem']
 
-
+class ContribAdmin(admin.ModelAdmin):
+  list_display = ['user','title','level']
+  search_fields = ['user','level']
 
 admin.site.register(Rank,RankAdmin)
 admin.site.register(Submission,SubmissionAdmin)
@@ -69,6 +70,7 @@ admin.site.register(Problem,ProblemAdmin)
 admin.site.register(Contest)
 admin.site.register(Tag)
 admin.site.register(Tutorial, TutorialAdmin)
+admin.site.register(ContribProblem, ContribAdmin)
 
 # We have to unregister it, and then reregister
 admin.site.unregister(FlatPage)

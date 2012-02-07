@@ -19,5 +19,7 @@ urlpatterns = patterns('',
 
     url(r'^credits/$', 'main.views.credits'),
 
+    url(r'^contribute/$', 'main.views.contribute'),
+
     url(r'^error/$', direct_to_template , {'template':'main/error.html'}),
 )

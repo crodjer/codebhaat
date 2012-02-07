@@ -112,6 +112,20 @@ def problem_detail(request, problem_pk, contest_pk=None):
         context_instance=RequestContext(request))
 
 @login_required
+def contribute(request):
+    if request.method == 'POST':
+      form = ContribForm(request.POST)
+      if form.is_valid():
+        c = form.save(commit=False)
+        c.save(user=request.user)
+        return HttpResponseRedirect('.')
+    else:
+      form = ContribForm()
+    return render_to_response('main/contribute.html', {
+        'form': form,
+    },context_instance=RequestContext(request))
+
+@login_required
 def tutorial_detail(request, problem_pk, contest_pk):
 
     if request.user.is_superuser:

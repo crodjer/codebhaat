@@ -12,6 +12,9 @@ from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import HtmlFormatter
 from django.db.models import Sum
+from django.forms.fields import DateField, ChoiceField, MultipleChoiceField
+from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
+from django.forms.extras.widgets import SelectDateWidget
 
 STORAGE_PATH = os.path.join(settings.ROOT_PATH, 'files')
 fs = FileSystemStorage(location=STORAGE_PATH)
@@ -157,6 +160,33 @@ class Problem(models.Model):
         for case in self.testcase_set.all():
             marks += case.marks
         return marks
+
+# A problem that is contributed by a user
+class ContribProblem(models.Model):
+      user = models.ForeignKey(User)
+      LEVEL_CHOICES = (
+              (1, 'Easy'),
+              (2, 'Medium'),
+              (3, 'Hard'),
+          )
+      title = models.CharField('Title', max_length = 100)
+      question = models.TextField('Question')
+      tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
+      level = models.IntegerField('level', choices=LEVEL_CHOICES, default=2)
+
+      def save(self, user=None, *args, **kwargs):
+        if user:
+          self.user = user
+        super(ContribProblem, self).save(*args, **kwargs)
+
+
+class ContribForm(forms.ModelForm):
+
+    class Meta:
+        model = ContribProblem
+        fields = ['title','level','question','tags']
+        #filename = forms.CharField(widget=HiddenInput())
+
 
 # A tutorial model for problems
 class Tutorial(models.Model):
