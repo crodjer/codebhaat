@@ -28,6 +28,17 @@
         </style>
     </head>
     <body>
+    <!-- For FB social plugin -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <!-- End for FB social plugin -->
+
         <div id="view">
             <!-- #header (main heading + logo with slogan) -->
             <div id="head">
@@ -72,6 +83,25 @@
                             <a href="/contact-us/">Contact Us<span></span></a>
                         </li>
                     </ul>
+
+                    <div align="right" style="padding-top: 10px">
+                      <!-- FB Like button -->
+                      <div class="fb-like"
+                        data-href="https://www.facebook.com/CodeBhaat"
+                        data-send="false" data-layout="button_count"
+                        data-width="10" data-show-faces="false">
+                      </div>
+                      <!-- end FB Like button -->
+                      <!-- start Twitter plugin -->
+                      <a href="https://twitter.com/codebhaat"
+                        class="twitter-follow-button" data-width="200px"
+                        data-align="right">@codebhaat</a>
+                        <script>!function(d,s,id){var
+                        js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      <!-- end twitter plugin -->
+
+                  </div><!-- end social plugins -->
+
                   </div><!--end container-->
                   </div> <!--end fill-->
                 </div> <!--end topbar-->
