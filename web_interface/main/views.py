@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 from main.models import *
+from blog.models import *
 from settings import MEDIA_URL, MAX_SUBMISSIONS
 from django.contrib.auth.models import User
 from django.template import RequestContext
@@ -8,7 +9,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.comments.feeds import *
 
 def home(request):
-    return render_to_response('main/index.html',context_instance=RequestContext(request))
+    recent_act = get_recent_activity(5)
+    recent_comments = get_recent_feed(5)
+    recent_blogs = get_recent_blogs(5)
+    return render_to_response('main/index.html', {
+        'recent_act': recent_act,
+        'recent_comments': recent_comments,
+        'recent_blogs': recent_blogs,
+    },context_instance=RequestContext(request))
+
 
 def credits(request):
     return render_to_response('main/credits.html',context_instance=RequestContext(request))
@@ -22,6 +31,12 @@ def contests(request):
           'recent_act': recent_act,
           'recent_comments': recent_comments,
         },context_instance=RequestContext(request))
+
+def get_recent_blogs(max_ent):
+
+    # Get list of latest blogs to render
+    return Entry.objects.all()[0:max_ent]
+
 
 def get_recent_feed(max_ent):
 
@@ -74,7 +89,7 @@ def problem_list(request, contest_pk):
     if request.user.is_superuser:
         submissions = Submission.objects.filter(is_latest=True, problem__contest__pk=contest.pk).order_by('-time')[:10]
     else:
-        submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk, problem__is_public=True).order_by('-time')[:5]
+        submissions = Submission.objects.filter(is_latest=True, problem__contest__pk=contest.pk, problem__is_public=True).order_by('-time')[:5]
 
     rank = Rank.objects.get_or_set(user, contest)
 

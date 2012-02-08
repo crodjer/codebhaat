@@ -20,6 +20,7 @@
 {% get_comment_count for tutorial as comment_count %}
 {% get_comment_list for tutorial as comment_list %}
 {% get_comment_form for tutorial as form %}
+<div style="float: left">
 <h3>Comments({{ comment_count }})</h3>
 <table>
     {% for c in comment_list %}
@@ -62,6 +63,7 @@
         </tr>
     </table>
 </form>
+</div>
 {% endblock %}
 {% block sidebar %}
 {% endblock %}

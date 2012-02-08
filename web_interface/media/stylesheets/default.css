@@ -459,8 +459,7 @@ img.right {
 #contentBlock {
     position: relative;
     left: 1px;
-    float: left;
-    width: 800px;
+    width: 900px;
     min-height: 350px;
     margin-bottom: -20px;
     padding: 20px 20px; /* background: url('/media/images/bg-content_left.gif') 100% 100% no-repeat; */
@@ -611,4 +610,9 @@ img.right {
 
 #foot a:hover {
     color: #fff;
+}
+
+#content .entry{
+	width:560px;
+  float: left;
 }

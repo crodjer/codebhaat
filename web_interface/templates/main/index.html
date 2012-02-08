@@ -1,26 +1,118 @@
 {% extends 'base.html' %}
 {% block head %}
+{% load problem_tags custom_filters %}
 <style type="text/css">
 </style>
 {% endblock %}
-{% block content_heading %}Introduction{% endblock %}
 {% block content %}
-<div class = "widen">
-    <p>
-        Welcome to CodeBHAAT, IIT Kharagpur's own coding engine! We welcome you this innovative application to test your coding skills.
-    </p>
-    <p>
-        There are various reasons why we develop such a system, major of them are, lack of programming practice amongst IIT Kgp peers, lack of awareness but most
-        of all the want to code and compete amongst ourselves. On this engine you will find loads of practice problems pertaining to various fields of programming including
-        Graphs, Dynamic Programming, Number Theory, Algorithms Games, Geometry, Cryptography etc. This is the perfect platform to hone your skills!
-    </p>
-    <p>
-        We will also host myriad competitions ranging from long standing weekly questions to the hot and spicy cookoffs! There will be ranking provided to users on the basis
-        of their performance. What's better than a showy ranking at CodeBHAAT ;).
-    </p>
-    <p>
-        There's no delay until you decide, so don't waste your mouse clicks and goto register right now!
-    </p>
+<div id="sidebar">
+  <h2><strong>Updates</strong></h2>
+  <h3>Blog Roll</h3>
+    <table>
+        <thead>
+        </thead>
+        <tbody>
+            {% for blog in recent_blogs %}
+            <tr><td/></tr>
+            <tr>
+              <td>
+                {% if blog.user.get_profile %}
+                 <a href="{% url profiles_profile_detail blog.user %}">{{ blog.user }}</a>
+                {% else %}
+                 {{ blog.user }}
+                 {% endif %}
+                wrote
+                "{{ blog.headline }}"
+                 on
+                 {{ blog.pub_date|date:"D d M"  }}
+               </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No blogs</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+  <h3>Recent Submissions:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in recent_act %}
+            <tr>
+              <td>
+                {% if submission.user.get_profile %}
+                 <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
+                {% else %}
+                 {{ submission.user }}
+                 {% endif %}
+               </td>
+               <td>
+                 <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
+                 {{ submission.problem|title }}
+               </a>
+               </td>
+               <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
+               </td>
+               <td>{{ submission.time|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+  <h3>Recent Comments:</h3>
+    <table>
+        <thead>
+            <tr>
+              <th>User</th><th>Type</th><th>Comment</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in recent_comments %}
+            <tr>
+              <td>
+                {% if comment.user.get_profile %}
+                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
+                 {% else %}
+                  {{ comment.user.username }}
+                  {% endif %}
+                </td>
+                <td>
+                  {% if comment.content_object.contest %}
+                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
+                    Problem
+                   </a>
+                  {% endif %}
+                  {% if comment.content_object.problem %}
+<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
+                    Tutorial
+                  {% endif %}
+                </td>
+
+                <td>{{ comment.comment|safe|slice:":20" }}
+                  {% if comment.comment|safe|slice:"20:" %}
+                  ...
+                  {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No comments</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </div>
+
 {% endblock %}
 {% block sidebar %}{% endblock %}

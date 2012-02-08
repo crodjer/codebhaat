@@ -6,7 +6,9 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <title>code#bhaat</title>
-         <link rel="stylesheet" type="text/css" href="/media/stylesheets/bootstrap-1.0.0.css" />
+        <link rel="stylesheet" type="text/css" href="/media/stylesheets/bootstrap-1.0.0.css" />
+        <link rel="stylesheet" type="text/css" href="/media/stylesheets/style.sarc.css" />
+
         <link rel="stylesheet" type="text/css" href="/media/stylesheets/default.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="/media/stylesheets/print.css" media="print" />
 
@@ -28,88 +30,37 @@
         </style>
     </head>
     <body>
-    <!-- For FB social plugin -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-      <!-- End for FB social plugin -->
 
-        <div id="view">
-            <!-- #header (main heading + logo with slogan) -->
-            <div id="head">
-                <!-- main headings with search component -->
-                <div id="main">
-                    <h1 style="color:#fff;">code#bhaat</h1>
-                    <div id="extra">
-                        {% if request.user.is_active %}
-                        Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
-                        {% if request.user.is_superuser %}
-                        | <a href="/siteadmin/">Admin</a>
-                        {% endif %}
-                        {% else %}<a href="/login/">Log In</a>&nbsp;|&nbsp;<a href="/accounts/register/">Sign up</a>
-                        {% endif %}
-                    </div>
-                </div>
-                <!-- /main headings with search component --><hr class="hidden" /><!-- main horizontal menu -->
-                <div class="topbar">
-                  <div class="fill">
-                    <div class="container">
-                    <ul align="center">
-                        <li id="index_m">
-                        <a href="/">Home<span></span></a>
-                        </li>
-                        <li id="index_m">
-                            <a href="/weblog/">Blog<span></span></a>
-                        </li>
-                        <li id="index_m">
-                            <a href="/contest/">Contest<span></span></a>
-                        </li>
-                        <li id="index_m">
-                            <a href="/contribute/">Contribute<span></span></a>
-                        </li>
+    <div id="header">
+      <div class="container">
+          <div id="social">
+            <ul>
+              <li><a href="http://www.facebook.com/pages/Student-Alumni-Relations-Cell-SARC/238851456155573" target="_blank"><img src="/media/images/facebook_blue.png"></a></li>
+                <li><a href="http://www.twitter.com/sarc_iitb" target="_blank"><img src="/media/images/twitter_blue.png"></a></li>
+                </ul>
+            </div>
 
-                        <li id="index_m">
-                            <a href="/instructions/">Instructions<span></span></a>
-                        </li>
-                        <li id="index_m">
-                            <a href="/updates/">Updates<span></span></a>
-                        </li>
-                        <li id="index_m">
-                            <a href="/contact-us/">Contact Us<span></span></a>
-                        </li>
-                    </ul>
+            <div id="menu">
 
-                    <div align="right" style="padding-top: 10px">
-                      <!-- FB Like button -->
-                      <div class="fb-like"
-                        data-href="https://www.facebook.com/CodeBhaat"
-                        data-send="false" data-layout="button_count"
-                        data-width="10" data-show-faces="false">
-                      </div>
-                      <!-- end FB Like button -->
-                      <!-- start Twitter plugin -->
-                      <a href="https://twitter.com/codebhaat"
-                        class="twitter-follow-button" data-width="200px"
-                        data-align="right">@codebhaat</a>
-                        <script>!function(d,s,id){var
-                        js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                      <!-- end twitter plugin -->
+          <ul id="maintab">
+              <li onclick="load('/contact-us/')"><a href="/contact-us/">Contact Us</a></li>
+                <li onclick="load('/updates/')"><a href="/updates/">Updates</a></li>
+                <li onclick="load('/instructions/')"><a href="/instructions/">Instructions</a></li>
 
-                  </div><!-- end social plugins -->
+                <li><a href="/contribute/">Contribute</a>
+                </li>
+                <li onclick="load('/contest/')"><a href="/contest/">Contests</a>
+                </li>
+                <li><a href="/weblog/">Blog</a>
+                </li>
+                <li onclick="load('/')"><a href="/">Home</a></li>
+            </ul>
+        </div>
+        </div>
 
-                  </div><!--end container-->
-                  </div> <!--end fill-->
-                </div> <!--end topbar-->
-                <!-- /main horizontal menu --><hr class="hidden" /><!-- logo with slogan
-                <div id="logo">
-                </div>
-                --><!-- /logo with slogan --><hr class="hidden" />
-            </div><!-- /#header (main heading + logo with slogan) --><!-- #main content construct -->
+
+  </div>
+
             <div id="content">
                 <!-- #left part of web - main content -->
                 <div id="contentBlock">
@@ -123,11 +74,17 @@
                 {% block sidebar %}{% endblock %}<!-- /#left part of web - main content --><hr class="hidden" />
             </div><!-- /#main content construct -->
             <!-- #footer -->
-            <div id="foot">
-                <p class="fl">
-                    A django project
-                </p>
+            <div id="footerfoot">
+            <div class="container">
+            <div style="float:left; margin-top:0px;">
+            @Codebhaat.in
             </div>
+            <div style="float:right;vertical-align:text-top; margin-top:-17px">
+                Best Viewed in: <br>
+                <img style="height:25px" src="/media/images/browser.png" alt="Firefox, Chrome, Safari" title="Mozilla Firefox, Google Chrome, Safari">
+            </div>
+            </div>
+        </div>
             <!-- /#footer -->
         </div>
     </body>

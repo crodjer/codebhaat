@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('',
-    #(r'^$', 'main.views.home'),
+    (r'^$', 'main.views.home'),
     url(r'^contest/$', 'main.views.contests', name='contest_list'),
 
     url(r'^tutorial/(?P<contest_pk>\d+)/(?P<problem_pk>\d+)/$','main.views.tutorial_detail', name='tutorial_detail'),
