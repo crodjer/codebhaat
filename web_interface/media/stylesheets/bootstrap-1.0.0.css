@@ -369,7 +369,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 div.container {
-  width: 940px;
+  width: 100%;
   margin: 0 auto;
   }
 div.container-fluid {
