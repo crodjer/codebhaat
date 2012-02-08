@@ -5,6 +5,7 @@ from settings import MEDIA_URL, MAX_SUBMISSIONS
 from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.contrib.comments.feeds import *
 
 def home(request):
     return render_to_response('main/index.html',context_instance=RequestContext(request))
@@ -15,10 +16,22 @@ def credits(request):
 def contests(request):
     contests = Contest.objects.all()
     recent_act = get_recent_activity(5)
+    recent_comments = get_recent_feed(5)
     return render_to_response('main/contest_list.html',
         {'contests':contests,
           'recent_act': recent_act,
+          'recent_comments': recent_comments,
         },context_instance=RequestContext(request))
+
+def get_recent_feed(max_ent):
+
+    # Gets a list of latest feed in user, problem, comment
+    # format.
+    # TODO: Create hyperlinks with the objects
+
+    lf = LatestCommentFeed()
+    return lf.items()[0:max_ent]
+
 
 def get_recent_activity(max_ent):
 
@@ -133,11 +146,14 @@ def contribute(request):
         return HttpResponseRedirect('.')
     else:
       form = ContribForm()
-    # Get 5 recent submissions
+    # Get 5 recent submissions and comments
     recent_act = get_recent_activity(5)
+    recent_comments = get_recent_feed(5)
+
     return render_to_response('main/contribute.html', {
         'form': form,
         'recent_act': recent_act,
+        'recent_comments': recent_comments,
     },context_instance=RequestContext(request))
 
 @login_required

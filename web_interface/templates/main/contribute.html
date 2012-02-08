@@ -14,7 +14,7 @@
 {% block content %}
 
 <div id="sidebar">
-  <h3>Recent Activity:</h3>
+  <h3>Recent Submissions:</h3>
     <table>
         <thead>
             <tr>
@@ -33,6 +33,27 @@
             {% endfor %}
         </tbody>
     </table>
+
+  <h3>Recent Comments:</h3>
+    <table>
+        <thead>
+            <tr>
+              <th>User</th><th>Comment</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in recent_comments %}
+            <tr>
+                <td>{% if comment.user.get_profile %}<a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>{% else %}{{ comment.user.username }}{% endif %}</td><td>{{ comment.comment|safe }} </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </div>
 
 
