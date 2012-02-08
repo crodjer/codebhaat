@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.sites.models import Site
 from django.contrib.comments.signals import comment_was_posted
 from django.utils.encoding import smart_str
+from django.contrib.auth.models import User
 
 class Entry(models.Model):
     pub_date = models.DateTimeField()
@@ -12,7 +13,7 @@ class Entry(models.Model):
     headline = models.CharField(max_length=200)
     summary = models.TextField(help_text="Use raw HTML.")
     body = models.TextField(help_text="Use raw HTML.")
-    author = models.CharField(max_length=100)
+    user = models.ForeignKey(User)
 
     class Meta:
         db_table = 'blog_entries'
@@ -25,7 +26,7 @@ class Entry(models.Model):
 
     def get_absolute_url(self):
         return "/weblog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
-        
+
     @property
     def comments_enabled(self):
         delta = datetime.datetime.now() - self.pub_date
@@ -47,5 +48,5 @@ def moderate_comment(sender, comment, request, **kwargs):
     if ak.comment_check(smart_str(comment.comment), data=data, build_data=True):
         comment.is_public = False
         comment.save()
-    
+
 comment_was_posted.connect(moderate_comment)
