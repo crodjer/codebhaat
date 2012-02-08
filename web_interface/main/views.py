@@ -72,7 +72,7 @@ def problem_list(request, contest_pk):
         problem_list.append(p)
 
     if request.user.is_superuser:
-        submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk).order_by('-time')[:10]
+        submissions = Submission.objects.filter(is_latest=True, problem__contest__pk=contest.pk).order_by('-time')[:10]
     else:
         submissions = Submission.objects.filter(is_latest=True, problem__contests__pk=contest.pk, problem__is_public=True).order_by('-time')[:5]
 

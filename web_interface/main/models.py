@@ -119,7 +119,7 @@ class Problem(models.Model):
     title = models.CharField('Title', max_length = 100)
     question = models.TextField('Question')
     is_public = models.BooleanField('Is Public')
-    contests = models.ManyToManyField(Contest, help_text= 'Problem Categories', verbose_name='contests', blank=True)
+    contest = models.ForeignKey(Contest, verbose_name='contest', blank=False)
     tags = models.ManyToManyField(Tag, help_text= 'Tags that describe this problem', blank=True)
     related_problems = models.ManyToManyField('self', blank=True)
     publish_date = models.DateTimeField(default=datetime.datetime.now, help_text='The date and time this problem shall appear online.')
@@ -129,7 +129,10 @@ class Problem(models.Model):
         return self.title
 
     def get_absolute_url(self, contest):
-        return reverse('problem_detail', kwargs={'problem_pk': self.pk, 'contest_pk':contest.pk})
+        if not contest:
+          return reverse('problem_detail', kwargs={'problem_pk': self.pk, 'contest_pk':self.contest.pk})
+        else:
+          return reverse('problem_detail', kwargs={'problem_pk': self.pk, 'contest_pk':contest.pk})
 
     def no_of_test_cases(self):
         return self.testcase_set.count()
