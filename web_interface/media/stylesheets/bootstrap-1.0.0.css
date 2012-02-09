@@ -369,7 +369,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 div.container {
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
   }
 div.container-fluid {
@@ -1060,7 +1060,7 @@ table th, table td {
   padding: 10px 10px 9px;
   line-height: 13.5px;
   text-align: left;
-  vertical-align: middle;
+  vertical-align: top;
   border-bottom: 1px solid #ddd;
 }
 table th {

@@ -459,8 +459,8 @@ img.right {
 #contentBlock {
     position: relative;
     left: 1px;
-    width: 900px;
-    min-height: 350px;
+    width: 1000px;
+    min-height: 600px;
     margin-bottom: -20px;
     padding: 20px 20px; /* background: url('/media/images/bg-content_left.gif') 100% 100% no-repeat; */
     background: #FFF;
@@ -553,6 +553,17 @@ img.right {
     font-size: 85%;
 }
 
+#update{
+    float: top;
+    bottom: 0px;
+    width: 300px;
+    padding: 10px 5px;
+    padding-left: 20px;
+    margin: 0px 0px;
+    text-align: left;
+    font-size: 85%;
+}
+
 #sidebar h3 {
     text-align: left;
     padding: 5px 0 0;
@@ -615,4 +626,11 @@ img.right {
 #content .entry{
 	width:560px;
   float: left;
+}
+
+#home_content td{
+  vertical-align: top;
+  text-align: center;
+  border-bottom: 0px solid #ddd;
+
 }

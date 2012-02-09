@@ -5,114 +5,55 @@
 </style>
 {% endblock %}
 {% block content %}
-<div id="sidebar">
-  <h2><strong>Updates</strong></h2>
-  <h3>Blog Roll</h3>
-    <table>
-        <thead>
-        </thead>
-        <tbody>
-            {% for blog in recent_blogs %}
-            <tr><td/></tr>
-            <tr>
-              <td>
-                {% if blog.user.get_profile %}
-                 <a href="{% url profiles_profile_detail blog.user %}">{{ blog.user }}</a>
-                {% else %}
-                 {{ blog.user }}
-                 {% endif %}
-                wrote
-                "{{ blog.headline }}"
-                 on
-                 {{ blog.pub_date|date:"D d M"  }}
-               </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No blogs</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div id="home_content">
+  <table>
+  <tr>
+    <td width="50%">
+      <h2>Latest updates</h2>
+    </td>
+    <td width="50%">
+      <h2>Recent News etc ... </h2>
+    </td>
+  </td>
+</table>
+{% endblock %}
 
-  <h3>Recent Submissions:</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for submission in recent_act %}
-            <tr>
-              <td>
-                {% if submission.user.get_profile %}
-                 <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
-                {% else %}
-                 {{ submission.user }}
-                 {% endif %}
-               </td>
-               <td>
-                 <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
-                 {{ submission.problem|title }}
-               </a>
-               </td>
-               <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
-               </td>
-               <td>{{ submission.time|timesince }} ago</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No submissions</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-  <h3>Recent Comments:</h3>
-    <table>
-        <thead>
-            <tr>
-              <th>User</th><th>Type</th><th>Comment</th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for comment in recent_comments %}
-            <tr>
-              <td>
-                {% if comment.user.get_profile %}
-                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
-                 {% else %}
-                  {{ comment.user.username }}
-                  {% endif %}
-                </td>
-                <td>
-                  {% if comment.content_object.contest %}
-                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
-                    Problem
-                   </a>
-                  {% endif %}
-                  {% if comment.content_object.problem %}
-<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
-                    Tutorial
-                  {% endif %}
-                </td>
-
-                <td>{{ comment.comment|safe|slice:":20" }}
-                  {% if comment.comment|safe|slice:"20:" %}
-                  ...
-                  {% endif %}
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No comments</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-</div>
+{% block sidebar %}
+<h2>Social Streams</h2>
+<table>
+<tr><td>
+<div class="fb-like-box" data-href="https://www.facebook.com/CodeBhaat" data-width="300" data-height="400" data-show-faces="true" data-stream="true" data-header="true" style="align: center" ></div>
+</td></tr>
+<tr><td>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 300,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#000000',
+      color: '#ffffff',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    behavior: 'all'
+  }
+}).render().setUser('codebhaat').start();
+</script>
+</td></tr>
+</table>
 
 {% endblock %}
-{% block sidebar %}{% endblock %}

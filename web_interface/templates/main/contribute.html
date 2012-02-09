@@ -11,7 +11,22 @@
 {% endblock %}
 
 {% block content_heading %}Contribute a problem{% endblock %}
+
 {% block content %}
+
+
+<div class="entry">
+
+    <form action="#" method="post" class = "form" enctype="multipart/form-data">
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Submit" class = "btn primary"/>
+    </form>
+</div>
+
+{% endblock %}
+{% block sidebar %}
 
 <div id="sidebar">
   <h3>Recent Submissions:</h3>
@@ -93,17 +108,4 @@
 
 </div>
 
-
-<div class="entry" style="width:50%;">
-
-    <form action="#" method="post" class = "form" enctype="multipart/form-data">
-        <table>
-            {{ form }}
-        </table>
-        <input type="submit" value="Submit" class = "btn primary"/>
-    </form>
-</div>
-
-{% endblock %}
-{% block sidebar %}
 {% endblock %}

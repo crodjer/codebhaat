@@ -85,7 +85,7 @@
 
 
 {% for contest in contests %}
-<a href="{% url contest_problems contest.pk %}">{{ contest }}</a><br/>
+<h3><a href="{% url contest_problems contest.pk %}">{{ contest }}</a></h3><br/>
 </table>
 {% endfor %}
 {% endblock %}
