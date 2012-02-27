@@ -26,38 +26,6 @@
 {% endblock %}
 {% block content_heading %}<a href={% url contest_list %}>Contest</a> > {% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}{{ problem.title }}{% endblock %}
 {% block content %}
-{% cache 0 sidebar_problem problem %}
-<div id="sidebar">
-    <h3>Your stats:</h3>
-    Rank: <b>{{ rank.rank }}</b><br/>
-    Total Marks: <b>{{ rank.total_marks }}</b>
-    <br/>
-    <h3>Problem Stats:</h3>
-    {% render_valuate form of problem %}
-    Average Rating: <b>{% get_valuate score of problem %}</b><br/><br/>
-    Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
-    Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
-    Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
-    <table>
-        <thead>
-            <tr>
-                <th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for submission in problem.status.latest_submissions %}
-            <tr>
-                <td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No submissions</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endcache %}
 <div class="entry" style="width:400px;">
     {{ problem.question|safe }}
     {% if public_testcases %}
@@ -155,4 +123,34 @@
 </form>
 {% endblock %}
 {% block sidebar %}
+{% cache 0 sidebar_problem problem %}
+    <h3>Your stats:</h3>
+    Rank: <b>{{ rank.rank }}</b><br/>
+    Total Marks: <b>{{ rank.total_marks }}</b>
+    <br/>
+    <h3>Problem Stats:</h3>
+    Average Rating: <b>{% get_valuate score of problem %}</b><br/><br/>
+    Total Submissions: <b>{{ problem.status.total_submissions }}</b><br/>
+    Sucessful Submissions: <b>{{ problem.status.successful_submissions }}</b><br/>
+    Sucess Rate: <b>{{ problem.status.success_rate }}%</b><br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>Coder</th><th>Lang</th><th style="width:10px"></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in problem.status.latest_submissions %}
+            <tr>
+                <td>{% if user.get_profile %}<a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>{% else %}{{ submission.user }}{% endif %}</td><td>{{ submission.language|title }}</td><td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/></td><td>{{ submission.time|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endcache %}
+
 {% endblock %}

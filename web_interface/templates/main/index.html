@@ -1,31 +1,22 @@
 {% extends 'base.html' %}
 {% block head %}
 {% load problem_tags custom_filters %}
-<style type="text/css">
-</style>
+
 {% endblock %}
 {% block content %}
 <div id="home_content">
   <table>
   <tr>
-    <td width="50%">
-      <h2>Latest updates</h2>
-    </td>
-    <td width="50%">
-      <h2>Recent News etc ... </h2>
-    </td>
-  </td>
-</table>
-{% endblock %}
-
-{% block sidebar %}
-<h2>Social Streams</h2>
-<table>
+    <td width="50%" style="align: center">
+      <h2 align="center">Social Streams</h2>
+      <table>
 <tr><td>
 <div class="fb-like-box" data-href="https://www.facebook.com/CodeBhaat" data-width="300" data-height="400" data-show-faces="true" data-stream="true" data-header="true" style="align: center" ></div>
 </td></tr>
 <tr><td>
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+
 <script>
 new TWTR.Widget({
   version: 2,
@@ -53,7 +44,137 @@ new TWTR.Widget({
   }
 }).render().setUser('codebhaat').start();
 </script>
+
+
 </td></tr>
 </table>
+    </td>
+    <td width="50%">
+    
+    <div class="slideshow" id="flavor_1"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.js"></script>
+<script src="agile_carousel/agile_carousel.a1.1.min.js"></script>
+
+<script>
+    $.getJSON("agile_carousel/agile_carousel_data.php", function(data) {
+        $(document).ready(function(){
+            $("#flavor_1").agile_carousel({
+                carousel_data: data,
+                carousel_outer_height: 228,
+                carousel_height: 228,
+                slide_height: 230,
+                carousel_outer_width: 480,
+                slide_width: 480,
+                transition_time: 300,
+                timer: 4000,
+                continuous_scrolling: true,
+                control_set_1: "numbered_buttons",
+                no_control_set: "hover_previous_button,hover_next_button"
+            });
+        });
+    });
+</script>
+
+  <h2 align="center">Latest Updates</h2>
+  
+        <div id="gallery" style="padding-top: 30px;" align="center">
+            <img src="/media/images/OVERNITE.jpg">
+            <img src="/media/images/beach2.jpg">
+            <img src="/media/images/beach3.jpg">
+        </div>
+        <script>
+            Galleria.loadTheme('/media/galleria/themes/classic/galleria.classic.js');
+            $("#gallery").galleria({
+                width: 300,
+                height: 250
+            });
+         </script>
+    </td>
+  </td>
+</table>
+{% endblock %}
+
+{% block sidebar %}
+
+<h2 align="center" style="padding-top: 10px">Recent Activity</h2>
+
+
+
+  <h3>Recent Submissions:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in recent_act %}
+            <tr>
+              <td>
+                {% if submission.user.get_profile %}
+                 <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
+                {% else %}
+                 {{ submission.user }}
+                 {% endif %}
+               </td>
+               <td>
+                 <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
+                 {{ submission.problem|title }}
+               </a>
+               </td>
+               <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
+               </td>
+               <td>{{ submission.time|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No submissions</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+  <h3>Recent Comments:</h3>
+    <table>
+        <thead>
+            <tr>
+              <th>User</th><th>Type</th><th>Comment</th><th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in recent_comments %}
+            <tr>
+              <td>
+                {% if comment.user.get_profile %}
+                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
+                 {% else %}
+                  {{ comment.user.username }}
+                  {% endif %}
+                </td>
+                <td>
+                  {% if comment.content_object.contest %}
+                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
+                    Problem
+                   </a>
+                  {% endif %}
+                  {% if comment.content_object.problem %}
+<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
+                    Tutorial
+                  {% endif %}
+                </td>
+
+                <td>{{ comment.comment|safe|slice:":20" }}
+                  {% if comment.comment|safe|slice:"20:" %}
+                  ...
+                  {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No comments</td><td></td><td></td><td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

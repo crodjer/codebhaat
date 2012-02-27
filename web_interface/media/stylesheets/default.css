@@ -630,7 +630,7 @@ img.right {
 
 #home_content td{
   vertical-align: top;
-  text-align: center;
+  text-align: left;
   border-bottom: 0px solid #ddd;
 
 }

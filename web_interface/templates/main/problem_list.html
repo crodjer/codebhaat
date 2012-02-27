@@ -3,6 +3,28 @@
 {% load problem_tags %}
 {% block content_heading %}<a href={% url contest_list %}>Contest</a> > {{ contest }}{% endblock %}
 {% block content %}
+<div class="entry" style="width:400px;">
+
+    {% regroup problems|dictsort:"level" by get_level_display as level_list %}
+    {% for level in level_list %}
+    <h3>{{ level.grouper }}</h3>
+    {% for p in level.list %}
+    <table class="border" style="min-width:400px">
+      <tr><td><a href="{% url problem_detail contest.pk p.pk %}">{{ p.title }}</a> ({{ p.total_marks }} marks)</td>
+
+        {% if p.is_tut %}
+        <td><a href="{% url tutorial_detail contest.pk p.pk %}">Tutorial</a></td>
+        {% endif %}
+
+        <td width="20px"><img src="/media/admin/img/admin/{{ p.status_img.0 }}" title="{{ p.status_img.1 }}"/></td></tr>
+    </table>
+    {% endfor %}
+    {% empty %}
+        No problems are available.
+    {% endfor %}
+</div>
+{% endblock %}
+{% block sidebar %}
 <div id="sidebar">
 	<h3>Tag Cloud</h3>
     {% tag_cloud %}
@@ -32,26 +54,5 @@
     	</tbody>
     </table>
 </div>
-<div class="entry" style="width:400px;">
 
-    {% regroup problems|dictsort:"level" by get_level_display as level_list %}
-    {% for level in level_list %}
-    <h3>{{ level.grouper }}</h3>
-    {% for p in level.list %}
-    <table style="min-width:400px">
-      <tr><td><a href="{% url problem_detail contest.pk p.pk %}">{{ p.title }}</a> ({{ p.total_marks }} marks)</td>
-
-        {% if p.is_tut %}
-        <td><a href="{% url tutorial_detail contest.pk p.pk %}">Tutorial</a></td>
-        {% endif %}
-
-        <td width="20px"><img src="/media/admin/img/admin/{{ p.status_img.0 }}" title="{{ p.status_img.1 }}"/></td></tr>
-    </table>
-    {% endfor %}
-    {% empty %}
-        No problems are available.
-    {% endfor %}
-</div>
-{% endblock %}
-{% block sidebar %}
 {% endblock %}

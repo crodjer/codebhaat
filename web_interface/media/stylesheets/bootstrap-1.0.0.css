@@ -1066,7 +1066,10 @@ table th, table td {
 table th {
   padding-top: 9px;
   font-weight: bold;
-  border-bottom-width: 2px;
+  border-bottom: 1px solid #ddd;
+  border-bottom-width: 1px;
+}
+
 }
 .zebra-striped tbody tr:nth-child(odd) td {
   background-color: #e4ecf7;
