@@ -459,10 +459,9 @@ img.right {
 #contentBlock {
     position: relative;
     left: 1px;
-    width: 1000px;
+    width: 90%;
     min-height: 600px;
     margin-bottom: -20px;
-    padding: 20px 20px; /* background: url('/media/images/bg-content_left.gif') 100% 100% no-repeat; */
     background: #FFF;
 }
 
@@ -632,5 +631,12 @@ img.right {
   vertical-align: top;
   text-align: left;
   border-bottom: 0px solid #ddd;
+
+}
+#homeText{
+    padding-left: 15px;
+    text-align: justify;
+}
+#homeText p{
 
 }

@@ -37,9 +37,9 @@
 .galleria-thumbnails .galleria-image {
     height: 40px;
     width: 60px;
-    background: #000;
+    background: #FFF;
     margin: 0 5px 0 0;
-    border: 1px solid #000;
+    border: 0px solid #000;
     float: left;
     cursor: pointer;
 }

@@ -6,78 +6,26 @@
 {% block content %}
 <div id="home_content">
   <table>
-  <tr>
-    <td width="50%" style="align: center">
-      <h2 align="center">Social Streams</h2>
-      <table>
-<tr><td>
-<div class="fb-like-box" data-href="https://www.facebook.com/CodeBhaat" data-width="300" data-height="400" data-show-faces="true" data-stream="true" data-header="true" style="align: center" ></div>
-</td></tr>
-<tr><td>
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-
-
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 30000,
-  width: 300,
-  height: 300,
-  theme: {
-    shell: {
-      background: '#333333',
-      color: '#ffffff'
-    },
-    tweets: {
-      background: '#000000',
-      color: '#ffffff',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: false,
-    behavior: 'all'
-  }
-}).render().setUser('codebhaat').start();
-</script>
-
-
-</td></tr>
-</table>
-    </td>
-    <td width="50%">
-    
-    <div class="slideshow" id="flavor_1"></div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.js"></script>
-<script src="agile_carousel/agile_carousel.a1.1.min.js"></script>
-
-<script>
-    $.getJSON("agile_carousel/agile_carousel_data.php", function(data) {
-        $(document).ready(function(){
-            $("#flavor_1").agile_carousel({
-                carousel_data: data,
-                carousel_outer_height: 228,
-                carousel_height: 228,
-                slide_height: 230,
-                carousel_outer_width: 480,
-                slide_width: 480,
-                transition_time: 300,
-                timer: 4000,
-                continuous_scrolling: true,
-                control_set_1: "numbered_buttons",
-                no_control_set: "hover_previous_button,hover_next_button"
-            });
-        });
-    });
-</script>
-
-  <h2 align="center">Latest Updates</h2>
   
-        <div id="gallery" style="padding-top: 30px;" align="center">
+  
+  <tr>
+    <td>
+    <style>
+    .galleria-image .galleria-thumbnails{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 solid #000000;
+    cursor: pointer;
+    float: left;
+    height: 40px;
+    margin: 0 0 0 0;
+    width: 60px;
+    }
+    .galleria-container{ background-color: #FFF; }
+ 
+    </style>
+    <div class="slideshow" id="flavor_1"></div>
+  
+        <div id="gallery" align="center">
             <img src="/media/images/OVERNITE.jpg">
             <img src="/media/images/beach2.jpg">
             <img src="/media/images/beach3.jpg">
@@ -85,18 +33,66 @@ new TWTR.Widget({
         <script>
             Galleria.loadTheme('/media/galleria/themes/classic/galleria.classic.js');
             $("#gallery").galleria({
-                width: 300,
-                height: 250
+
+                height: 300,
+                overlayBackground: '#000',
+                imageCrop: 'width',
+                autoplay: 'true',
+                transition: 'fadeslide',
+                thumbnails: 'numbers'	
+                
             });
          </script>
     </td>
-  </td>
+  </tr>
+  <tr>
+    <td id="homeText" >
+        <h3>Our motto ...</h3>
+        <p>Code#Bhaat is a concept concieved by a few <a href='/contact-us'>n00bs</a> of Kgp about 3 years back. It has been in and out of action, until now. We have
+        always tried to <a href='/weblog'>promote Algorithm Intensive coding</a> in our college and build a guild around it. Ofcourse it has not been a very successful
+        attempt, Code#Bhaat finally presents a platform where KGPians can not only SOLVE questions but MAKE their own statements! Give and take is
+        the essence of any sustainable society.</p>
+        
+        <h3>What's in there for you ?</h3>
+        <p>With Code#Bhaat you get to participate and compete with your peers. It's a tough world outside and all we do is to make your ready for
+        the big fight :). The incentive are prizes meant only for KGPians. Infact there'll be separate prizes for various years!</p>
+        
+        <h3>Does it improve your profile ?</h3>
+        <p>What Code#Bhaat provides is not only to solve questions, but to create them. Making new questions
+        has a very different thrill, you generally need to be careful of boundary cases. Boasitng about it in your CV does create a strong
+        impact on the reader.</p>
+     </td>
+   </tr>
+   <tr>
+   <td>
+   <h3>Care to share your thoughts ... ?</h3>
+   <div class="fb-comments" data-href="http://www.codebhaat.in/" data-num-posts="2" data-width="470"></div>
+   </td>
+   </tr>
+        
+        
 </table>
 {% endblock %}
 
 {% block sidebar %}
 
-<h2 align="center" style="padding-top: 10px">Recent Activity</h2>
+<h2 align="center" style="padding-top: 10px">Look out for ...</h2>
+
+<p><a href='/contests'>Kickoff </a> in ...
+<script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js"></script>
+<script language="JavaScript">
+TargetDate = "12/31/2020 5:00 AM";
+BackColor = "palegreen";
+ForeColor = "navy";
+CountActive = true;
+CountStepper = -1;
+LeadingZero = true;
+DisplayFormat = "%%D%% D, %%H%% H, %%M%% M, %%S%% S.";
+FinishMessage = "It is finally here!";
+</script></p>
+
+
+<h2 style="padding-top: 10px">Recent Activity</h2>
 
 
 
