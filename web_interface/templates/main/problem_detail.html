@@ -26,66 +26,98 @@
 {% endblock %}
 
 {% block content_heading %}
-	<a href={% url contest_list %}>Contest</a> >
-	{% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> > {% endif %}{{ problem.title }}
+
+	<div id="nav-header" class="row"> <!-- START: Nav header -->
+		<ul class="nav nav-pills">
+			<li>
+				<a href={% url contest_list %}>Contest</a>
+			</li>
+			<li>
+				{% if contest %}<a href={% url contest_problems contest.pk %}>{{ contest }}</a> {% endif %}
+			</li>
+			<li class="active">
+				<a href="#">{{ problem.title }}</a>
+			</li>
+		</ul>
+	</div> <!-- END: NAV header -->
+	
 {% endblock %}
 
 {% block content %}
-	<h2>Problem Statement</h2>
-    {{ problem.question|safe }}
-    {% if public_testcases %}
-    <p><strong>Sample test case:</strong>
-        {% for case in public_testcases %}
-        <a href ="{{ case.input_url }}">Input</a>
-        <a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
-        {% endfor %}
-        {% endif %}
-    </p>
-    {% if last_submission.correct or submission_limit_reached %}
-    {% else %}
 
-    <form action="#" method="post" class = "form" enctype="multipart/form-data">
-        <table class="table">
-            {{ form }}
-        </table>
-        <div class="form-actions">
-        		<input type="submit" value="Submit" class = "btn btn-primary"/>
-        </div>
-    </form>
+	<div class="row"> <!-- START: Problem statement row -->
+		<h2>Problem Statement</h2>
+	    {{ problem.question|safe }}
+	</div> <!-- END: Problem stamtement row -->
 
-    {% endif %}
-    {% if last_submission %}
-    <p>
-        {% if last_submission_ready %}
-        {% if last_submission.correct %}
-        <div class="alert-message success">
-          <p>
-            Your submission was correct.
-        <br/>You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
-        </p>
-        </div> <!-- end alert-message-->
+	<div class="row"> <!-- START: Testcases -->
+		    {% if public_testcases %}
+	    <p><strong>Sample test case:</strong>
+	        {% for case in public_testcases %}
+	        <a href ="{{ case.input_url }}">Input</a>
+	        <a href ="{{ case.output_url }}">Output</a>&nbsp;&nbsp;&nbsp;
+	        {% endfor %}
+	        {% endif %}
+	    </p>
+	    {% if last_submission.correct or submission_limit_reached %}
+	    {% else %}
+	
+	    <form action="#" method="post" class = "form" enctype="multipart/form-data">
+	        <table class="table">
+	            {{ form }}
+	        </table>
+	        <div class="form-actions">
+	        		<input type="submit" value="Submit" class = "btn btn-primary"/>
+	        </div>
+	    </form>
+	
+	    {% endif %}
+	 </div> <!-- END: Testcases -->
 
-        {% else %}
-        <div class="alert-message error">
-          Your last submission was not correct: {{ last_submission.result.error.title }}
-        </div>
-        {% endif %}
-        {% else %}
-        <div class="alert-message info">
-          Your old submission is in process. Please Wait</span> <a href ="">Refresh</a><br/>
-          If it has taken more than 5 mins for submission processing, please resubmit
-        </div>
-        {% endif %}
-    </p>
-    {% endif %}
+		<!-- START: Last submission status -->	 
+	    {% if last_submission %}
+		        {% if last_submission_ready %}
+		        {% if last_submission.correct %}
+		        <div class="row"> <!-- START: Correct alert -->
+			        <div class="alert alert-success" style="padding-left: -10px">
 
-<div id="program">
-    {{ last_submission.code|safe }}
-</div>
+							<strong>Your submission was correct!</strong> You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
+				     </div>
+			     </div> <!-- END: Correct alert -->
+		
+		        {% else %}
+
+		        <div class="row"> <!-- START: Error alert -->
+			        <div class="alert alert-error">
+			          Your last submission was not correct: {{ last_submission.result.error.title }}
+			        </div>
+			     </div> <!-- END: Error alert -->
+			     
+		        {% endif %}
+
+		        {% else %}
+
+		        <div class="row"> <!--  START: Info alert -->
+			        <div class="alert alert-info">
+			          Your old submission is in process. Please Wait <a href ="">Refresh</a><br/>
+			          If it has taken more than 5 mins for submission processing, please resubmit
+			        </div>
+			     </div> <!-- END: Info alert -->
+			     
+		        {% endif %}
+
+	    {% endif %}
+	 <!-- END: Last submission status -->
+
+		<div id="program" class="row"> <!-- START: Program display -->
+		    {{ last_submission.code|safe }}
+		</div> <!-- END: Program display -->
+
 {% get_comment_count for problem as comment_count %}
 {% get_comment_list for problem as comment_list %}
 {% get_comment_form for problem as form %}
-<h3>Comments({{ comment_count }})</h3>
+	<div class="row"> <!-- START: Comments -->
+		<h3>Comments({{ comment_count }})</h3>
 			<table class="table">
 			    {% for c in comment_list %}
 			    <tr><th style="width:100px;">{% if c.user.get_profile %}<a href="{% url profiles_profile_detail c.user %}">{{ c.user }}</a>{% else %}{{ c.user }}{% endif %} says <br/><span style="font-size:9px; text-weight:none;">{{ c.submit_date|timesince }} ago</span></th><td style="">{{ c.comment|linebreaksbr }}</td><tr>
@@ -134,6 +166,7 @@
 			        </tr>
 			    </table>
 			</form>
+		</div> <!-- END: Comments --->
 {% endblock %}
 {% block sidebar %}
 {% cache 0 sidebar_problem problem %}

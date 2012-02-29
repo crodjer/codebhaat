@@ -151,3 +151,8 @@ text-shadow: 1px 1px 1px #888 !important;
 
 .table .table-striped{
 	padding: 20px 0 20px 0;
+}
+
+#nav-header > ul {
+	padding-left: -10px;
+}
