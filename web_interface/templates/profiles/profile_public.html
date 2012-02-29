@@ -7,11 +7,17 @@
     </tr>
 	    <th>Year :</th><td>{{ profile.get_year_display }}</td>
     </tr>
-    </tr>
+    <tr>
 	    <th>Roll Number :</th><td>{{ profile.roll_no }}</td>
     </tr>
     {% if profile.user.rank_set.count %}
+    <tr>
+	    <th>Ranks :</th><td>{% for rank in profile.user.rank_set.all %}<a href='{{ rank.contest.get_absolute_url }}' %}>{{ rank.contest }}</a>:  <b>{{ rank.rank|ordinal }}</b><br/>{% endfor %}</td>
     </tr>
-	    <th>Ranks :</th><td>{% for rank in profile.user.rank_set.all %}<a href='{{ rank.contest.get_absolute_url }}' %}>{{ rank.contest }}</a>:  <b>{{ rank.rank|ordinal }}</b><br/>{% endfor %}</td>	 
-    </tr>    
+    <tr>
+      <th>Contributions :</th>
+      <td>{% for contrib in profile.user.contribproblem_set.all %}
+        {{ contrib.title }},
+        {% endfor %}
+      </td>
     {% endif %}

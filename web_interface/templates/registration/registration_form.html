@@ -8,23 +8,23 @@
 <br><span style="color:red;">**All fields are required.</span>
 <p>
     <form action = "" method = "post" class = "form">
-        <table>
+        <table class="table table-condensed">
             {{ profileform }}
             {% csrf_token %}
             {{ form }}
             {% csrf_token %}
-            <tr>
-                <td>
-                    <input class = 'btn' type = 'submit' value = 'Register' style ="float:left;"/>
-                </td>
-            </tr>
-        </table>
+         </table>
+	       	<div class="form-actions" style="min-height: 30px">
+	           <input class = 'btn btn-primary' type = 'submit' value = 'Register' style ="float:left;"/>
+	         </div>
     </form>
 </p>
 {% endif %}
-<p>
-    Already Registered? <a href="/accounts/login/">Login</a>
-    <br>
-    Forgot Password? Mail us at codebhaat@gmail.com to reset your password with your details. 
-</p>
+<div class="row"> <!-- START: Login info -->
+	<p>
+	    Already Registered? <a href="/accounts/login/">Login</a>
+	    <br>
+	    Forgot Password? Mail us at codebhaat@gmail.com to reset your password with your details. 
+	</p>
+</div> <!-- END: Login info -->
 {% endblock %}

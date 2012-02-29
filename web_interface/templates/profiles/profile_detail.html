@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content_heading %}Profile Details{% endblock %}
 {% block content %}
-	<table class = "text_table">
-	  {% include 'profiles/profile_public.html' %}
+	<table class = "table">
+	   {% include 'profiles/profile_public.html' %}
 		{% ifequal user profile.user %}
 		{% include 'profiles/profile_private.html' %}
 		{% endifequal %}

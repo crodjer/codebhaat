@@ -18,18 +18,20 @@
     {% endif %}
 
     <form method="post" action="{% url django.contrib.auth.views.login %}">
-    <table>
-    <tr>
-        <td>Username</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-    </tr>
+    <table class="table">
+	    <tr>
+	        <td>Username</td>
+	        <td>{{ form.username }}</td>
+	    </tr>
+	    <tr>
+	        <td>{{ form.password.label_tag }}</td>
+	        <td>{{ form.password }}</td>
+	    </tr>
     </table>
-
-    <button class="btn primary" type="submit" >Login</button>
+	 <div class="form-actions"> <!-- START: Form sumbit section -->
+	 
+    	<button class="btn btn-primary" type="submit" >Login</button>
+    </div> <!-- END: Form submit section -->
     <input type="hidden" name="next" {% if request.path == '/login/' %} value="/contest/" {% else %}  value="{{ request.path }}" {% endif %} />
     </form>
 	{% endif %}

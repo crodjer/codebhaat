@@ -4,33 +4,17 @@
 
 {% endblock %}
 {% block content %}
-<div id="home_content">
-  <table>
+
+ 	<div class="row">
+	    
   
-  
-  <tr>
-    <td>
-    <style>
-    .galleria-image .galleria-thumbnails{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 0 solid #000000;
-    cursor: pointer;
-    float: left;
-    height: 40px;
-    margin: 0 0 0 0;
-    width: 60px;
-    }
-    .galleria-container{ background-color: #FFF; }
- 
-    </style>
-    <div class="slideshow" id="flavor_1"></div>
-  
-        <div id="gallery" align="center">
+        <div id="gallery" align="center"> <!-- START: Gallery -->
             <img src="/media/images/OVERNITE.jpg">
             <img src="/media/images/beach2.jpg">
             <img src="/media/images/beach3.jpg">
-        </div>
-        <script>
+        </div> <!-- End gallery -->
+        
+        <script> <!-- START: Gallery script -->
             Galleria.loadTheme('/media/galleria/themes/classic/galleria.classic.js');
             $("#gallery").galleria({
 
@@ -42,135 +26,137 @@
                 thumbnails: 'numbers'	
                 
             });
-         </script>
-    </td>
-  </tr>
-  <tr>
-    <td id="homeText" >
+         </script><!-- END: Gallery script -->
+         
+    </div> <!-- END: Gallery -->
+	
+	 <div class="row"> <!-- START: Row 1 -->
         <h3>Our motto ...</h3>
         <p>Code#Bhaat is a concept concieved by a few <a href='/contact-us'>n00bs</a> of Kgp about 3 years back. It has been in and out of action, until now. We have
         always tried to <a href='/weblog'>promote Algorithm Intensive coding</a> in our college and build a guild around it. Ofcourse it has not been a very successful
         attempt, Code#Bhaat finally presents a platform where KGPians can not only SOLVE questions but MAKE their own statements! Give and take is
         the essence of any sustainable society.</p>
-        
+    </div> <!-- END: Row 1 -->
+
+    <div class="row"> <!- START: Row 2 -->
         <h3>What's in there for you ?</h3>
         <p>With Code#Bhaat you get to participate and compete with your peers. It's a tough world outside and all we do is to make your ready for
         the big fight :). The incentive are prizes meant only for KGPians. Infact there'll be separate prizes for various years!</p>
-        
+    </div>
+    
+    <div class="row"> <!-- START: Row 3 -->
         <h3>Does it improve your profile ?</h3>
         <p>What Code#Bhaat provides is not only to solve questions, but to create them. Making new questions
         has a very different thrill, you generally need to be careful of boundary cases. Boasitng about it in your CV does create a strong
         impact on the reader.</p>
-     </td>
-   </tr>
-   <tr>
-   <td>
-   <h3>Care to share your thoughts ... ?</h3>
-   <div class="fb-comments" data-href="http://www.codebhaat.in/" data-num-posts="2" data-width="470"></div>
-   </td>
-   </tr>
+    </div>
+    
+    <div class="row"> <!- START: Row 4 -->
+			<h3>Care to share your thoughts ... ?</h3>
+			<div class="fb-comments" data-href="http://www.codebhaat.in/" data-num-posts="2" data-width="470"></div>
+	 </div>
+
         
-        
-</table>
 {% endblock %}
 
 {% block sidebar %}
 
-<h2 align="center" style="padding-top: 10px">Look out for ...</h2>
+	<div class="row"> <!-- START: Upcoming contest -->
+		<h3 style="padding-top: 10px">Look out for ...</h3>
 
-<p><a href='/contests'>Kickoff </a> in ...
-<script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js"></script>
-<script language="JavaScript">
-TargetDate = "12/31/2020 5:00 AM";
-BackColor = "palegreen";
-ForeColor = "navy";
-CountActive = true;
-CountStepper = -1;
-LeadingZero = true;
-DisplayFormat = "%%D%% D, %%H%% H, %%M%% M, %%S%% S.";
-FinishMessage = "It is finally here!";
-</script></p>
+		<p><a href='/contest'>Kickoff </a> in ...
+		<script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js"></script>
+		<script language="JavaScript">
+		TargetDate = "12/31/2020 5:00 AM";
+		BackColor = "palegreen";
+		ForeColor = "navy";
+		CountActive = true;
+		CountStepper = -1;
+		LeadingZero = true;
+		DisplayFormat = "%%D%% D, %%H%% H, %%M%% M, %%S%% S.";
+		FinishMessage = "It is finally here!";
+		</script></p>
+		
+	</div> <!-- END: Upcoming contest -->
+	
+	<div class="row"> <!-- START: Latest activity -->
 
+		<h3>Recent Submissions:</h3>
+		 <table class="table table-striped">
+		  <thead>
+		      <tr>
+		          <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
+		      </tr>
+		  </thead>
+		  <tbody>
+		      {% for submission in recent_act %}
+		      <tr>
+		        <td>
+		          {% if submission.user.get_profile %}
+		           <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
+		          {% else %}
+		           {{ submission.user }}
+		           {% endif %}
+		         </td>
+		         <td>
+		           <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
+		           {{ submission.problem|title }}
+		         </a>
+		         </td>
+		         <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
+		         </td>
+		         <td>{{ submission.time|timesince }} ago</td>
+		      </tr>
+		      {% empty %}
+		      <tr>
+		          <td>No submissions</td><td></td><td></td><td></td>
+		      </tr>
+		      {% endfor %}
+		  </tbody>
+		 </table>
 
-<h2 style="padding-top: 10px">Recent Activity</h2>
-
-
-
-  <h3>Recent Submissions:</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for submission in recent_act %}
-            <tr>
-              <td>
-                {% if submission.user.get_profile %}
-                 <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
-                {% else %}
-                 {{ submission.user }}
-                 {% endif %}
-               </td>
-               <td>
-                 <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
-                 {{ submission.problem|title }}
-               </a>
-               </td>
-               <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
-               </td>
-               <td>{{ submission.time|timesince }} ago</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No submissions</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-  <h3>Recent Comments:</h3>
-    <table>
-        <thead>
-            <tr>
-              <th>User</th><th>Type</th><th>Comment</th><th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for comment in recent_comments %}
-            <tr>
-              <td>
-                {% if comment.user.get_profile %}
-                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
-                 {% else %}
-                  {{ comment.user.username }}
-                  {% endif %}
-                </td>
-                <td>
-                  {% if comment.content_object.contest %}
-                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
-                    Problem
-                   </a>
-                  {% endif %}
-                  {% if comment.content_object.problem %}
-<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
-                    Tutorial
-                  {% endif %}
-                </td>
-
-                <td>{{ comment.comment|safe|slice:":20" }}
-                  {% if comment.comment|safe|slice:"20:" %}
-                  ...
-                  {% endif %}
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>No comments</td><td></td><td></td><td></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+	  <h3>Recent Comments:</h3>
+	    <table class="table table-striped">
+	        <thead>
+	            <tr>
+	              <th>User</th><th>Type</th><th>Comment</th><th></th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            {% for comment in recent_comments %}
+	            <tr>
+	              <td>
+	                {% if comment.user.get_profile %}
+	                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
+	                 {% else %}
+	                  {{ comment.user.username }}
+	                  {% endif %}
+	                </td>
+	                <td>
+	                  {% if comment.content_object.contest %}
+	                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
+	                    Problem
+	                   </a>
+	                  {% endif %}
+	                  {% if comment.content_object.problem %}
+	<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
+	                    Tutorial
+	                  {% endif %}
+	                </td>
+	
+	                <td>{{ comment.comment|safe|slice:":20" }}
+	                  {% if comment.comment|safe|slice:"20:" %}
+	                  ...
+	                  {% endif %}
+	                </td>
+	            </tr>
+	            {% empty %}
+	            <tr>
+	                <td>No comments</td><td></td><td></td><td></td>
+	            </tr>
+	            {% endfor %}
+	        </tbody>
+	    </table>
+	  </div> <!-- END: Recent Activity -->
 
 {% endblock %}

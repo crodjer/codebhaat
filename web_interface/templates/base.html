@@ -1,110 +1,136 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="copyright" content="Overnite - Kshitij 2011" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <title>code#bhaat</title>
-        <link rel="stylesheet" type="text/css" href="/media/stylesheets/bootstrap-1.0.0.css" />
-        <link rel="stylesheet" type="text/css" href="/media/stylesheets/style.sarc.css" />
+	    <head>
+	        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	        <meta name="copyright" content="Overnite - Kshitij 2011" />
+	        <meta name="description" content="" />
+	        <meta name="keywords" content="" />
+	        <title>code#bhaat</title>
+	        <link rel="stylesheet" type="text/css" href="/media/stylesheets/bootstrap.css" /> <!-- v 2.0 -->
+	        <link rel="stylesheet" type="text/css" href="/media/stylesheets/codebhaat.css" /> <!-- custom styling -->
+	        <link href="/media/stylesheets/highlight.css" rel="stylesheet" type="text/css"> <!-- Program highlight -->
+	        
+	        <!--link rel="stylesheet" type="text/css" href="/media/stylesheets/style.sarc.css" /-->
+	
+	        <!--link rel="stylesheet" type="text/css" href="/media/stylesheets/default.css" media="screen" /-->
+	        <!--link rel="stylesheet" type="text/css" href="/media/stylesheets/print.css" media="print" /-->
+	        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js" type="text/javascript"></script>>
+	        <script src='/media/js/galleria-1.2.6.min.js'></script>
+	        
+	        {% block head %}{% endblock %}
+	
+	    </head>
+	    
+	    <body>
+		<!-- FB social plugin stuff -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<!-- FB end -->
+   	<div class="navbar navbar-fixed-top">
+         	<div class="navbar-inner">
+         		<div class="container">
+			         	<div id="web_header" class="row"> <!-- START: Row split into 4 and 12 parts for LOGO and rest headers -->
+		         
+		         		<div class="span3"> <!-- START: LOGO space -->
+		         			<img src='/media/images/codebhaat.png' width="180" height="60"/>
+		         		</div><!-- END: LOGO space -->
+		         		
+		         		<div class="span9"> <!-- START:SPAN9: Rest HEADER -->
+				         	<div class="row"> <!-- START: header row to display user login options -->
+				                    <p style="color: #FFFFFF; float: right">
+				                        {% if request.user.is_active %}
+				                        Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a id="login" href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
+				                        {% if request.user.is_superuser %}
+				                        | <a id="login" href="/siteadmin/">Admin</a>
+				                        {% endif %}
+				                        {% else %}<a id="login" href="/login/">Log In</a>&nbsp;|&nbsp;<a href="/accounts/register/">Sign up</a>
+				                        {% endif %}
+				                    </p>
+				                   
+				             </div>	<!-- END: header row to display user login options -->
+				             
+				             <div class = "row"> <!-- START:MEDIA_GRID: Social plugins come here -->
+										<div style="float:right" class="fb-like" data-href="https://www.facebook.com/CodeBhaat" data-send="true" data-layout="button_count" data-width="50" data-show-faces="true"></div>
+		                	
+		                    		<div style="padding-top: -2px; padding-right: 5px; float: right;">
+		                			<a href="https://twitter.com/codebhaat" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @CodeBhaat</a></div>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>		             
+				             </div> <!-- END:MEDIA_GRID: Social plugins -->
+				             
+				             <div class = "row"> <!-- START:ROW: main nav options -->
+		
+							          <ul id="maintab">
+							              <li onclick="load('/contact-us/')"><a href="/contact-us/">Contact Us</a></li>
+							                <li onclick="load('/updates/')"><a href="/updates/">Updates</a></li>
+							                <li onclick="load('/instructions/')"><a href="/instructions/">Instructions</a></li>
+							
+							                <li><a href="/contribute/">Contribute</a>
+							                </li>
+							                <li onclick="load('/contest/')"><a href="/contest/">Contests</a>
+							                </li>
+							                <li><a href="/weblog/">Blog</a>
+							                </li>
+							                <li onclick="load('/')"><a href="/">Home</a></li>
+							           </ul>
+		
+				             </div> <!-- END:ROW: main nav options -->
+				                 		
+			      		</div> <!-- END:SPAN9: Rest HEADER -->
+			      	
+			      	</div> <!-- END: web header -->
+			      </div> <!-- END: Container -->
+			     </div> <!-- END: Navbar inner -->
+			   </div> <!-- END: Navbar main -->
 
-        <link rel="stylesheet" type="text/css" href="/media/stylesheets/default.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="/media/stylesheets/print.css" media="print" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js" type="text/javascript"></script>>
-        <script src='/media/js/galleria-1.2.6.min.js'></script>
+     	 <div class="container"> <!-- START: Contains the complete page -->
+         
+            <div id="content" class="row"> <!-- START: Rest website content -->
+				
+				  <!-- Heading if provided -->
+				  <h3>{% block content_heading %}{% endblock %}</h3>            	
+            	
+              <!-- START: #left part of web - main content -->
+              <div id="leftContent" class="span7"> <!-- START: Left content ~ 70 % -->
+						<!-- Left content generated by various modules -->		
+						<div class="row row-content">				
+						{% block content %}{% endblock %}
+						</div>
+				  </div><!-- END: Left content ~ 70% -->
+				  
+				  <div id="rightContent" class="span4 pull-right"> <!-- START: Right content ~ 30 % -->
+				  		<div class="row row-content">		
+                     {% block sidebar %}{% endblock %}
+                  </div>
+                
+              </div><!-- End: Right content ~ 30 % -->
+            </div> <!-- END: Rest website content -->
+             
+             
+        </div>
         
-        {% block head %}{% endblock %}
+        <!-- #footer -->
+         <div class="navbar">
+      		<div class="navbar-inner">
+      			<div class="container">
+         
+            		<div class="span6">
+		         	  <p style="color: #FFFFFF"> @Codebhaat.in </p>
+		         	</div>
+	            	
+	            	<div class="span6 pull-right">
 
-    </head>
-    <body>
-<!-- FB social plugin stuff -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- FB end -->
-    <div id="header">
-      <div class="container">
-          
-            <div id="social" style="padding-top: 20x">
-                    <ul>
-                       <li>
-                        {% if request.user.is_active %}
-                        Welcome {{ request.user }}&nbsp;|&nbsp;{% if user.get_profile %}<a href="{% url profiles_profile_detail user %}">Your Profile{% else %}<a id="login" href="{% url profiles_create_profile %}">Create Profile{% endif %}</a>&nbsp;|&nbsp;<a href="/logout/">Logout</a>
-                        {% if request.user.is_superuser %}
-                        | <a id="login" href="/siteadmin/">Admin</a>
-                        {% endif %}
-                        {% else %}<a id="login" href="/login/">Log In</a>&nbsp;|&nbsp;<a href="/accounts/register/">Sign up</a>
-                        {% endif %}
-                        </li>
-                       </ul>
-                   
-             </div>
-             <div id="social" style="padding-top: 20px; padding-left: 5 px;">
-                	<div style="float:right" class="fb-like" data-href="https://www.facebook.com/CodeBhaat" data-send="true" data-layout="button_count" data-width="50" data-show-faces="true"></div>
-                	
-                    <div style="padding-top: -2px; padding-right: 5px; float: right;">
-                	<a href="https://twitter.com/codebhaat" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @CodeBhaat</a></div>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        
-            </div>
-
-            <div id="menu">
-
-          <ul id="maintab">
-              <li onclick="load('/contact-us/')"><a href="/contact-us/">Contact Us</a></li>
-                <li onclick="load('/updates/')"><a href="/updates/">Updates</a></li>
-                <li onclick="load('/instructions/')"><a href="/instructions/">Instructions</a></li>
-
-                <li><a href="/contribute/">Contribute</a>
-                </li>
-                <li onclick="load('/contest/')"><a href="/contest/">Contests</a>
-                </li>
-                <li><a href="/weblog/">Blog</a>
-                </li>
-                <li onclick="load('/')"><a href="/">Home</a></li>
-            </ul>
-        </div>
-        </div>
-
-
-  </div>
-
-            <div id="content">
-              <!-- #left part of web - main content -->
-              <div id="contentBlock">
-                <table>
-                  <tr>
-                    <td style="border-bottom: 0px" width="70%">
-                          <!-- #first (main) article --><h2>{% block content_heading %}{% endblock %}</h2>
-                          <p style="margin-top:-10px;">
-                              {% block content %}{% endblock %}
-                          </p>
-                          <!-- /#first (main) article -->
-                      </div>
-                    </td>
-                    <td style="border-bottom: 0px" width="30%">
-                      {% block sidebar %}{% endblock %}<!-- /#left part of web - main content --><hr class="hidden" />
-                </td></tr></table>
-              </div><!-- /#main content construct -->
-                  <!-- #footer -->
-            <div id="footerfoot">
-            <div class="container">
-            <div style="float:left; margin-top:0px;">
-            @Codebhaat.in
-            </div>
-            <div style="float:right;vertical-align:text-top; margin-top:-17px">
-                Best Viewed in: <br>
-                <img style="height:25px" src="/media/images/browser.png" alt="Firefox, Chrome, Safari" title="Mozilla Firefox, Google Chrome, Safari">
-            </div>
-            </div>
-        </div>
-            <!-- /#footer -->
-        </div>
+		                <img style="float: right; height:25px" src="/media/images/browser.png" alt="Firefox, Chrome, Safari" title="Mozilla Firefox, Google Chrome, Safari"/>
+	            	</div>
+            
+         		</div>
+     			</div>
+     		</div>
+         <!-- /#footer -->
     </body>
 </html>
