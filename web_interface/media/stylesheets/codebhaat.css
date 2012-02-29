@@ -1,0 +1,153 @@
+/* Top menu options */
+
+#menu{
+	float:right;
+	right:50px;
+	margin-top:25px;
+
+}
+
+#maintab li{
+	display:inline;
+	position:relative;
+	float:right;
+	padding-left:15px;
+	padding-top:4px;
+	padding-bottom:5px;
+	padding-right:15px;
+	font-size:14px;
+    margin-left:2px;
+    letter-spacing:1px;
+    cursor:pointer;
+}
+#maintab a{
+    z-index:10;
+     text-decoration:none;
+    color:#FFFFFF;
+}
+
+#maintab a:hover{
+	color: #000000;
+}
+
+#maintab ul li:hover{
+	text-shadow:1px 1px 2px #000;
+	background-color:#00004d;
+	box-shadow:none;
+    color:#fff;
+}
+#maintab li:nth-child(odd){
+    border-bottom:2px solid #6666ff;
+}
+
+#maintab li:nth-child(even){
+    border-bottom:2px solid #999;
+}
+#maintab li:hover {
+    color:#000;
+    background-color:#fff;
+   -webkit-border-radius:2px 2px 0 0 ;
+    -moz-border-radius:2px 2px 0 0;
+    border:none;
+
+}
+.current {
+	background-color: #EEE !important;
+border: 1px #DDD solid !important;
+color: black !important;
+font-weight: bold !important;
+text-shadow: 1px 1px 1px #888 !important;
+-moz-border-radius: 2px 2px 0 0;
+-webkit-border-radius:2px 2px 0 0;
+	border-bottom:none !important;
+}
+#maintab ul{
+    padding: 0px;
+}
+
+#maintab ul li{
+	box-shadow:none;
+    margin-left:-13px;
+}
+
+
+#menu ul li:first-child{
+	margin-right:0px;
+
+}#maintab li ul{
+    display:none;
+}
+#maintab li:hover ul{
+    display:block;
+}
+
+#maintab ul li{
+	display: block !important;
+	float:none;
+    color:#000;
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+	background-color:#fff;
+	padding-top:10px;
+	padding-left:15px;
+	padding-right:25px;
+	padding-bottom:10px;
+	font-size:12px;
+	border-bottom:1px ridge #cccccc !important;
+
+}
+
+#maintab ul li:last-child{
+    -webkit-border-radius:0 0 4px 4px;
+    -moz-border-radius:0 0 4px 4px;
+}
+
+#maintab ul{
+	z-index:12;
+	margin:0;
+	padding:0;
+	position:absolute;
+	color:#fff;
+	top:32px;
+	width:176px;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+
+}
+
+/* Menu options end */
+
+/* Galleria styling */
+
+.galleria-image .galleria-thumbnails{
+	    background: none repeat scroll 0 0 #FFFFFF;
+	    border: 0 solid #000000;
+	    cursor: pointer;
+	    float: left;
+	    height: 40px;
+	    margin: 0 0 0 0;
+	    width: 60px;
+}
+.galleria-container{ background-color: #FFF; }
+
+/* Galleria styling ends */
+
+/* Bootstrap extensions */
+
+.row{
+	padding: 10px 0px 0px 0px;
+}
+
+.row-content{
+	min-height: 550px;
+
+}
+
+
+
+#content{
+	padding-top: 120px;
+}
+
+.table .table-striped{
+	padding: 20px 0 20px 0;
