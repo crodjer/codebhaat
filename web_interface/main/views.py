@@ -80,10 +80,13 @@ def problem_list(request, contest_pk):
     for p in problems:
         p.status_img = p.status_image(user)
         try:
-          Tutorial.objects.get(problem = p)
-          p.is_tut = True
+          t = Tutorial.objects.get(problem = p)
+          if t.is_visible or (t and request.user.is_superuser):
+            p.is_tut = True
+          else: p.is_tut = False
         except Tutorial.DoesNotExist:
           p.is_tut = False
+
         problem_list.append(p)
 
     if request.user.is_superuser:
@@ -177,7 +180,7 @@ def tutorial_detail(request, problem_pk, contest_pk):
     if request.user.is_superuser:
         contest = get_object_or_404(Contest, pk = contest_pk)
     else:
-        contest = get_object_or_404(Contest, pk = contest_pk, is_public=True)
+        contest = get_object_or_404(Contest, pk = contest_pk)
 
     if request.user.is_superuser:
         p = get_object_or_404(Problem, pk = problem_pk)
@@ -185,7 +188,11 @@ def tutorial_detail(request, problem_pk, contest_pk):
         p = get_object_or_404(Problem, pk = problem_pk, is_public=True)
 
     tutorial = Tutorial.objects.get(problem = p)
-    print tutorial.tutorial
+
+    # Render only visible tutorials to the common man
+    if not request.user.is_superuser and not tutorial.is_visible:
+      raise Http404()
+
 
     return render_to_response('main/tutorial_detail.html', {
         'tutorial': tutorial,

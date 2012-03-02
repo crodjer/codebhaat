@@ -201,6 +201,8 @@ class ContribForm(forms.ModelForm):
 class Tutorial(models.Model):
   tutorial = models.TextField('Content')
   problem = models.ForeignKey(Problem, unique=True)
+  # A tutorial might not be still available for display
+  is_visible = models.BooleanField('Is visible', default = False)
 
 #Input Output file for problem
 class TestCase(models.Model):

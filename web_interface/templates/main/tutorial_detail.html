@@ -15,7 +15,11 @@
     {{ problem.question|safe }}
     <br/><br/>
     <h3> Solution </h3>
+    {% if tutorial %}
     {{ tutorial.tutorial|safe }}
+    {% else %}
+    The tutorial is not yet available!
+    {% endif %}
 </div>
 {% get_comment_count for tutorial as comment_count %}
 {% get_comment_list for tutorial as comment_list %}
