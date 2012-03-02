@@ -80,7 +80,7 @@
 		        {% if last_submission.correct %}
 		        <div class="row"> <!-- START: Correct alert -->
 			        <div class="alert alert-success" style="padding-left: -10px">
-
+							<a class="close" data-dismiss="alert" href="#">x</a>
 							<strong>Your submission was correct!</strong> You were awarded {{ last_submission.marks }} mark{{ last_submission.marks|pluralize }}  for your submission.
 				     </div>
 			     </div> <!-- END: Correct alert -->

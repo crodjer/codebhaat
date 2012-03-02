@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load problem_tags %}
+
+<!-- Simply add the sidebar which shows recent activity -->
+
+{% block sidebar %}
+
+		<div class="row"> <!-- START: Latest activity -->
+
+		<h3>Recent Submissions:</h3>
+		 <table class="table table-striped">
+		  <thead>
+		      <tr>
+		          <th>Coder</th><th>Problem</th><th style="width:10px"></th><th></th>
+		      </tr>
+		  </thead>
+		  <tbody>
+		      {% for submission in recent_act %}
+		      <tr>
+		        <td>
+		          {% if submission.user.get_profile %}
+		           <a href="{% url profiles_profile_detail submission.user %}">{{ submission.user }}</a>
+		          {% else %}
+		           {{ submission.user }}
+		           {% endif %}
+		         </td>
+		         <td>
+		           <a href="{% url problem_detail submission.problem.contest.pk submission.problem.pk %}">
+		           {{ submission.problem|title }}
+		         </a>
+		         </td>
+		         <td><img src="/media/admin/img/admin/{{ submission.status_image.0 }}" title="{{ submission.status_image.1 }}"/>
+		         </td>
+		         <td>{{ submission.time|timesince }} ago</td>
+		      </tr>
+		      {% empty %}
+		      <tr>
+		          <td>No submissions</td><td></td><td></td><td></td>
+		      </tr>
+		      {% endfor %}
+		  </tbody>
+		 </table>
+
+	  <h3>Recent Comments:</h3>
+	    <table class="table table-striped">
+	        <thead>
+	            <tr>
+	              <th>User</th><th>Type</th><th>Comment</th><th></th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            {% for comment in recent_comments %}
+	            <tr>
+	              <td>
+	                {% if comment.user.get_profile %}
+	                 <a href="{% url profiles_profile_detail comment.user %}">{{ comment.user.username }}</a>
+	                 {% else %}
+	                  {{ comment.user.username }}
+	                  {% endif %}
+	                </td>
+	                <td>
+	                  {% if comment.content_object.contest %}
+	                    <a href="{% url problem_detail comment.content_object.contest.pk comment.content_object.pk %}">
+	                    Problem
+	                   </a>
+	                  {% endif %}
+	                  {% if comment.content_object.problem %}
+	<a href="{% url tutorial_detail comment.content_object.problem.contest.pk comment.content_object.problem.pk %}">
+	                    Tutorial
+	                  {% endif %}
+	                </td>
+	
+	                <td>{{ comment.comment|safe|slice:":20" }}
+	                  {% if comment.comment|safe|slice:"20:" %}
+	                  ...
+	                  {% endif %}
+	                </td>
+	            </tr>
+	            {% empty %}
+	            <tr>
+	                <td>No comments</td><td></td><td></td><td></td>
+	            </tr>
+	            {% endfor %}
+	        </tbody>
+	    </table>
+	  </div> <!-- END: Recent Activity -->
+	  
+{% endblock %}
