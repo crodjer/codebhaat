@@ -225,11 +225,26 @@ class TestCase(models.Model):
 
 #The submissions from a user are defined here
 class Submission(models.Model):
-    LANGUAGES = (
-        ('c', 'C'),
-        ('c++', 'C++'),
-        ('java', 'Java'),
+
+    CODE_LANGUAGES = (
+        (1, 'C'),
+        (2, 'C++'),
+        (3, 'Sun Java'),
+        (4, 'Open Java'),
+        (5, 'Python'),
+        (6, 'Perl'),
+        (7, 'PHP'),
+        (8, 'Ruby'),
+        (9, 'C#'),
+        (12, 'Haskell'),
+        (13, 'Clojure'),
+        (14, 'Bash'),
+        (15, 'Scala'),
+        (16, 'Erlang')
     )
+
+    LANGUAGES = tuple((str(code), name) for (code, name) in CODE_LANGUAGES)
+
     user = models.ForeignKey(User)
     language = models.CharField('Language', max_length = 10, choices=LANGUAGES)
     program = models.FileField('Code', upload_to = 'programs', storage=fs)
@@ -268,10 +283,10 @@ class Submission(models.Model):
         return days
 
     def result(self):
-        return self.celery_task.result
+        return self.checkersubmission.get_result()
 
     def ready(self):
-        ready = self.celery_task.ready()
+        ready = True if self.checkersubmission.result else False
         if ready and self.is_latest and not self.marks:
             self.set_marks()
             self.set_rank()
@@ -290,7 +305,7 @@ class Submission(models.Model):
     code.allow_tags = True
 
     def save(self,user=None,problem=None,contest=None, *args, **kwargs):
-        if not self.celery_task:
+        if not self.pk: 
             if user:
                 self.user = user
             if problem:
@@ -298,7 +313,7 @@ class Submission(models.Model):
             if contest:
                 self.contest=contest
             self.filename = str(self.program)
-            self.celery_task = SubmitTask.apply_async(args = self.task_detail())
+            #self.celery_task = SubmitTask.apply_async(args = self.task_detail())
             self.update_old_submissions()
 
         super(Submission, self).save(*args, **kwargs)
