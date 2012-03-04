@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     'captcha',
     'valuate',
     'blog',
+    'ischecker',
 
 ]
 
