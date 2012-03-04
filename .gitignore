@@ -23,7 +23,6 @@ workers/
 !workers/base_worker
 !workers/*.zip
 !workers/*.sh
-web_interface/*/migrations/
 *.swp
 web_interface/files/programs
 web_interface/files/inputs
