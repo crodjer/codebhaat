@@ -1,4 +1,3 @@
-import random
 import urllib2
 import json
 
@@ -26,8 +25,7 @@ class CheckerSubmission(models.Model):
     RUNTIME_ERROR = 255
 
     def hash(self):
-        return hex(random.getrandbits(128))[2:-1]
-        return md5("%s" %(self.submission.pk)).hexdigest()
+        return md5("%s-%s" %(self.submission.pk, settings.SITE_ID)).hexdigest()
 
     def source(self):
         return self.submission.program.read()
@@ -66,6 +64,7 @@ class CheckerSubmission(models.Model):
             time_taken = float(result['time'][i])
             correct = output == expected
             marks = 0
+
 
             if signal is self.SUCCESS:
                 tl_soft = case.time_limit_soft
