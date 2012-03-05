@@ -55,7 +55,7 @@ class CheckerSubmission(models.Model):
     def get_result(self):
         result = json.loads(self.checker_result())
         result['marks'] = 0
-        result['succesful'] = True
+        result['successful'] = True
 
         for (i, case) in enumerate(self.submission.problem.testcase_set.all()):
             expected = case.output_file.read()
