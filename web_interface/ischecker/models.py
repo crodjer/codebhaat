@@ -39,6 +39,7 @@ class CheckerSubmission(models.Model):
     key = models.CharField(max_length=32)
     submission = models.OneToOneField(Submission)
     result = models.TextField(blank=True)
+    lock = models.BooleanField()
 
     SUCCESS = 0
     TIMELIMIT_EXCEEDED = 62
@@ -127,24 +128,35 @@ class CheckerSubmission(models.Model):
         req = urllib2.Request("%s?token=%s" %(IS_API_URL, IS_API_TOKEN))
         req.add_header('Content-type', 'application/json')
 
-        try:
-            response = urllib2.urlopen(req, submission_json).read()
-            self.key = json.loads(response)['key']
-            self.save()
-        except urllib2.HTTPError:
-            pass
+        if not self.lock:
+            try:
+                self.lock = True
+                response = urllib2.urlopen(req, submission_json).read()
+                self.key = json.loads(response)['key']
+                self.lock = False
+                self.save()
+            except urllib2.HTTPError:
+                self.lock = False
+                self.save()
+
 
     def result_from_checker(self):
-        try:
-            response = urllib2.urlopen("%s?token=%s&key=%s" % (IS_API_URL,
-                    IS_API_TOKEN, self.key))
-            result = json.loads(response.read())['result']
-            if result:
-                self.result = json.dumps(result)
+        if not self.lock:
+            try:
+                self.lock = True
                 self.save()
-                return self.result
-        except urllib2.HTTPError:
-            pass
+                response = urllib2.urlopen("%s?token=%s&key=%s" % (IS_API_URL,
+                        IS_API_TOKEN, self.key))
+                result = json.loads(response.read())['result']
+                if result:
+                    self.result = json.dumps(result)
+                    self.lock = False
+                    self.save()
+            except urllib2.HTTPError:
+                self.lock = False
+                self.save()
+
+        return self.result
 
     def checker_result(self):
         if self.key and not self.result:
