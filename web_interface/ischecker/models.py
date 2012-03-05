@@ -1,5 +1,8 @@
+import random
+import sys
 import urllib2
 import json
+import threading
 
 from hashlib import md5
 from django.db import models
@@ -14,6 +17,24 @@ IS_API_TOKEN = getattr(settings, "IS_API_TOKEN")
 if not IS_API_TOKEN:
     raise Exception("Please provide the interviewstreet API token in your settings.py file")
 
+class ThreadedSubmissionPost(threading.Thread):
+    def __init__(self, csubmission, *args, **kwargs):
+        self.csubmission = csubmission
+        super(ThreadedSubmissionPost, self).__init__(*args, **kwargs)
+
+    def run(self):
+        self.csubmission.submit_to_checker()
+
+class ThreadedSubmissionResult(threading.Thread):
+    def __init__(self, csubmission, *args, **kwargs):
+        self.csubmission = csubmission
+        super(ThreadedSubmissionResult, self).__init__(*args, **kwargs)
+
+    def run(self):
+        self.csubmission.result_from_checker()
+
+
+
 class CheckerSubmission(models.Model):
     key = models.CharField(max_length=32)
     submission = models.OneToOneField(Submission)
@@ -25,7 +46,7 @@ class CheckerSubmission(models.Model):
     RUNTIME_ERROR = 255
 
     def hash(self):
-        return md5("%s-%s" %(self.submission.pk, settings.SITE_ID)).hexdigest()
+        return md5("%s-%s" %(self.submission.pk, random.getrandbits(128))).hexdigest()
 
     def source(self):
         return self.submission.program.read()
@@ -53,7 +74,12 @@ class CheckerSubmission(models.Model):
         return json.dumps(self.data())
 
     def get_result(self):
-        result = json.loads(self.checker_result())
+        result_json = self.checker_result()
+
+        if not result_json:
+            return False
+
+        result = json.loads(result_json)
         result['marks'] = 0
         result['successful'] = True
 
@@ -104,34 +130,45 @@ class CheckerSubmission(models.Model):
         try:
             response = urllib2.urlopen(req, submission_json).read()
             self.key = json.loads(response)['key']
+            self.save()
         except urllib2.HTTPError:
             pass
 
-    def checker_result(self):
-        if self.result:
-            return self.result
+    def result_from_checker(self):
         try:
             response = urllib2.urlopen("%s?token=%s&key=%s" % (IS_API_URL,
-                IS_API_TOKEN, self.key))
+                    IS_API_TOKEN, self.key))
             result = json.loads(response.read())['result']
             if result:
                 self.result = json.dumps(result)
                 self.save()
                 return self.result
-
         except urllib2.HTTPError:
             pass
 
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            self.submit_to_checker()
-        return super(CheckerSubmission, self).save(*args, **kwargs)
+    def checker_result(self):
+        if self.key and not self.result:
+            threaded_result = ThreadedSubmissionResult(self)
+            if not 'test' in sys.argv:
+                threaded_result.start()
+            else:
+                threaded_result.run()
+
+        return self.result
+
 
     def __unicode__(self):
         return unicode(self.submission)
 
     @classmethod
     def submission_handler(cls, sender, instance, raw, **kwargs):
-        c, created = cls.objects.get_or_create(submission=instance)
+        csubmission, created = cls.objects.get_or_create(submission=instance)
+
+        if created:
+            threaded_post = ThreadedSubmissionPost(csubmission)
+            if not 'test' in sys.argv:
+                threaded_post.start()
+            else:
+                threaded_post.run()
 
 post_save.connect(CheckerSubmission.submission_handler, Submission)
