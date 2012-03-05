@@ -59,7 +59,6 @@ class CheckerSubmission(models.Model):
         return cases
 
     def language(self):
-        return 5
         return self.submission.language
 
     def data(self):
@@ -83,6 +82,12 @@ class CheckerSubmission(models.Model):
         result = json.loads(result_json)
         result['marks'] = 0
         result['successful'] = True
+
+        if not result['signal']:
+          result['successful'] = False
+          result['error'] = "Compile Error"
+          return result
+
 
         for (i, case) in enumerate(self.submission.problem.testcase_set.all()):
             expected = case.output_file.read()
